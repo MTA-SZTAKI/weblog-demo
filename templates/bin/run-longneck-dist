@@ -1,0 +1,13 @@
+#!/bin/sh
+
+JAVAARGS="-Xmx1024M"
+JAVABIN=$(which java)
+APPROOT=$(dirname $(readlink -f "$0"))/..
+
+cd ${APPROOT}
+
+export LANG="en_US.UTF-8"
+
+${JAVABIN}  ${JAVAARGS} \
+        -cp .:${APPROOT}/lib/* \
+        @MAINCLASS@ $@

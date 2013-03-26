@@ -1,0 +1,19 @@
+#!/bin/sh
+
+JAVAARGS="-Xmx1024M"
+JAVABIN=$(which java)
+APPROOT=$(dirname $(readlink -f "$0"))/..
+DEBUGOPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=y"
+
+cd ${APPROOT}
+# Replaced by repository classpath expression.
+#
+# ${JAVABIN} ${JAVAARGS} ${DEBUGOPTS} \
+#        -cp .:${APPROOT}/target/@PACKAGE@:${APPROOT}/@SHAREDIR@/lib/* \
+#        @MAINCLASS@ $@
+
+export LANG="en_US.UTF-8"
+
+${JAVABIN} ${JAVAARGS} \
+    -cp .:${APPROOT}/target/@PACKAGE@:$(cat target/classpath.txt) \
+    @MAINCLASS@ $@
