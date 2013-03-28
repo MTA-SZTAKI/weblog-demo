@@ -2,72 +2,24 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <!-- Parent POM: longneck-parent MUST BE AT ../longneck-parent/ !!! --> 
+  <parent>
+    <groupId>hu.sztaki.ilab.longneck</groupId>
+    <artifactId>longneck-parent</artifactId>
+    <version>1.0.2</version>
+    <relativePath>../longneck-parent/pom.xml</relativePath>
+  </parent>  
+  
+
   <groupId>hu.sztaki.ilab.longneck</groupId>
   <artifactId>weblog-demo</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>weblog-demo</name>
-
-  <url>https://dms.sztaki.hu/longneck</url>
-
   <description>
     Application demo for weblog processing.
   </description>
-
-  <organization>
-    <name>MTA SZTAKI Informatikai Laboratórium Adatbányászat és Webes Keresés Kutatócsoport</name>
-    <url>http://dms.sztaki.hu/</url>
-  </organization>
-
-  <developers>
-    <developer>
-      <name>Lukács Gábor</name>
-      <email>lukacsg@sztaki.mta.hu</email>
-    </developer>
-    <developer>
-      <name>Németh Tibor</name>
-      <email>tnemeth@sztaki.mta.hu</email>
-    </developer>
-    <developer>
-      <name>Molnár Péter</name>
-      <email>molnarp@sztaki.mta.hu</email>
-    </developer>
-    <developer>
-      <name>Sidló Csaba</name>
-      <email>sidlo@sztaki.mta.hu</email>
-    </developer>
-  </developers>
-
-  <distributionManagement>
-    <repository>
-      <id>dms</id>
-      <name>sztaki ilab central repository</name>
-      <url>dav:https://info.ilab.sztaki.hu/maven</url>
-    </repository>
-    <snapshotRepository>
-      <id>dms</id>
-      <name>sztaki ilab central dev repository</name>
-      <url>dav:https://info.ilab.sztaki.hu/maven</url>
-    </snapshotRepository>
-    <site>
-      <id>dms</id>
-      <name>sztaki ilab maven site </name>
-      <url>dav:https://info.ilab.sztaki.hu/maven</url>
-    </site>
-  </distributionManagement>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <repositories>
-    <repository>
-      <id>codehaus</id>
-      <name>Codehaus Maven repository</name>
-      <url>http://repository.codehaus.org/</url>
-    </repository>
-  </repositories>
 
   <dependencies>
     <dependency>
@@ -91,7 +43,7 @@
     <dependency>
       <groupId>hu.sztaki.ilab.longneck</groupId>
       <artifactId>longneck-weblog</artifactId>
-      <version>[1.4.0,1.5.0)</version>
+      <version>[1.6.0,1.7.0)</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -111,23 +63,13 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.2</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -162,7 +104,6 @@
               <overWriteIfNewer>true</overWriteIfNewer>
             </configuration>
           </execution> 
-
           <execution>
             <id>build-classpath</id>
             <phase>package</phase>
@@ -175,7 +116,6 @@
           </execution>
         </executions>
       </plugin>
-
 
       <!-- Prepare project home folder -->
       <plugin>
@@ -190,7 +130,7 @@
               <goal>run</goal>
             </goals>
             <configuration>
-              <tasks>
+              <target>
                 <!-- Clean up distribution files -->
                 <delete>
                   <dirset dir="${project.basedir}" includes="var" />
@@ -230,7 +170,7 @@
                 </replace>
                 <chmod file="${project.basedir}/bin/${project.artifactId}" perm="755" />
 
-              </tasks>
+              </target>
             </configuration>
           </execution>
         </executions>
