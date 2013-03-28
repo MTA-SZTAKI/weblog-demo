@@ -73,37 +73,37 @@
     <dependency>
       <groupId>hu.sztaki.ilab.longneck</groupId>
       <artifactId>longneck-core</artifactId>
-      <version>[1.5.0,1.6.0)</version>
+      <version>[1.6.0-SNAPSHOT,1.7.0)</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>hu.sztaki.ilab.longneck</groupId>
       <artifactId>longneck-cli</artifactId>
-      <version>[1.1.2,1.2.0)</version>
+      <version>[1.2.1-SNAPSHOT,1.3.0)</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>hu.sztaki.ilab.longneck</groupId>
       <artifactId>longneck-lookup</artifactId>
-      <version>[1.4.0,1.5.0)</version>
+      <version>[1.5.0,1.6.0)</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>hu.sztaki.ilab.longneck</groupId>
       <artifactId>longneck-dns</artifactId>
-      <version>[1.3.0,1.4.0)</version>
+      <version>[1.4.0-SNAPSHOT,)</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>hu.sztaki.ilab.longneck</groupId>
       <artifactId>longneck-weblog</artifactId>
-      <version>[1.4.0,1.5.0)</version>
+      <version>[1.6.0-SNAPSHOT,1.7.0)</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>hu.sztaki.ilab.longneck</groupId>
       <artifactId>longneck-userid</artifactId>
-      <version>[1.0.0,1.1.0)</version>
+      <version>[1.2.0,1.3.0)</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
