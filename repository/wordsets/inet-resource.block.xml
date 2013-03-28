@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  
+  <block id="main" version="1.0">
+    <block-ref id="check_directory" version="1.0"/>
+    <block-ref id="main-parts" version="1.0"/>
+    <block-ref id="path-parts" version="1.0"/>
+    <block-ref id="url-hierarchy" version="1.0"/>
+    <block-ref id="scheme" version="1.0"/>
+  </block>
+
+  <block id="check_directory" version="1.0">
+    <set apply-to="is_directory" value="n" />
+    <if>
+      <match apply-to="url" regexp="\/$"/>
+      <then>
+        <set apply-to="is_directory" value="y" />
+      </then>
+    </if>
+  </block>
+
+  <block id="main-parts" version="1.0">
+    <match-extract apply-to="url" regexp="^(?:([^\:]*)://)?([^\:\/]*)(?:\:([^\/]*))?(?:\/([^\?]*))?(?:\?(.*))?$">
+      <copy apply-to="scheme_type" from="$1" />
+      <copy apply-to="url_host" from="$2" />
+      <copy apply-to="url_port" from="$3" />
+      <copy apply-to="url_path" from="$4" />
+      <copy apply-to="url_path_params" from="$5" />
+    </match-extract>
+  </block>
+
+  <block id="scheme" version="1.0">
+    <if>
+      <not>
+        <entity-ref id="url.scheme" version="1.0" />
+      </not>
+      <then>
+        <set-null apply-to="scheme_type" />
+      </then>
+    </if>
+  </block>
+
+  <block id="path-parts" version="1.0">
+    <match-extract apply-to="url_path" 
+                   regexp="^(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)(?:/)?([^\/]*)$">
+      <copy apply-to="path_level0" from="$1" />
+      <copy apply-to="path_level1" from="$2" />
+      <copy apply-to="path_level2" from="$3" />
+      <copy apply-to="path_level3" from="$4" />
+      <copy apply-to="path_level4" from="$5" />
+      <copy apply-to="path_level5" from="$6" />
+      <copy apply-to="path_level6" from="$7" />
+      <copy apply-to="path_level7" from="$8" />
+      <copy apply-to="path_level8" from="$9" />
+      <copy apply-to="path_level9" from="$10" />
+      <copy apply-to="path_level10" from="$11" />
+      <copy apply-to="path_level11" from="$12" />
+      <copy apply-to="path_level12" from="$13" />
+      <copy apply-to="path_level13" from="$14" />
+      <copy apply-to="path_level14" from="$15" />
+      <copy apply-to="path_level15" from="$16" />
+    </match-extract>
+  </block>
+
+  <block id="url-hierarchy" version="1.0">
+    <set apply-to="hierarchy_type" value="path" />
+  </block>
+
+</block-package>

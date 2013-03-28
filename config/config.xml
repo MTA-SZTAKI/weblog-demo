@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log-format xmlns="urn:parser" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:parser ../../src/main/resources/META-INF/longneck/parser/config.xsd">
+
+	<!-- Common Log Format (CLF) -->
+	<!--
+		<log-config>%h %l %u %t \"%r\" %>s %b</log-config>
+	-->
+    <log-config>%v %h %u %l %t \"%r\" %s %b \"%{Referer}i\" \"%{User-agent}i\" \"%{Cookie}i\" \"%{Cookie}n\"</log-config>
+
+    <virtualhost-element>
+            <virtualhost-present>true</virtualhost-present>
+    </virtualhost-element>
+
+    <log-elements>
+
+            <!--log-element>
+                    <type>%h</type>
+                    <name>clientip</name>
+            </log-element-->
+
+            <!--log-element>
+                    <type>Apache=%{Cookie}n; %{Cookie}i</type>
+                    <name>myRequestCookie</name>
+            </log-element-->
+
+    </log-elements>
+	
+</log-format>

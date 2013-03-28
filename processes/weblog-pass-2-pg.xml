@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <source>
+    <weblog-file-source name="cli"/>
+  </source>
+
+  <target>
+    <database-target connection-name="weblog_demo">
+      <truncate-query>
+        delete from longneck.tmp_userid_pass2
+      </truncate-query>
+      <insert-query numeric-fields-to-convert="bytesSent,status,timeInMillis,ipAndUserAgentHash,visitorRefererId,visitorCookieId,_rownum">
+        insert into longneck.tmp_userid_pass2 (
+          bytes_sent
+          , request_prot_type
+          , user_agent
+          , response_cookie
+          --, "IDENTITY"
+          --, "TIME"
+          , "identity"
+          , "time"
+          , request_prot_method
+          , request
+          , domain
+          , host
+          , status
+          , request_url_extension
+          , request_url
+          , request_url_url_param
+          , request_url_normalized
+          , request_cookie
+          , referer
+          , referer_url_param
+          , referer_normalized
+          --, "USER"
+          , "user"
+          , apache_cookie
+          , google_cookie
+          , time_in_millis
+          , ip_and_user_agent_hash
+          , visitor_referer_id
+          , visitor_cookie_id
+          )
+          values (
+          :bytesSent
+          , :requestProtType
+          , :userAgent
+          , :responseCookie
+          , :identity
+          , :time
+          , :requestProtMethod
+          , :request
+          , :domain
+          , :host
+          , :status
+          , :requestUrlExtension
+          , :requestUrl
+          , :requestUrlParameter
+          , :requestUrlNormalized
+          , :requestCookie
+          , :referer
+          , :refererUrlParameter
+          , :refererNormalized
+          , :user
+          , :apacheCookie
+          , :googleCookie
+          , :timeInMillis
+          , :ipAndUserAgentHash
+          , :visitorRefererId
+          , :visitorCookieId
+          )
+      </insert-query>
+    </database-target>
+    <!-- <console-target/> -->
+  </target>
+  <error-target>
+    <database-target connection-name="weblog_demo">
+      <truncate-query>   
+        delete from longneck.weblog_event_incoming_err
+      </truncate-query>
+      <insert-query numeric-fields-to-convert="document_line,document_column">
+       insert into longneck.weblog_event_incoming_err (
+        field
+       ,field_value
+       ,details
+       ,server_host
+       ,request_timestamp
+       ,document_url
+       ,document_line
+       ,document_column
+       ,class_name
+       )values (
+        :field
+       ,:value
+       ,:details
+       ,:domain
+       ,:time
+       ,:document_url
+       ,:document_line
+       ,:document_column
+       ,:class_name
+       )
+      </insert-query>
+    </database-target>      
+  </error-target>
+
+  <blocks>
+    <weblog-line apply-to="logLine"/>
+    
+    <!-- Consider relevant hits only -->
+    <block-ref id="userid:filter.nonpageview" version="1"/>
+    
+    <!-- Normalize request url -->
+    <copy apply-to="requestUrlNormalized" from="requestUrl"/>
+    <block-ref id="url-normalize:main" version="1.0-skipnulls">
+      <map from="requestUrlNormalized" to="url" />
+    </block-ref>          
+
+    <if>
+      <equals apply-to="referer" value="-" />
+      <then>
+        <set-null apply-to="referer" />
+      </then>
+    </if>
+
+    <!-- Normalize referer url -->
+    <copy apply-to="refererNormalized" from="referer"/>
+    <block-ref id="url-normalize:main" version="1.0-skipnulls">
+      <map from="refererNormalized" to="url" />
+    </block-ref>
+    
+    <!-- Create fields needed by the userid extension -->
+    <block-ref id="userid:preprocess" version="1"/>
+      
+    <!-- Set referer tracking id -->
+    <block-ref id="userid:assign.visitorrefererid" version="1"/>
+    <!-- Set cookie tracking id -->
+    <block-ref id="userid:assign.visitorcookieid" version="1"/>
+    
+    <add-cookie-referer-data connection-name="userdb"/>
+    
+    <if>
+      <equals apply-to="bytesSent" value="-"/>
+      <then>
+        <set apply-to="bytesSent" value="0"/>
+      </then>
+    </if>
+  </blocks>
+
+</process>

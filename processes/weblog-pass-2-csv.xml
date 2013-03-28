@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <source>
+    <weblog-file-source name="cli"/>
+  </source>
+
+  <target>
+    <csv-target delimiter=";" empty-value="" columns="
+          bytes_sent=bytesSent
+          ,request_prot_type=requestProtType
+          ,user_agent=userAgent
+          ,response_cookie=responseCookie
+          ,identity=identity
+          ,time=time
+          ,request_prot_method=requestProtMethod
+          ,request=request
+          ,domain=domain
+          ,host=host
+          ,status=status
+          ,request_url_extension=requestUrlExtension
+          ,request_url=requestUrl
+          ,request_url_url_param=requestUrlParameter
+          ,request_url_normalized=requestUrlNormalized
+          ,request_cookie=requestCookie
+          ,referer=referer
+          ,referer_url_param=refererUrlParameter
+          ,referer_normalized=refererNormalized
+          ,user=user
+          ,apache_cookie=apacheCookie
+          ,google_cookie=googleCookie
+          ,time_in_millis=timeInMillis
+          ,ip_and_user_agent_hash=ipAndUserAgentHash
+          ,visitor_referer_id=visitorRefererId
+          ,visitor_cookie_id=visitorCookieId
+          ,_rownum=_rownum      
+    " target="userid_pass2_target.csv"/>
+  </target>
+  <error-target>
+    <database-target connection-name="lbendig">
+      <truncate-query>   
+        delete from weblog_event_incoming_err
+      </truncate-query>
+      <insert-query>
+       insert into weblog_event_incoming_err (
+        field
+       ,field_value
+       ,details
+       ,server_host
+       ,request_timestamp
+       ,document_url
+       ,document_line
+       ,document_column
+       ,class_name
+       )values (
+        :field
+       ,:value
+       ,:details
+       ,:domain
+       ,to_timestamp_tz(:time,'DD/MONTH/YYYY:HH24:MI:SS FFTZH:TZM','NLS_DATE_LANGUAGE= AMERICAN')
+       ,:document_url
+       ,:document_line
+       ,:document_column
+       ,:class_name
+       )
+      </insert-query>
+    </database-target>      
+  </error-target>
+
+  <blocks>
+    <weblog-line apply-to="logLine"/>
+    
+    <!-- Consider relevant hits only -->
+    <block-ref id="userid:filter.nonpageview" version="1"/>
+    
+    <!-- Normalize request url -->
+    <copy apply-to="requestUrlNormalized" from="requestUrl"/>
+    <block-ref id="url-normalize:main" version="1.0-skipnulls">
+      <map from="requestUrlNormalized" to="url" />
+    </block-ref>          
+
+    <if>
+      <equals apply-to="referer" value="-" />
+      <then>
+        <set-null apply-to="referer" />
+      </then>
+    </if>
+                                  
+
+    <!-- Normalize referer url -->
+    <copy apply-to="refererNormalized" from="referer"/>
+    <block-ref id="url-normalize:main" version="1.0-skipnulls">
+      <map from="refererNormalized" to="url" />
+    </block-ref>
+    
+    <!-- Create fields needed by the userid extension -->
+    <block-ref id="userid:preprocess" version="1"/>
+      
+    <!-- Set referer tracking id -->
+    <block-ref id="userid:assign.visitorrefererid" version="1"/>
+    <!-- Set cookie tracking id -->
+    <block-ref id="userid:assign.visitorcookieid" version="1"/>
+    
+    <add-cookie-referer-data connection-name="userdb"/>
+    
+    <if>
+      <equals apply-to="bytesSent" value="-"/>
+      <then>
+        <set apply-to="bytesSent" value="0"/>
+      </then>
+    </if>
+  </blocks>
+
+</process>

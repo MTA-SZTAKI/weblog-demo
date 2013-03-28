@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <source>
+    <database-source connection-name="weblog_demo">
+      <query>
+        select JOB_ID, host_name, FREQ
+        from longneck.weblog_event_incoming_host_tmp
+      </query>
+    </database-source>
+  </source>
+
+  <target>
+    <database-target connection-name="weblog_demo">
+      <truncate-query>
+          delete from weblog_event_incoming_host
+      </truncate-query>
+
+      <insert-query>
+        insert into weblog_event_incoming_host (
+          JOB_ID, HOST_NAME, HIER_TYPE, 
+          LEVEL0, LEVEL1, LEVEL2, LEVEL3, LEVEL4, LEVEL5, LEVEL6, LEVEL7, LEVEL8, LEVEL9, LEVEL10,
+          LEVEL11,  LEVEL12,  LEVEL13, LEVEL14, LEVEL15, 
+          FREQ
+        )values (
+          :JOB_ID, :host_name, :hier_type, 
+          :level0, :level1, :level2, :level3, :level4, :level5, :level6, :level7, :level8, :level9, :level10,
+          :level11, :level12, :level13, :level14, :level15,
+          :FREQ
+       )
+      </insert-query>
+
+    </database-target>
+  </target>
+
+  <error-target>
+    <database-target connection-name="weblog_demo">
+      <truncate-query>   
+        delete from weblog_event_incoming_host_err
+      </truncate-query>
+      <insert-query>
+          insert into weblog_event_incoming_host_err (
+            field ,field_value, details, server_host, request_timestamp, 
+            document_url, document_line, document_column, class_name
+          ) values (
+            :field, :value, :details, :domain
+            ,to_timestamp_tz(:time,'DD/MONTH/YYYY:HH24:MI:SS FFTZH:TZM','NLS_DATE_LANGUAGE= AMERICAN')
+            ,:document_url, :document_line, :document_column, :class_name
+          )
+      </insert-query>
+    </database-target>
+  </error-target>
+
+  <blocks>  
+
+    <!-- Normalization test -->
+    <!-- Normalize request url -->
+
+    <block-ref id="domain-name-hierarchy:main" version="1.0">
+      <map from="host_name" to="domain"/>
+      <map from="hier_type" to="hierarchy_type" />
+      <map from="level0" to="level0" />
+      <map from="level1" to="level1" />
+      <map from="level2" to="level2" />
+      <map from="level3" to="level3" />
+      <map from="level4" to="level4" />
+      <map from="level5" to="level5" />
+      <map from="level6" to="level6" />
+      <map from="level7" to="level7" />
+      <map from="level8" to="level8" />
+      <map from="level9" to="level9" />
+      <map from="level10" to="level10" />
+      <map from="level11" to="level11" />
+      <map from="level12" to="level12" />
+      <map from="level13" to="level13" />
+      <map from="level14" to="level14" />
+      <map from="level15" to="level15" />
+    </block-ref>
+
+  </blocks>
+
+</process>

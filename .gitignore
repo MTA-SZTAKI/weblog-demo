@@ -1,2 +1,6 @@
 /target/
 
+/templates/lib/
+/config/log4j.properties
+/bin/weblog-demo
+/bin/weblog-demo-debug

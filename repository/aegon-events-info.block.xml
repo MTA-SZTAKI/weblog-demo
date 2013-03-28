@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 http://dms.sztaki.hu/longneck/schema/longneck-block.xsd">
+  
+  
+  <!-- 
+    Events are identfied based on the referer url; spacial URL pages indicate business events. 
+    AEGON's Information request events are handled here.
+
+    Deals with web event lines only.
+    
+    IN:   eventGroup, requestUrl, httpMethod, requestUrlParameter, refererUrlParameter
+    OUT:  eventGroup, event
+  -->
+  <block id="clone-event" version="1.2">
+    
+    <if>
+      <and>
+        <match apply-to="eventGroup" regexp="^web$"/>        
+        <match apply-to="requestUrl" regexp="^.*cimanyag.html.*$"/>        
+      </and>
+      
+      
+      <then>
+        <clone-record set-field="isInfoEvent" set-value="true" />
+        
+        <!-- further processing only for cloned records -->
+        <if> 
+          <exists apply-to="isInfoEvent" /> 
+          <then>
+            
+            <set apply-to="eventGroup" value="info: ismeretlen termék" />
+            <set apply-to="$tmp" value="info:" />
+          
+            <if>              
+              <equals apply-to="requestProtMethod" value="POST" />
+              
+              <then>
+                <set apply-to="event" value="adatbeküldés" />
+                <match-extract apply-to="refererUrlParameter2" regexp="^.*megj=([^&amp;$]*).*$" >                                  
+                  <implode apply-to="eventGroup" sources="$tmp $1" glue=" "/>                  
+                </match-extract>
+              </then>
+              
+              <else>
+                <set apply-to="event" value="adatbekérés" />
+                  <match-extract apply-to="requestUrlParameter2" regexp="^.*megj=([^&amp;$]*).*$" >                                  
+                  <implode apply-to="eventGroup" sources="$tmp $1" glue=" "/>                  
+                </match-extract>
+              </else>
+            </if>
+
+          </then>
+        </if>
+      </then>
+      
+    </if>
+                
+  </block>
+
+
+</block-package>
