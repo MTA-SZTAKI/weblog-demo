@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 file:///home/lbendig/projects/longneck/longneck-core/src/main/resources/schema/longneck-block.xsd">
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <!-- 
     Main block that invokes URL normalization 
@@ -31,7 +30,7 @@
     <block-ref id="url-normalize:remove_default_port" version="1.0" />
 
   </block>
-  
+
   <!-- Main block, skips null fields. -->
   <block id="main" version="1.0-skipnulls">
     <if>
@@ -42,35 +41,32 @@
         <block-ref id="url-normalize:remove_double_slashes" version="1.0" />
         <block-ref id="url-normalize:remove_fragment" version="1.0" />
         <block-ref id="url-normalize:trailing_slash" version="1.0" />
-        <block-ref id="url-normalize:remove_default_port" version="1.0" />        
-      </then>          
+        <block-ref id="url-normalize:remove_default_port" version="1.0" />
+      </then>
     </if>
   </block>
-  
+
   <!-- Convert the scheme to lowecase and apply http everywhere -->
   <block id="http_prefix" version="1.0">
     <if>
       <match apply-to="url" regexp="^(?i)http.*$" />
       <then>
         <replace-all apply-to="url" regexp="^(?i)(https?)\:" replacement="http:" />
-<!--        <replace-first apply-to="url" regexp="(?i)(http)s?" replacement="http" /> -->
       </then>
       <else>
         <set apply-to="$prefix" value="http://"/>
         <implode apply-to="url" sources="$prefix url" glue=""/>
-        <!-- <add-prefix apply-to="url" text="http://" /> -->
       </else>
     </if>
   </block>
 
 
-  <!-- Remove "www" as the first domain label. -->
+  <!-- Remove "www" as the first (or last in hierarchy) domain label. -->
   <block id="remove_www" version="1.0">
     <if>
       <match apply-to="url" regexp="^http\:\/\/www.*$" />
       <then>
         <replace-all apply-to="url" regexp="^http\:\/\/www\." replacement="http://" />
-<!--        <replace-first apply-to="url" regexp="(http://www.)" replacement="http://" /> -->
       </then>
     </if>
   </block>

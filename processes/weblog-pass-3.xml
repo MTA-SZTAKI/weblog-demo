@@ -3,12 +3,13 @@
   xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 file:/home/lbendig/projects/longneck/longneck-lookup/src/main/resources/META-INF/schema/longneck-lookup.xsd">
 
   <source>
-    <database-source connection-name="webstg_local">
+    <database-source connection-name="weblog_demo">
       <query>          
-        select server_host as "serverHost", 
+        select virtual_host as "serverHost", 
                to_char(request_time,'YYYY.MM.DD HH24:MI:SS') as "requestTime", 
-               event_group as "eventGroup", event as "event",
-               visitor_referer_id as "visitorRefererId", visitor_cookie_id as "visitorCookieId", visitor_ip as "ipAddress", 
+               event_group as "eventGroup", event as "event", event_subject as "eventSubject",
+               visitor_referer_id as "visitorRefererId", visitor_cookie_id as "visitorCookieId", visitor_ip_agent_hash as "ipAndUserAgentHash",
+               visitor_ip as "ipAddress", 
                inet_protocol as "inetProtocol", http_method as "httpMethod", http_status_code as "httpStatusCode", 
                http_request as "httpRequest", http_request_cookie as "httpRequestCookie", http_response_cookie as "httpResponseCookie", 
                request_url as "requestUrl", request_url_parameter as "requestUrlParameter", request_url_extension as "requestUrlExtension", 
@@ -20,51 +21,45 @@
   </source>
 
   <target>
-    <database-target connection-name="webstg_local">
+    <database-target connection-name="weblog_demo">
       <truncate-query>
           truncate table weblog_event_incoming
       </truncate-query>
       
-      <insert-query>
+      <insert-query numeric-fields-to-convert="httpStatusCode">
         insert into weblog_event_incoming (
-            job_id, server_host, server_owner, request_timestamp, event_group, event, 
-            visitor_referer_id, visitor_cookie_id, visitor_user_id, 
+            virtual_host, virtual_host_owner, request_timestamp, event_group, event, event_subject,
+            visitor_referer_id, visitor_cookie_id, visitor_global_id, visitor_ip_agent_hash,
             visitor_ip, visitor_hostname, visitor_ip_resolv_time, 
             visitor_ip_resolv_expire, 
             visitor_ip_internal, 
-            visitor_asn_code, visitor_asn_name, visitor_country_code, visitor_country_name, visitor_region, 
-            visitor_city, visitor_postal_code, visitor_area_code,
             inet_protocol, http_method, http_status_code, 
             http_request, http_request_cookie, http_response_cookie, 
             request_url, request_url_parameter, request_url_extension,  
             referer_url, referer_url_parameter, referer_url_extension, 
             agent_string, agent_resolv_time, agent_type, agent_device, agent_processor, agent_sw_platform, agent_name, 
             agent_version, agent_language, agent_os, agent_os_version, agent_os_distro, agent_layout_engine, agent_layout_resolution,
-            campaign_name, campaign_source, campaign_medium, campaign_term, campaign_content, 
             auth_user, bytes_sent
         ) values (
-            -1, :serverHost, null, to_timestamp(:requestTime, 'YYYY.MM.DD HH24:MI:SS'), :eventGroup, :event,             
-            :visitorRefererId, :visitorCookieId, :visitorUserId, 
-            :ipAddress, :domainName, CURRENT_TIMESTAMP,             
-            to_timestamp_tz(:lookupExpiry,'YYYY-MM-DD HH24:MI:SS FFTZH:TZM', 'NLS_DATE_LANGUAGE= AMERICAN'),
+            :serverHost, null, to_timestamp(:requestTime, 'YYYY.MM.DD HH24:MI:SS'), :eventGroup, :event, :eventSubject,
+            :visitorRefererId, :visitorCookieId, :visitorUserId, :ipAndUserAgentHash, 
+            :ipAddress, :domainName, current_timestamp,
+            to_timestamp(:lookupExpiry,'YYYY-MM-DD HH24:MI:SS'),
             :visitorIpInternal,
-            null, null, null, null, null, 
-            null, null, null,
             :inetProtocol, :httpMethod, :httpStatusCode, 
             :httpRequest, :httpRequestCookie, :httpResponseCookie, 
             :requestUrl, :requestUrlParameter, :requestUrlExtension,  
             :refererUrl, :refererUrlParameter, :refererUrlExtension,  
-            :agentString, CURRENT_TIMESTAMP, :userAgentAgentType, :userAgentDevice, :userAgentProcessor, :userAgentSWPlatform, :userAgentAgentName, 
+            :agentString, current_timestamp, :userAgentAgentType, :userAgentDevice, :userAgentProcessor, :userAgentSWPlatform, :userAgentAgentName,
             :userAgentAgentVersion, :userAgentLang, :userAgentOS, :userAgentOSVersion, :userAgentOSDistro, :userAgentLayoutEngine, :userAgentLayoutRes,
-            :utm_campaign, :utm_source, :utm_medium, :utm_term, :utm_content, 
-            :authUser, to_number(decode(:bytesSent,'-','0',null,'0',:bytesSent))
+            :authUser, case when :bytesSent='-' then 0 else cast (:bytesSent as numeric) end
         )
       </insert-query>
     </database-target> 
   </target>
 
   <error-target>
-    <database-target connection-name="webstg_local">
+    <database-target connection-name="weblog_demo">
       <truncate-query>   
         truncate table weblog_event_incoming_err
       </truncate-query>
@@ -92,7 +87,6 @@
     </block-ref>
     
     <!-- Reverse DNS lookup -->
-    <!--dnsresolve apply-to="visitorIp" domain-field-name="visitorHostname" exp-field-name="visitorIpResolvExpire" /-->
     <if>
       <not>
         <match apply-to="visitorIpInternal" regexp="Y"/>
@@ -105,7 +99,8 @@
     </if>
     
     <!-- Set global (valid between sites) user id -->
-    <block-ref id="userid:assign.visitoruserid" version="1"/>
+    <!--block-ref id="userid:assign.visitoruserid" version="1"/-->
+    <set-null apply-to="visitorUserId" />
     
     <!-- Add prefix to visitor ids -->
     <!-- easy way of surviving loss of userid memory (berkeleydb): 
@@ -137,8 +132,6 @@
                     userAgentOSVersion userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes userAgentDevice 
                     userAgentProcessor userAgentSWPlatform"/>        
     </block-ref>
-    
-    <block-ref id="web-marketing-campaign:extract.params" version="1.0" />
     
         
   </blocks>

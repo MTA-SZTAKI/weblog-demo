@@ -6,8 +6,8 @@
     eg. dms.sztaki.hu: level0: hu, level1: sztaki, level2: dms
   -->
   <block id="main" version="1.0">
-    <block-ref id="domain-parts" version="1.0"/>
-    <block-ref id="domain-hierarchy" version="1.0"/>
+    <block-ref id="domain-name-hierarchy:domain-parts" version="1.0"/>
+    <block-ref id="domain-name-hierarchy:domain-hierarchy" version="1.0"/>
   </block>
 
   <block id="domain-hierarchy" version="1.0">

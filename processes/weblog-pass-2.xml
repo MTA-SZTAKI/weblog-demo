@@ -6,13 +6,13 @@
   </source>
 
   <target>
-    <database-target connection-name="webstg_local">
+    <database-target connection-name="weblog_demo">
       <truncate-query>
         truncate table weblog_event_incoming_p2
       </truncate-query>
-      <insert-query>
+      <insert-query numeric-fields-to-convert="bytesSent,status,visitorRefererId,visitorCookieId">
         insert into weblog_event_incoming_p2 (
-            server_host, request_time, event_group, event, 
+            virtual_host, request_time, event_group, event,
             visitor_referer_id, visitor_cookie_id, visitor_ip, 
             http_status_code, inet_protocol, http_method, 
             http_request, http_request_cookie, http_response_cookie, 
@@ -21,7 +21,7 @@
             agent_string, auth_user, bytes_sent
         )
         values (
-           :virtualhost, to_timestamp_tz(:time,'DD/MONTH/YYYY:HH24:MI:SS FFTZH:TZM','NLS_DATE_LANGUAGE= AMERICAN'), :eventGroup, :event, 
+           :virtualhost, to_timestamp(:time,'DD/Mon/YYYY:HH24:MI:SS'), :eventGroup, :event,
            :visitorRefererId, :visitorCookieId, :clientip,
            :status, :requestProtType, :requestProtMethod,
            :request, :requestCookie, :responseCookie, 
@@ -31,12 +31,10 @@
           )
       </insert-query>
     </database-target>
-    <!--null-target/-->
-    <!-- <console-target/> -->
   </target>
   
   <error-target>
-    <database-target connection-name="webstg_local">
+    <database-target connection-name="weblog_demo">
       <truncate-query>
         truncate table weblog_event_incoming_p2_err
       </truncate-query>
@@ -45,7 +43,7 @@
           error_time, server_host, request_timestamp, class_name,
           field, field_value, details , document_url, document_line, document_column 
        )values (
-          current_timestamp, :domain, to_timestamp_tz(:time,'DD/MONTH/YYYY:HH24:MI:SS FFTZH:TZM','NLS_DATE_LANGUAGE= AMERICAN'), :class_name,
+          current_timestamp, :domain, to_timestamp(:time,'DD/Mon/YYYY:HH24:MI:SS'), :class_name,
           :field, :value, :details, :document_url, :document_line, :document_column
        )
       </insert-query>
@@ -53,19 +51,12 @@
   </error-target>
 
   <blocks>
-    <!--<weblog-line apply-to="logLine"/>-->
     <block-ref id="weblogparser:parse" version="1"/>
     
     <!-- Consider relevant hits only -->
-    <block-ref id="weblog-events:determine.email-events" version="1"/>
     <block-ref id="weblog-events:determine.basic-events" version="1"/>
     <block-ref id="weblog-events:filter.eventless-records" version="1"/>
-    
-    <!-- clone events for business events --> 
-    <block-ref id="aegon-events-contracting:clone-event" version="1.2"/>
-    <block-ref id="aegon-events-info:clone-event" version="1.2"/>
-    <block-ref id="aegon-events-misc:clone-event" version="1.2"/>
-    
+
     <!-- Normalize request url -->
     <copy apply-to="requestUrl" from="requestUrlFull"/>
     <block-ref id="url-normalize:main" version="1.0-skipnulls">
@@ -86,7 +77,6 @@
     
     <!-- Create fields needed by the userid extension -->
     <datetime-to-milliseconds apply-to="timeInMillis" from="time" pattern="dd/MMM/yyyy:HH:mm:ss Z"/>
-    <!--datetime-to-format apply-to="timeInMillis" from="time" fromPattern="dd/MMM/yyyy:HH:mm:ss Z" toPattern=""/-->    
     <block-ref id="userid:preprocess" version="1"/>
     
     

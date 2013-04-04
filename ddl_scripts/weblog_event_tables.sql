@@ -1,72 +1,228 @@
 --------------------------------------------------------
 -- weblog_event_incoming
 --------------------------------------------------------
--- see ensyme/aegon-weblog project for details and definition
+-- Table: weblog_event_incoming
+
+-- DROP TABLE weblog_event_incoming;
+
+CREATE TABLE weblog_event_incoming
+(
+  virtual_host character varying(1000) not null,
+  virtual_host_owner character varying(2048),
+  request_timestamp timestamp(6) without time zone not null,
+
+  event_group character varying(2000),
+  -- events: page view, displaying an email, making a contract etc.
+  event character varying(2000),
+  event_subject character varying(2000),
+
+  -- visitor ids: a local id valid for the given host, and a global, host-independent id
+  visitor_cookie_id character varying(2000),
+  visitor_referer_id character varying(2000),
+  visitor_global_id character varying(2000),
+  visitor_ip_agent_hash character varying(2000),
+  visitor_ip character varying(15),
+  visitor_hostname character varying(2048),
+  visitor_ip_resolv_time timestamp(6) without time zone,
+  visitor_ip_resolv_expire timestamp(6) without time zone,
+  visitor_ip_internal character(1),
+
+  inet_protocol character varying(128),
+  http_method character varying(128),
+  http_status_code integer,
+  http_request character varying(4000),
+  http_request_cookie character varying(4000),
+  http_response_cookie character varying(4000),
+
+  -- full normalized url, then the parts
+  request_url character varying(4000),
+  request_url_parameter character varying(3000),
+  request_url_extension character varying(128),
+  referer_url character varying(4000),
+  referer_url_parameter character varying(3000),
+  referer_url_extension character varying(128),
+  agent_string character varying(2000),
+  agent_resolv_time timestamp(6) without time zone,
+  agent_type character varying(256),
+  agent_device character varying(256),
+  agent_processor character varying(512),
+  agent_sw_platform character varying(512),
+  agent_name character varying(512),
+  agent_version character varying(512),
+  agent_language character varying(512),
+  agent_os character varying(512),
+  agent_os_version character varying(512),
+  agent_os_distro character varying(512),
+  agent_layout_engine character varying(512),
+  agent_layout_resolution character varying(512),
+  auth_user character varying(512),
+  bytes_sent integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE weblog_event_incoming
+  OWNER TO longneck;
+
+--------------------------------------------------------
+-- Table: weblog_event_incoming_host
+--------------------------------------------------------
+
+-- DROP TABLE weblog_event_incoming_host;
+
+CREATE TABLE weblog_event_incoming_host
+(
+  host_name character varying(4000),
+  hier_type character varying(100),
+  level0 character varying(4000),
+  level1 character varying(4000),
+  level2 character varying(4000),
+  level3 character varying(4000),
+  level4 character varying(4000),
+  level5 character varying(4000),
+  level6 character varying(4000),
+  level7 character varying(4000),
+  level8 character varying(4000),
+  level9 character varying(4000),
+  level10 character varying(4000),
+  level11 character varying(4000),
+  level12 character varying(4000),
+  level13 character varying(4000),
+  level14 character varying(4000),
+  level15 character varying(4000)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE weblog_event_incoming_host
+  OWNER TO longneck;
+
+--------------------------------------------------------
+-- Table: weblog_event_incoming_host_tmp
+--------------------------------------------------------
+
+-- DROP TABLE weblog_event_incoming_host_tmp;
+
+CREATE TABLE weblog_event_incoming_host_tmp
+(
+  host_name character varying(4000),
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE weblog_event_incoming_host_tmp
+  OWNER TO longneck;
+
+
+--------------------------------------------------------
+--  weblog_event_incoming_host_err
+--------------------------------------------------------
+-- DROP TABLE weblog_event_incoming_host_err;
+
+CREATE TABLE weblog_event_incoming_host_err
+(
+  error_time timestamp without time zone,
+  server_host character varying(1000),
+  request_timestamp timestamp without time zone,
+  class_name character varying(256),
+  field character varying(500),
+  field_value character varying(2000),
+  details character varying(2000),
+  document_url character varying(2000),
+  document_line character varying(100),
+  document_column character varying(2000)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE weblog_event_incoming_host_err
+  OWNER TO longneck;
+
 
 --------------------------------------------------------
 --  weblog_event_incoming_err
 --------------------------------------------------------
-create table weblog_event_incoming_err (
-    error_time timestamp, 
-    server_host varchar2(1000 char), 
-    request_timestamp timestamp (6), 
-    class_name varchar2(256 byte),
-    field varchar2(500 char), 
-    field_value varchar2(2000 char), 
-    details varchar2(2000 char), 
-    document_url varchar2(2000 char), 
-    document_line varchar2(100 char), 
-    document_column varchar2(2000 char)
+-- DROP TABLE weblog_event_incoming_err;
+
+CREATE TABLE weblog_event_incoming_err
+(
+  error_time timestamp without time zone,
+  server_host character varying(1000),
+  request_timestamp timestamp without time zone,
+  class_name character varying(256),
+  field character varying(500),
+  field_value character varying(2000),
+  details character varying(2000),
+  document_url character varying(2000),
+  document_line character varying(100),
+  document_column character varying(2000)
 )
-nologging compress for oltp
-tablespace log_stg ;
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE weblog_event_incoming_err
+  OWNER TO longneck;
 
 --------------------------------------------------------
 --  weblog_event_incoming_p2
 --------------------------------------------------------
 
-create table weblog_event_incoming_p2 (
-    virtual_host            varchar2(1000 char), 
-    request_time            timestamp, 
-    event_group             varchar2(2000 char), 
-    event                   varchar2(2000 char),
-    event_subject           varchar2(2000 char),
-    visitor_referer_id      number, 
-    visitor_cookie_id       number, 
-    visitor_ip_agent_hash   varchar2(2000 char),
-    visitor_ip              varchar2(15 char),
-    inet_protocol           varchar2(128 char), 
-    http_method             varchar2(128 char), 
-    http_status_code        number,     
-    http_request            varchar2(4000 char), 
-    http_request_cookie     varchar2(2000 char),
-    http_response_cookie    varchar2(2000 char),
-    request_url             varchar2(4000 char), 
-    request_url_parameter   varchar2(4000 char), 
-    request_url_extension   varchar2(128 char), 
-    referer_url             varchar2(4000 char), 
-    referer_url_parameter   varchar2(4000 char), 
-    referer_url_extension   varchar2(128 char), 
-    agent_string            varchar2(4000 char), 
-    auth_user               varchar2(512 byte), 
-    bytes_sent              number
+-- DROP TABLE weblog_event_incoming_p2;
+
+CREATE TABLE weblog_event_incoming_p2
+(
+  virtual_host character varying(1000),
+  request_time timestamp without time zone,
+  event_group character varying(2000),
+  event character varying(2000),
+  event_subject character varying(2000),
+  visitor_referer_id integer,
+  visitor_cookie_id integer,
+  visitor_ip_agent_hash character varying(2000),
+  visitor_ip character varying(15),
+  inet_protocol character varying(128),
+  http_method character varying(128),
+  http_status_code integer,
+  http_request character varying(4000),
+  http_request_cookie character varying(2000),
+  http_response_cookie character varying(2000),
+  request_url character varying(4000),
+  request_url_parameter character varying(4000),
+  request_url_extension character varying(128),
+  referer_url character varying(4000),
+  referer_url_parameter character varying(4000),
+  referer_url_extension character varying(128),
+  agent_string character varying(4000),
+  auth_user character varying(512),
+  bytes_sent integer
 )
-nologging compress for oltp
-tablespace log_stg ;
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE weblog_event_incoming_p2
+  OWNER TO longneck;
 
+--------------------------------------------------------
+--  weblog_event_incoming_p2_err
+--------------------------------------------------------
 
+-- DROP TABLE weblog_event_incoming_p2_err;
 
-create table weblog_event_incoming_p2_err (
-    error_time timestamp, 
-    server_host varchar2(1000 char), 
-    request_timestamp timestamp (6), 
-    class_name varchar2(256 byte),
-    field varchar2(500 char), 
-    field_value varchar2(2000 char), 
-    details varchar2(2000 char), 
-    document_url varchar2(2000 char), 
-    document_line varchar2(100 char), 
-    document_column varchar2(2000 char)
+CREATE TABLE weblog_event_incoming_p2_err
+(
+  error_time timestamp without time zone,
+  server_host character varying(1000),
+  request_timestamp timestamp without time zone,
+  class_name character varying(256),
+  field character varying(500),
+  field_value character varying(2000),
+  details character varying(2000),
+  document_url character varying(2000),
+  document_line character varying(100),
+  document_column character varying(2000)
 )
-nologging compress for oltp
-tablespace log_stg ;
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE weblog_event_incoming_p2_err
+  OWNER TO longneck;

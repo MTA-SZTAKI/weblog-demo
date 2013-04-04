@@ -4,8 +4,8 @@
   <source>
     <database-source connection-name="weblog_demo">
       <query>
-        select JOB_ID, host_name, FREQ
-        from longneck.weblog_event_incoming_host_tmp
+        select distinct(visitor_hostname) as "host_name"
+        from weblog_event_incoming where visitor_hostname is not null
       </query>
     </database-source>
   </source>
@@ -18,15 +18,13 @@
 
       <insert-query>
         insert into weblog_event_incoming_host (
-          JOB_ID, HOST_NAME, HIER_TYPE, 
+          HOST_NAME, HIER_TYPE, 
           LEVEL0, LEVEL1, LEVEL2, LEVEL3, LEVEL4, LEVEL5, LEVEL6, LEVEL7, LEVEL8, LEVEL9, LEVEL10,
-          LEVEL11,  LEVEL12,  LEVEL13, LEVEL14, LEVEL15, 
-          FREQ
+          LEVEL11,  LEVEL12,  LEVEL13, LEVEL14, LEVEL15
         )values (
-          :JOB_ID, :host_name, :hier_type, 
+          :host_name_tmp, :hier_type,
           :level0, :level1, :level2, :level3, :level4, :level5, :level6, :level7, :level8, :level9, :level10,
-          :level11, :level12, :level13, :level14, :level15,
-          :FREQ
+          :level11, :level12, :level13, :level14, :level15
        )
       </insert-query>
 
@@ -35,26 +33,24 @@
 
   <error-target>
     <database-target connection-name="weblog_demo">
-      <truncate-query>   
-        delete from weblog_event_incoming_host_err
+      <truncate-query>
+        truncate table weblog_event_incoming_host_err
       </truncate-query>
       <insert-query>
-          insert into weblog_event_incoming_host_err (
-            field ,field_value, details, server_host, request_timestamp, 
-            document_url, document_line, document_column, class_name
-          ) values (
-            :field, :value, :details, :domain
-            ,to_timestamp_tz(:time,'DD/MONTH/YYYY:HH24:MI:SS FFTZH:TZM','NLS_DATE_LANGUAGE= AMERICAN')
-            ,:document_url, :document_line, :document_column, :class_name
-          )
+       insert into weblog_event_incoming_host_err (
+           error_time, server_host, request_timestamp, class_name, field, field_value,
+           details, document_url, document_line, document_column
+       ) values (
+          current_timestamp, :serverHost, to_timestamp(:requestTime, 'YYYY.MM.DD HH24:MI:SS'),
+          :class_name, :field, :value, :details, :document_url, :document_line, :document_column
+       )
       </insert-query>
     </database-target>
   </error-target>
 
   <blocks>  
 
-    <!-- Normalization test -->
-    <!-- Normalize request url -->
+    <copy apply-to="host_name_tmp" from="host_name" />
 
     <block-ref id="domain-name-hierarchy:main" version="1.0">
       <map from="host_name" to="domain"/>

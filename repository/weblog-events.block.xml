@@ -2,31 +2,6 @@
 <block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 http://dms.sztaki.hu/longneck/schema/longneck-block.xsd">
  
-  <!-- does not work yet due to a processingframe bug -->
-  <!--  
-  <block id="weblog-events.main" version="1.0">
-    <block-ref id="weblog-events:weblog-events.init.events" version="1.0" />
-    <block-ref id="weblog-events:weblog-events.clone.event" version="1.0" />
-    <block-ref id="weblog-events:weblog-events.identify.event" version="1.0" />
-  </block>
-  -->
-
-  <!-- 
-    Determine email-related events: 
-    the event of opening an email can be spotted by downloading a transparent gif image.
-    IN : requestURL
-    OUT: eventGroup, event
-  -->        
-  <block id="determine.email-events" version="1">    
-    <if>
-      <match apply-to="requestUrl" regexp=".*(transparent.gif).*" />
-      <then>
-        <set apply-to="eventGroup" value="web"/>
-        <set apply-to="event" value="email opened"/>
-      </then>
-    </if>
-  </block>
-  
   <!-- 
     Determine basic events. 
     Events with 2XX status code and a page-related URL extension (eg. html, php) are page views.
