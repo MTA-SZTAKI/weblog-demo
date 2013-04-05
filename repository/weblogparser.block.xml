@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Blocks for user identification based on cookies and browser data.
--->
-<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 file:///home/molnarp/NetBeansProjects/longneck/longneck-core/src/main/resources/schema/longneck-block.xsd">
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!--
+    Blocks for user identification based on cookies and browser data.
+  -->
 
   <!--
     The input apach logline divided into pregiven field in config.xml.
 
     IN: One line 
-    OUT: Divide the line into field
+    OUT: Divided line into fields
   -->
   <block id="parse" version="1">
     <weblog-line apply-to="logLine"/>

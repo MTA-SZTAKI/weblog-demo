@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 file:/home/lbendig/projects/longneck/longneck-lookup/src/main/resources/META-INF/schema/longneck-lookup.xsd">
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <source>
     <database-source connection-name="weblog_demo">
@@ -32,7 +31,6 @@
             visitor_referer_id, visitor_cookie_id, visitor_global_id, visitor_ip_agent_hash,
             visitor_ip, visitor_hostname, visitor_ip_resolv_time, 
             visitor_ip_resolv_expire, 
-            visitor_ip_internal, 
             inet_protocol, http_method, http_status_code, 
             http_request, http_request_cookie, http_response_cookie, 
             request_url, request_url_parameter, request_url_extension,  
@@ -45,7 +43,6 @@
             :visitorRefererId, :visitorCookieId, :visitorUserId, :ipAndUserAgentHash, 
             :ipAddress, :domainName, current_timestamp,
             to_timestamp(:lookupExpiry,'YYYY-MM-DD HH24:MI:SS'),
-            :visitorIpInternal,
             :inetProtocol, :httpMethod, :httpStatusCode, 
             :httpRequest, :httpRequestCookie, :httpResponseCookie, 
             :requestUrl, :requestUrlParameter, :requestUrlExtension,  
@@ -80,26 +77,9 @@
     <!-- set timeInMillis for userid extension -->
     <datetime-to-milliseconds apply-to="timeInMillis" from="requestTime" pattern="yyyy.MM.dd HH:mm:ss"/>
     
-    <!-- Check if host belongs to Aegon global web proxy -->
-    <block-ref id="visitor-internal-ip:visitor-internal-ip.aegon" version="1.0" >
-      <map from="ipAddress" to="visitorIpAddress"/>
-      <pass fields="visitorIpInternal"/>
-    </block-ref>
-    
-    <!-- Reverse DNS lookup -->
-    <if>
-      <not>
-        <match apply-to="visitorIpInternal" regexp="Y"/>
-      </not>
-      
-      <then>
-        <!--TODO: not possible?: map from="visitorIp" to="ipAddress" /-->
-        <dnsresolve connection-name="dnsCache"/>
-      </then>        
-    </if>
+    <dnsresolve connection-name="dnsCache"/>
     
     <!-- Set global (valid between sites) user id -->
-    <!--block-ref id="userid:assign.visitoruserid" version="1"/-->
     <set-null apply-to="visitorUserId" />
     
     <!-- Add prefix to visitor ids -->
@@ -132,7 +112,6 @@
                     userAgentOSVersion userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes userAgentDevice 
                     userAgentProcessor userAgentSWPlatform"/>        
     </block-ref>
-    
         
   </blocks>
 

@@ -10,6 +10,9 @@
       Sorting the query parameters of active pages
       Removing unused query variables
       Removing default query parameters
+
+    IN: url (drop error if null)
+    OUT: url
   -->
   <block id="main" version="1.0">
 
@@ -31,7 +34,12 @@
 
   </block>
 
-  <!-- Main block, skips null fields. -->
+  <!-- 
+    Main block, skips null fields.
+
+    IN: url (could be null)
+    OUT: url
+  -->
   <block id="main" version="1.0-skipnulls">
     <if>
       <not-null apply-to="url"/>
@@ -46,7 +54,12 @@
     </if>
   </block>
 
-  <!-- Convert the scheme to lowecase and apply http everywhere -->
+  <!-- 
+    Convert the scheme to lowercase and apply http everywhere
+    
+    IN: url
+    OUT: url (with prefix http:// )
+  -->
   <block id="http_prefix" version="1.0">
     <if>
       <match apply-to="url" regexp="^(?i)http.*$" />
@@ -61,7 +74,12 @@
   </block>
 
 
-  <!-- Remove "www" as the first (or last in hierarchy) domain label. -->
+  <!-- 
+    Remove "www" as the first (or last in hierarchy) domain label.
+
+    IN: url
+    OUT: url (without www. domain)
+  -->
   <block id="remove_www" version="1.0">
     <if>
       <match apply-to="url" regexp="^http\:\/\/www.*$" />
@@ -71,7 +89,12 @@
     </if>
   </block>
 
-  <!-- Remove duplicate slashes -->
+  <!-- 
+    Remove duplicated slashes
+    
+    IN: url
+    OUT: url
+  -->
   <block id="remove_double_slashes" version="1.0">
     <if>
       <match apply-to="url" regexp="^.*(?:[^:])([/]{2,}).*$" />
@@ -81,7 +104,12 @@
     </if>
   </block>
 
-  <!-- Remove the fragment -->
+  <!--
+    Remove the fragment
+    
+    IN: url
+    OUT:url
+  -->
   <block id="remove_fragment" version="1.0">
     <if>
       <match apply-to="url" regexp="^.*(#.*)$" />
@@ -91,7 +119,12 @@
     </if>
   </block>
 
- <!-- Add trailing / -->
+ <!--
+    Add trailing /
+    
+    IN: url
+    OUT: url
+  -->
   <block id="trailing_slash" version="1.0">
     <if>
       <and>
@@ -124,7 +157,12 @@
     </if>
   </block>
 
-  <!-- Remove the default port -->
+  <!-- 
+    Remove the default port
+
+    IN: url
+    OUT: url
+  -->
   <block id="remove_default_port" version="1.0">
     <if>
       <or>

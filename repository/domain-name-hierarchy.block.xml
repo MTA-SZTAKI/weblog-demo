@@ -4,22 +4,43 @@
   <!-- 
     Assembling domain name label-based hierarchy; 
     eg. dms.sztaki.hu: level0: hu, level1: sztaki, level2: dms
+
+    IN: domain
+    OUT: domain, hierarchy_type, level0, level1, level2,...level15
   -->
   <block id="main" version="1.0">
     <block-ref id="domain-name-hierarchy:domain-parts" version="1.0"/>
     <block-ref id="domain-name-hierarchy:domain-hierarchy" version="1.0"/>
   </block>
 
+  <!--
+    Add type of hierarchy is labels
+
+    IN: -
+    OUT: hierarchy
+  -->
   <block id="domain-hierarchy" version="1.0">
     <set apply-to="hierarchy_type" value="labels" />
   </block>
   
+  <!--
+    Remains only the domain without http:// and path
+
+    IN: url
+    OUT: domain
+  -->
   <block id="cut-domain" version="1.0">
     <match-extract apply-to="url" regexp="^[^\:]*\:\/\/([^\/]*).*$">
       <copy apply-to="domain" from="$1" />
     </match-extract>
   </block>
 
+  <!--
+    Segregate domain parts
+
+    IN: domain
+    OUT: level0, level1, level2,...level15, domain
+  -->
   <block id="domain-parts" version="1.0">
     <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
       <if>

@@ -25,7 +25,6 @@ CREATE TABLE weblog_event_incoming
   visitor_hostname character varying(2048),
   visitor_ip_resolv_time timestamp(6) without time zone,
   visitor_ip_resolv_expire timestamp(6) without time zone,
-  visitor_ip_internal character(1),
 
   inet_protocol character varying(128),
   http_method character varying(128),
@@ -63,81 +62,6 @@ WITH (
 );
 ALTER TABLE weblog_event_incoming
   OWNER TO longneck;
-
---------------------------------------------------------
--- Table: weblog_event_incoming_host
---------------------------------------------------------
-
--- DROP TABLE weblog_event_incoming_host;
-
-CREATE TABLE weblog_event_incoming_host
-(
-  host_name character varying(4000),
-  hier_type character varying(100),
-  level0 character varying(4000),
-  level1 character varying(4000),
-  level2 character varying(4000),
-  level3 character varying(4000),
-  level4 character varying(4000),
-  level5 character varying(4000),
-  level6 character varying(4000),
-  level7 character varying(4000),
-  level8 character varying(4000),
-  level9 character varying(4000),
-  level10 character varying(4000),
-  level11 character varying(4000),
-  level12 character varying(4000),
-  level13 character varying(4000),
-  level14 character varying(4000),
-  level15 character varying(4000)
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE weblog_event_incoming_host
-  OWNER TO longneck;
-
---------------------------------------------------------
--- Table: weblog_event_incoming_host_tmp
---------------------------------------------------------
-
--- DROP TABLE weblog_event_incoming_host_tmp;
-
-CREATE TABLE weblog_event_incoming_host_tmp
-(
-  host_name character varying(4000),
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE weblog_event_incoming_host_tmp
-  OWNER TO longneck;
-
-
---------------------------------------------------------
---  weblog_event_incoming_host_err
---------------------------------------------------------
--- DROP TABLE weblog_event_incoming_host_err;
-
-CREATE TABLE weblog_event_incoming_host_err
-(
-  error_time timestamp without time zone,
-  server_host character varying(1000),
-  request_timestamp timestamp without time zone,
-  class_name character varying(256),
-  field character varying(500),
-  field_value character varying(2000),
-  details character varying(2000),
-  document_url character varying(2000),
-  document_line character varying(100),
-  document_column character varying(2000)
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE weblog_event_incoming_host_err
-  OWNER TO longneck;
-
 
 --------------------------------------------------------
 --  weblog_event_incoming_err
@@ -225,4 +149,61 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE weblog_event_incoming_p2_err
+  OWNER TO longneck;
+
+--------------------------------------------------------
+-- Table: weblog_event_incoming_host
+--------------------------------------------------------
+
+-- DROP TABLE weblog_event_incoming_host;
+
+CREATE TABLE weblog_event_incoming_host
+(
+  host_name character varying(4000),
+  hier_type character varying(100),
+  level0 character varying(4000),
+  level1 character varying(4000),
+  level2 character varying(4000),
+  level3 character varying(4000),
+  level4 character varying(4000),
+  level5 character varying(4000),
+  level6 character varying(4000),
+  level7 character varying(4000),
+  level8 character varying(4000),
+  level9 character varying(4000),
+  level10 character varying(4000),
+  level11 character varying(4000),
+  level12 character varying(4000),
+  level13 character varying(4000),
+  level14 character varying(4000),
+  level15 character varying(4000)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE weblog_event_incoming_host
+  OWNER TO longneck;
+
+--------------------------------------------------------
+--  weblog_event_incoming_host_err
+--------------------------------------------------------
+-- DROP TABLE weblog_event_incoming_host_err;
+
+CREATE TABLE weblog_event_incoming_host_err
+(
+  error_time timestamp without time zone,
+  server_host character varying(1000),
+  request_timestamp timestamp without time zone,
+  class_name character varying(256),
+  field character varying(500),
+  field_value character varying(2000),
+  details character varying(2000),
+  document_url character varying(2000),
+  document_line character varying(100),
+  document_column character varying(2000)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE weblog_event_incoming_host_err
   OWNER TO longneck;

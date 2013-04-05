@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 http://dms.sztaki.hu/longneck/schema/longneck-block.xsd">
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
  
   <!-- 
     Determine basic events. 
@@ -8,7 +7,7 @@
     Events with 3XX, 4XX, 5XX status codes are categorized as redirect, error, error respectively.
     Redirects are valid only for page-related URLs.
     
-    IN : requestURL, requestUrlExtension, status
+    IN : requestUrl, requestUrlExtension, status
     OUT: eventGroup, event
   -->
   <block id="determine.basic-events" version="1">
@@ -70,6 +69,5 @@
       </then>
     </if>       
   </block>
-
 
 </block-package>

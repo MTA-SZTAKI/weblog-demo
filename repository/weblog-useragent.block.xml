@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 file:///home/lbendig/projects/longneck/longneck-core/src/main/resources/schema/longneck-block.xsd">
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+  <!--
+    Determine the detailed useragent info
+
+    IN : userAgent
+    OUT: userAgentAgentName, userAgentAgentType, userAgentAgentVersion, userAgentLang, userAgentOS, userAgentOSVersion,
+         userAgentOSDistro, userAgentLayoutEngine, userAgentLayoutRes, userAgentDevice, userAgentProcessor,
+         userAgentSWPlatform
+  -->
 
   <block id="weblog-useragent.identify.parts" version="1.0">
     <caching apply-to="userAgent" size="100"

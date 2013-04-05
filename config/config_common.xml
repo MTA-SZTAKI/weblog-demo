@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <log-format xmlns="urn:parser" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:parser ../../src/main/resources/META-INF/longneck/parser/config.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<!-- Common Log Format (CLF) -->
     <log-config>%h %l %u %t \"%r\" %>s %b</log-config>
