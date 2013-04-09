@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <source>
+    <weblog-file-source name="cli"/>
+  </source>
+
+  <target>
+    <null-target/>
+  </target>
+  
+  <blocks>
+    <set apply-to="virtualhost" value="bigdata.sztaki.hu" />
+    <block-ref id="weblogparser:parse" version="1"/>
+    
+    <!-- Consider relevant hits only -->
+    <block-ref id="weblog-events:determine.basic-events" version="1"/>
+    <block-ref id="weblog-events:filter.eventless-records" version="1"/>
+
+    <!-- Normalize request url -->
+    <copy apply-to="requestUrl" from="requestUrlFull"/>
+
+    <block-ref id="url-normalize:main" version="1.0-skipnulls">
+      <map from="requestUrl" to="url" />
+    </block-ref>    
+
+    <!-- Create fields needed by the userid extension -->
+    <datetime-to-milliseconds apply-to="timeInMillis" from="time" pattern="dd/MMM/yyyy:HH:mm:ss Z"/>
+    <block-ref id="userid:preprocess" version="1"/>
+    
+    <!-- Add to referer tracking -->
+    <add-referer-tracking-data connection-name="userdb"/> 
+    
+  </blocks>
+
+</process>

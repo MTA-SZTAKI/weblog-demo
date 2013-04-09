@@ -10,24 +10,22 @@
       <truncate-query>
         truncate table weblog_event_incoming_p2
       </truncate-query>
-      <insert-query numeric-fields-to-convert="bytesSent,status,visitorRefererId,visitorCookieId">
+      <insert-query numeric-fields-to-convert="bytesSent,status,visitorRefererId">
         insert into weblog_event_incoming_p2 (
             virtual_host, request_time, event_group, event,
-            visitor_referer_id, visitor_cookie_id, visitor_ip, 
+            visitor_ip, 
             http_status_code, inet_protocol, http_method, 
-            http_request, http_request_cookie, http_response_cookie, 
+            http_request,  
             request_url, request_url_parameter, request_url_extension,
-            referer_url, referer_url_parameter, referer_url_extension,
-            agent_string, auth_user, bytes_sent
+            auth_user, bytes_sent
         )
         values (
            :virtualhost, to_timestamp(:time,'DD/Mon/YYYY:HH24:MI:SS'), :eventGroup, :event,
-           :visitorRefererId, :visitorCookieId, :clientip,
+           :clientip,
            :status, :requestProtType, :requestProtMethod,
-           :request, :requestCookie, :responseCookie, 
+           :request,  
            :requestUrl, :requestUrlParameter, :requestUrlExtension, 
-           :refererUrl, :refererUrlParameter, :refererUrlExtension, 
-           :userAgent, :user, :bytesSent
+           :user, :bytesSent
           )
       </insert-query>
     </database-target>
@@ -51,11 +49,8 @@
   </error-target>
 
   <blocks>
-
+    <set apply-to="virtualhost" value="bigdata.sztaki.hu" />
     <block-ref id="weblogparser:parse" version="1"/>
-
-    <replace-all apply-to="requestUrl" regexp="%00" replacement=" " />
-    <replace-all apply-to="requestUrlParameter" regexp="%00" replacement=" " />
     
     <!-- Consider relevant hits only -->
     <block-ref id="weblog-events:determine.basic-events" version="1"/>
@@ -67,30 +62,10 @@
       <map from="requestUrl" to="url" />
     </block-ref>    
 
-    <!-- Normalize referer url -->
-    <if>
-      <equals apply-to="refererUrlFull" value="-" />
-      <then>
-        <set-null apply-to="refererUrlFull" />
-      </then>
-    </if>
-    <copy apply-to="refererUrl" from="refererUrlFull"/>
-    <block-ref id="url-normalize:main" version="1.0-skipnulls">
-      <map from="refererUrl" to="url" />
-    </block-ref>
-    
     <!-- Create fields needed by the userid extension -->
     <datetime-to-milliseconds apply-to="timeInMillis" from="time" pattern="dd/MMM/yyyy:HH:mm:ss Z"/>
     <block-ref id="userid:preprocess" version="1"/>
     
-    
-    <!-- Set referer tracking id -->
-    <block-ref id="userid:assign.visitorrefererid" version="1"/>
-    <!-- Set cookie tracking id -->
-    <block-ref id="userid:assign.visitorcookieid" version="1"/>
-    
-    <add-cookie-referer-data connection-name="userdb"/>
-
     <if>
       <equals apply-to="bytesSent" value="-"/>
       <then>
