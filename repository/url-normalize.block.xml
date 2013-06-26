@@ -25,12 +25,12 @@
       </and>
     </input-constraints>
 
-    <block-ref id="url-normalize:http_prefix" version="1.0" />
-    <block-ref id="url-normalize:remove_www" version="1.0" />
-    <block-ref id="url-normalize:remove_double_slashes" version="1.0" />
-    <block-ref id="url-normalize:remove_fragment" version="1.0" />
-    <block-ref id="url-normalize:trailing_slash" version="1.0" />
-    <block-ref id="url-normalize:remove_default_port" version="1.0" />
+    <block-ref id="url-normalize:http_prefix" />
+    <block-ref id="url-normalize:remove_www" />
+    <block-ref id="url-normalize:remove_double_slashes" />
+    <block-ref id="url-normalize:remove_fragment" />
+    <block-ref id="url-normalize:trailing_slash" />
+    <block-ref id="url-normalize:remove_default_port" />
 
   </block>
 
@@ -40,27 +40,27 @@
     IN: url (could be null)
     OUT: url
   -->
-  <block id="main" version="1.0-skipnulls">
+  <block id="main" version="2.0">
     <if>
       <not-null apply-to="url"/>
       <then>
-        <block-ref id="url-normalize:http_prefix" version="1.0" />
-        <block-ref id="url-normalize:remove_www" version="1.0" />
-        <block-ref id="url-normalize:remove_double_slashes" version="1.0" />
-        <block-ref id="url-normalize:remove_fragment" version="1.0" />
-        <block-ref id="url-normalize:trailing_slash" version="1.0" />
-        <block-ref id="url-normalize:remove_default_port" version="1.0" />
+        <block-ref id="url-normalize:http_prefix" />
+        <block-ref id="url-normalize:remove_www" />
+        <block-ref id="url-normalize:remove_double_slashes" />
+        <block-ref id="url-normalize:remove_fragment" />
+        <block-ref id="url-normalize:trailing_slash" />
+        <block-ref id="url-normalize:remove_default_port" />
       </then>
     </if>
   </block>
 
-  <!-- 
+  <!--
     Convert the scheme to lowercase and apply http everywhere
-    
+
     IN: url
     OUT: url (with prefix http:// )
   -->
-  <block id="http_prefix" version="1.0">
+  <block id="http_prefix" >
     <if>
       <match apply-to="url" regexp="^(?i)http.*$" />
       <then>
@@ -80,7 +80,7 @@
     IN: url
     OUT: url (without www. domain)
   -->
-  <block id="remove_www" version="1.0">
+  <block id="remove_www">
     <if>
       <match apply-to="url" regexp="^http\:\/\/www.*$" />
       <then>
@@ -95,7 +95,7 @@
     IN: url
     OUT: url
   -->
-  <block id="remove_double_slashes" version="1.0">
+  <block id="remove_double_slashes">
     <if>
       <match apply-to="url" regexp="^.*(?:[^:])([/]{2,}).*$" />
       <then>
@@ -110,7 +110,7 @@
     IN: url
     OUT:url
   -->
-  <block id="remove_fragment" version="1.0">
+  <block id="remove_fragment">
     <if>
       <match apply-to="url" regexp="^.*(#.*)$" />
       <then>
@@ -125,7 +125,7 @@
     IN: url
     OUT: url
   -->
-  <block id="trailing_slash" version="1.0">
+  <block id="trailing_slash">
     <if>
       <and>
         <not>
@@ -163,7 +163,7 @@
     IN: url
     OUT: url
   -->
-  <block id="remove_default_port" version="1.0">
+  <block id="remove_default_port">
     <if>
       <or>
         <match apply-to="url" regexp="^.*(\:80).*$" />

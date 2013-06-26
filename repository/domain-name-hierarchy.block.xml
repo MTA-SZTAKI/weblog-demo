@@ -8,9 +8,9 @@
     IN: domain
     OUT: domain, hierarchy_type, level0, level1, level2,...level15
   -->
-  <block id="main" version="1.0">
-    <block-ref id="domain-name-hierarchy:domain-parts" version="1.0"/>
-    <block-ref id="domain-name-hierarchy:domain-hierarchy" version="1.0"/>
+  <block id="main">
+    <block-ref id="domain-name-hierarchy:domain-parts" />
+    <block-ref id="domain-name-hierarchy:domain-hierarchy" />
   </block>
 
   <!--
@@ -19,7 +19,7 @@
     IN: -
     OUT: hierarchy
   -->
-  <block id="domain-hierarchy" version="1.0">
+  <block id="domain-hierarchy">
     <set apply-to="hierarchy_type" value="labels" />
   </block>
   
@@ -29,7 +29,7 @@
     IN: url
     OUT: domain
   -->
-  <block id="cut-domain" version="1.0">
+  <block id="cut-domain">
     <match-extract apply-to="url" regexp="^[^\:]*\:\/\/([^\/]*).*$">
       <copy apply-to="domain" from="$1" />
     </match-extract>
@@ -41,7 +41,7 @@
     IN: domain
     OUT: level0, level1, level2,...level15, domain
   -->
-  <block id="domain-parts" version="1.0">
+  <block id="domain-parts">
     <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
       <if>
         <not-null apply-to="$2"/>

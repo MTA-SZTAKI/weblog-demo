@@ -10,7 +10,7 @@
          userAgentSWPlatform
   -->
 
-  <block id="weblog-useragent.identify.parts" version="1.0">
+  <block id="weblog-useragent.identify.parts">
     <caching apply-to="userAgent" size="100"
       output-fields="userAgentAgentName 
                      userAgentAgentType 

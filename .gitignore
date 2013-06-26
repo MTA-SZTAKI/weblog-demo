@@ -4,3 +4,7 @@
 /config/log4j.properties
 /bin/weblog-demo
 /bin/weblog-demo-debug
+/log/
+/persistence/dnsdb/
+/persistence/userdb/
+*.sh

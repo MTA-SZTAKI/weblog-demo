@@ -1,16 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
-
-  <!-- Parent POM: longneck-parent MUST BE AT ../longneck-parent/ !!! --> 
-  <parent>
-    <groupId>hu.sztaki.ilab.longneck</groupId>
-    <artifactId>longneck-parent</artifactId>
-    <version>1.0.2</version>
-    <relativePath>../longneck-parent/pom.xml</relativePath>
-  </parent>  
-  
-
   <groupId>hu.sztaki.ilab.longneck</groupId>
   <artifactId>weblog-demo</artifactId>
   <version>1.0.0-SNAPSHOT</version>
@@ -18,8 +9,91 @@
 
   <name>weblog-demo</name>
   <description>
-    Application demo for weblog processing.
+    This application demonstrates weblog processing.
   </description>
+
+  <url>https://longneck.sztaki.hu/</url>
+
+  <organization>
+    <name>MTA SZTAKI ILAB</name>
+    <url>http://dms.sztaki.hu/</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>lukacsg</id>
+      <name>Gábor Lukács</name>
+      <email>lukacsg@sztaki.mta.hu</email>
+    </developer>
+    <developer>
+      <id>molnarp</id>
+      <name>Péter Molnár</name>
+      <email>molnar.peter@sztaki.mta.hu</email>
+    </developer>
+    <developer>
+      <id>scsi</id>
+      <name>Csaba Sidló</name>
+      <email>sidlo@sztaki.mta.hu</email>
+    </developer>
+    <developer>
+      <id>tnemeth</id>
+      <name>Tibor Németh</name>
+      <email>tnemeth@sztaki.mta.hu</email>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>git://github.com/MTA-SZTAKI/weblog-demo.git</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:MTA-SZTAKI/weblog-demo.git</connection>
+    <url>https://github.com/MTA-SZTAKI/weblog-demo.git</url>
+    <developerConnection>scm:git:git@github.com:MTA-SZTAKI/weblog-demo.git</developerConnection>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>longneck</id>
+      <url>dav:http://longneck.sztaki.hu/maven/</url>
+    </repository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>codehaus</id>
+      <name>Codehaus Maven repository</name>
+      <url>http://repository.codehaus.org/</url>
+    </repository>
+    <repository>
+      <id>codehaus-nexus-snapshot</id>
+      <name>Codehaus Nexus SNAPSHOT repository</name>
+      <url>https://nexus.codehaus.org/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
+      <id>longneck</id>
+      <name>Longneck Release Repository</name>
+      <url>http://longneck.sztaki.hu/maven</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <dependencies>
     <dependency>
@@ -44,12 +118,6 @@
       <groupId>hu.sztaki.ilab.longneck</groupId>
       <artifactId>longneck-weblog</artifactId>
       <version>[1.6.0,1.7.0)</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>hu.sztaki.ilab.longneck</groupId>
-      <artifactId>longneck-userid</artifactId>
-      <version>[1.2.0,1.3.0)</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -84,7 +152,16 @@
           </archive>
         </configuration>
       </plugin>
-      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+
       <!-- Copy dependencies -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

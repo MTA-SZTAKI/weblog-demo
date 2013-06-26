@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
- 
-  <!-- 
-    Determine basic events. 
+
+  <!--
+    Determine basic events.
     Events with 2XX status code and a page-related URL extension (eg. html, php) are page views.
     Events with 3XX, 4XX, 5XX status codes are categorized as redirect, error, error respectively.
     Redirects are valid only for page-related URLs.
-    
+
     IN : requestUrl, requestUrlExtension, status
     OUT: eventGroup, event
   -->
-  <block id="determine.basic-events" version="1">
+  <block id="determine.basic-events">
     <if>
       <not>
         <exists apply-to="requestUrlExtension" />
@@ -40,34 +40,34 @@
             <set apply-to="event" value="pageview"/>
           </then>
           <else>
-            <!-- redirects: only for page requests -->   
+            <!-- redirects: only for page requests -->
             <set apply-to="event" value="redirect"/>
           </else>
         </if>
       </then>
-    </if>       
+    </if>
     <!-- erroneous events: not only for page requests -->
     <if>
       <match apply-to="status" regexp="[45]\d{2}"/>
       <then>
         <set apply-to="eventGroup" value="web"/>
         <set apply-to="event" value="error"/>
-      </then>      
-    </if> 
+      </then>
+    </if>
   </block>
-  
-  <!-- 
+
+  <!--
     Filters non-pageview log lines.
     This block filters non-pageview log lines based on the requestUrlExtension parameter.
     IN: requestUrlExtension 
   -->
-  <block id="filter.eventless-records" version="1">
+  <block id="filter.eventless-records">
     <if>
       <is-empty apply-to="eventGroup"/>
       <then>
         <filter/>
       </then>
-    </if>       
+    </if>
   </block>
 
 </block-package>

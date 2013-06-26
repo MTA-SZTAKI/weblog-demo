@@ -8,28 +8,22 @@
 CREATE TABLE weblog_event_incoming
 (
   virtual_host character varying(1000) not null,
-  virtual_host_owner character varying(2048),
   request_timestamp timestamp(6) without time zone not null,
 
   event_group character varying(2000),
   -- events: page view, displaying an email, making a contract etc.
   event character varying(2000),
-  event_subject character varying(2000),
 
   -- visitor ids: a local id valid for the given host, and a global, host-independent id
-  visitor_cookie_id character varying(2000),
-  visitor_referer_id character varying(2000),
-  visitor_global_id character varying(2000),
-  visitor_ip_agent_hash character varying(2000),
   visitor_ip character varying(15),
   visitor_hostname character varying(2048),
   visitor_ip_resolv_time timestamp(6) without time zone,
   visitor_ip_resolv_expire timestamp(6) without time zone,
 
+  http_request character varying(4000),
   inet_protocol character varying(128),
   http_method character varying(128),
   http_status_code integer,
-  http_request character varying(4000),
   http_request_cookie character varying(4000),
   http_response_cookie character varying(4000),
 
@@ -87,69 +81,6 @@ WITH (
 ALTER TABLE weblog_event_incoming_err
   OWNER TO longneck;
 
---------------------------------------------------------
---  weblog_event_incoming_p2
---------------------------------------------------------
-
--- DROP TABLE weblog_event_incoming_p2;
-
-CREATE TABLE weblog_event_incoming_p2
-(
-  virtual_host character varying(1000),
-  request_time timestamp without time zone,
-  event_group character varying(2000),
-  event character varying(2000),
-  event_subject character varying(2000),
-  visitor_referer_id integer,
-  visitor_cookie_id integer,
-  visitor_ip_agent_hash character varying(2000),
-  visitor_ip character varying(15),
-  inet_protocol character varying(128),
-  http_method character varying(128),
-  http_status_code integer,
-  http_request character varying(4000),
-  http_request_cookie character varying(2000),
-  http_response_cookie character varying(2000),
-  request_url character varying(4000),
-  request_url_parameter character varying(4000),
-  request_url_extension character varying(128),
-  referer_url character varying(4000),
-  referer_url_parameter character varying(4000),
-  referer_url_extension character varying(128),
-  agent_string character varying(4000),
-  auth_user character varying(512),
-  bytes_sent integer
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE weblog_event_incoming_p2
-  OWNER TO longneck;
-
---------------------------------------------------------
---  weblog_event_incoming_p2_err
---------------------------------------------------------
-
--- DROP TABLE weblog_event_incoming_p2_err;
-
-CREATE TABLE weblog_event_incoming_p2_err
-(
-  error_time timestamp without time zone,
-  server_host character varying(1000),
-  request_timestamp timestamp without time zone,
-  class_name character varying(256),
-  field character varying(500),
-  field_value character varying(2000),
-  details character varying(2000),
-  document_url character varying(2000),
-  document_line character varying(100),
-  document_column character varying(2000)
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE weblog_event_incoming_p2_err
-  OWNER TO longneck;
 
 --------------------------------------------------------
 -- Table: weblog_event_incoming_host

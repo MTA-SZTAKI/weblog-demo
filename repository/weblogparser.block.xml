@@ -11,7 +11,7 @@
     IN: One line 
     OUT: Divided line into fields
   -->
-  <block id="parse" version="1">
+  <block id="parse">
     <weblog-line apply-to="logLine"/>
   </block>
 </block-package>

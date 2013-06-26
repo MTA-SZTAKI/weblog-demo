@@ -52,7 +52,7 @@
 
     <copy apply-to="host_name_tmp" from="host_name" />
 
-    <block-ref id="domain-name-hierarchy:main" version="1.0">
+    <block-ref id="domain-name-hierarchy:main">
       <map from="host_name" to="domain"/>
       <map from="hier_type" to="hierarchy_type" />
       <map from="level0" to="level0" />
