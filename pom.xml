@@ -9,7 +9,7 @@
 
   <name>weblog-demo</name>
   <description>
-    This application demonstrates weblog processing.
+    Demo application for weblog processing.
   </description>
 
   <url>https://longneck.sztaki.hu/</url>
@@ -65,6 +65,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mainClass>hu.sztaki.ilab.longneck.cli.CliRunner</mainClass>
   </properties>
 
   <repositories>
@@ -138,22 +139,8 @@
 
   <build>
     <plugins>
+      <!-- Set source version to Java 6. -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <mainClass>hu.sztaki.ilab.longneck.cli.CliRunner</mainClass>
-              <classpathPrefix>lib/</classpathPrefix>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
@@ -161,11 +148,11 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-
+      
       <!-- Copy dependencies -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.8</version>
         <executions>
           <!-- Replaced this in dev mode with repo classpath expression !-->
           <execution>
@@ -175,67 +162,45 @@
               <goal>copy-dependencies</goal>
             </goals>
             <configuration>
-              <outputDirectory>${project.basedir}/templates/lib</outputDirectory>
-              <overWriteReleases>false</overWriteReleases>
-              <overWriteSnapshots>true</overWriteSnapshots>
-              <overWriteIfNewer>true</overWriteIfNewer>
+              <outputDirectory>${project.basedir}/lib</outputDirectory>
             </configuration>
           </execution> 
-          <execution>
-            <id>build-classpath</id>
-            <phase>package</phase>
-            <goals>
-              <goal>build-classpath</goal>
-            </goals>
-            <configuration>
-              <outputFile>${project.build.directory}/classpath.txt</outputFile>
-            </configuration>
-          </execution>
         </executions>
       </plugin>
 
-      <!-- Prepare project home folder -->
+      <!-- Create executables, add default configuration. -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.7</version>
         <executions>
           <execution>
             <id>prepare-distribution</id>
-            <phase>install</phase>
+            <phase>package</phase>
             <goals>
               <goal>run</goal>
             </goals>
             <configuration>
               <target>
-                <!-- Clean up distribution files -->
-                <delete>
-                  <dirset dir="${project.basedir}" includes="var" />
-                </delete>
-
                 <!-- Create directory structure -->
                 <mkdir dir="${project.basedir}/bin" />
                 <mkdir dir="${project.basedir}/config" />
                 <mkdir dir="${project.basedir}/log" />
 
                 <!-- Create executable -->
-                <copy file="templates/bin/run-longneck" tofile="${project.basedir}/bin/${project.artifactId}"
+                <copy file="templates/bin/run-longneck-dist" tofile="${project.basedir}/bin/${project.artifactId}"
                   overwrite="true" />
-                <replace file="${project.basedir}/bin/${project.artifactId}" propertyFile="templates/properties/distribution.properties">
-                  <replacefilter token="@SHAREDIR@" property="distribution.sharedir" />
+                <replace file="${project.basedir}/bin/${project.artifactId}">
                   <replacefilter token="@PACKAGE@" value="${project.build.finalName}.jar" />
-                  <replacefilter token="@MAINCLASS@" property="distribution.mainClass" />
+                  <replacefilter token="@MAINCLASS@" value="${mainClass}" />
                 </replace>
                 <chmod file="${project.basedir}/bin/${project.artifactId}" perm="755" />
 
                 <!-- Create debug executable -->
                 <copy file="templates/bin/run-longneck-debug" tofile="${project.basedir}/bin/${project.artifactId}-debug"
                   overwrite="true" />
-                <replace file="${project.basedir}/bin/${project.artifactId}-debug"
-                  propertyFile="templates/properties/distribution.properties">
-                  <replacefilter token="@SHAREDIR@" property="distribution.sharedir" />
+                <replace file="${project.basedir}/bin/${project.artifactId}-debug">
                   <replacefilter token="@PACKAGE@" value="${project.build.finalName}.jar" />
-                  <replacefilter token="@MAINCLASS@" property="distribution.mainClass" />
+                  <replacefilter token="@MAINCLASS@" value="${mainClass}" />
                 </replace>
                 <chmod file="${project.basedir}/bin/${project.artifactId}-debug" perm="755" />
 
@@ -246,12 +211,29 @@
                   <replacefilter token="@LOGDIR@" property="distribution.logdir" />
                 </replace>
                 <chmod file="${project.basedir}/bin/${project.artifactId}" perm="755" />
-
               </target>
             </configuration>
           </execution>
         </executions>
       </plugin>
+      
+      <!-- Remove jar files from lib directory (build adds them again). -->
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <filesets>
+            <fileset>
+                <directory>lib</directory>
+              <includes>
+                <include>lib/*.jar</include>
+              </includes>
+            </fileset>
+          </filesets>
+          <verbose>true</verbose>
+        </configuration>
+      </plugin>
+      
     </plugins>
   </build>
 </project>
