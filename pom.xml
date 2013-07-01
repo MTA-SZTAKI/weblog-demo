@@ -207,10 +207,8 @@
                 <!-- Create log properties -->
                 <copy file="templates/properties/log4j.properties" tofile="${project.basedir}/config/log4j.properties"
                   overwrite="false" />
-                <replace file="${project.basedir}/config/log4j.properties" propertyFile="templates/properties/distribution.properties">
-                  <replacefilter token="@LOGDIR@" property="distribution.logdir" />
-                </replace>
-                <chmod file="${project.basedir}/bin/${project.artifactId}" perm="755" />
+                <copy file="templates/properties/weblog_demo.properties" tofile="${project.basedir}/config/weblog_demo.properties"
+                  overwrite="false" />
               </target>
             </configuration>
           </execution>
