@@ -204,11 +204,17 @@
                 </replace>
                 <chmod file="${project.basedir}/bin/${project.artifactId}-debug" perm="755" />
 
-                <!-- Create log properties -->
+                <!-- Copy configuration -->
                 <copy file="templates/properties/log4j.properties" tofile="${project.basedir}/config/log4j.properties"
                   overwrite="false" />
                 <copy file="templates/properties/weblog_demo.properties" tofile="${project.basedir}/config/weblog_demo.properties"
                   overwrite="false" />
+                <copy file="templates/properties/config-common.xml" tofile="${project.basedir}/config/config.xml"
+                  overwrite="false" />
+                
+                <!-- Copy main jar -->
+                <copy file="${project.build.directory}/${project.build.finalName}.jar" todir="${project.basedir}/lib"/>
+                
               </target>
             </configuration>
           </execution>
@@ -224,7 +230,7 @@
             <fileset>
                 <directory>lib</directory>
               <includes>
-                <include>lib/*.jar</include>
+                <include>*.jar</include>
               </includes>
             </fileset>
           </filesets>

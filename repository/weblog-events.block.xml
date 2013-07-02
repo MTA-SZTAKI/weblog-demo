@@ -19,41 +19,59 @@
         <set apply-to="requestUrlExtension" value="" />
       </then>
     </if>
+    
     <!-- basic pageview events -->
-    <if>
-      <match apply-to="status" regexp="[23]\d{2}"/>
-      <not>
-        <match apply-to="requestUrl" regexp="ajax\.php"/>
-      </not>
-      <or>
-        <equals apply-to="requestUrlExtension" value="" />
-        <equals apply-to="requestUrlExtension" value="js.php" />
-        <equals apply-to="requestUrlExtension" value="jsp" />
-        <equals apply-to="requestUrlExtension" value="php" />
-        <equals apply-to="requestUrlExtension" value="html" />
-      </or>
-      <then>
-        <set apply-to="eventGroup" value="web"/>
-        <if>
-          <match apply-to="status" regexp="2\d{2}"/>
-          <then>
-            <set apply-to="event" value="pageview"/>
-          </then>
-          <else>
-            <!-- redirects: only for page requests -->
-            <set apply-to="event" value="redirect"/>
-          </else>
-        </if>
-      </then>
-    </if>
-    <!-- erroneous events: not only for page requests -->
-    <if>
-      <match apply-to="status" regexp="[45]\d{2}"/>
-      <then>
-        <set apply-to="eventGroup" value="web"/>
-        <set apply-to="event" value="error"/>
-      </then>
-    </if>
+    <switch>
+        <!-- Attacks -->
+        <case>
+          <check summary="The request url contains an encoded \0 zero character.">
+            <match apply-to="requestUrl" regexp="%00"/>
+          </check>
+          
+          <set apply-to="event" value="attack"/>
+          <replace-all apply-to="requestUrl" regexp="%00" replacement=""/>
+        </case>
+        
+        <!-- Page view events-->
+        <case>
+          <check summary="Status is 2XX or 3xx and the requested document is a pageview type.">
+            <match apply-to="status" regexp="[23]\d{2}"/>
+            <not>
+              <match apply-to="requestUrl" regexp="ajax\.php"/>
+            </not>
+            <or>
+              <equals apply-to="requestUrlExtension" value="" />
+              <equals apply-to="requestUrlExtension" value="js.php" />
+              <equals apply-to="requestUrlExtension" value="jsp" />
+              <equals apply-to="requestUrlExtension" value="php" />
+              <equals apply-to="requestUrlExtension" value="html" />
+            </or>
+          </check>
+          
+          <set apply-to="eventGroup" value="web"/>
+          <if>
+            <match apply-to="status" regexp="2\d{2}"/>
+            <then>
+              <set apply-to="event" value="pageview"/>
+            </then>
+            <else>
+              <!-- redirects: only for page requests -->
+              <set apply-to="event" value="redirect"/>
+            </else>
+          </if>
+        </case>
+        
+        <!-- erroneous events: not only for page requests -->
+        <case>
+          <check summary="Status is 4XX or 5XX.">
+            <match apply-to="status" regexp="[45]\d{2}"/>
+          </check>
+          
+          <set apply-to="eventGroup" value="web"/>
+          <set apply-to="event" value="error"/>
+        </case>
+    </switch>
+    
   </block>
 
   <!--

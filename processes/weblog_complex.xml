@@ -88,7 +88,7 @@
 
     <!-- Identify parts of user agent string -->
     <block-ref id="weblog-useragent:weblog-useragent.identify.parts">
-      <pass fields="userAgentAgentName userAgentAgentType userAgentAgentVersion userAgentLang userAgentOS 
+      <pass fields="userAgent userAgentAgentName userAgentAgentType userAgentAgentVersion userAgentLang userAgentOS 
                     userAgentOSVersion userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes userAgentDevice 
                     userAgentProcessor userAgentSWPlatform"/>
     </block-ref>
