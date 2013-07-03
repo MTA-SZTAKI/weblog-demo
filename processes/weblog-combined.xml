@@ -24,16 +24,18 @@
             agent_version, agent_language, agent_os, agent_os_version, agent_os_distro, agent_layout_engine, agent_layout_resolution,
             auth_user, bytes_sent
         ) values (
-            :virtualhost, to_timestamp(:time, 'DD/Mon/YYYY:HH24:MI:SS'), :eventGroup, :event,
+            :virtualhost, 
+            cast (:time as timestamp),
+            :eventGroup, :event,
             :clientip, :domainName, current_timestamp,
-            to_timestamp(:lookupExpiry,'YYYY-MM-DD HH24:MI:SS'),
+            cast (:lookupExpiry as timestamp),
             :requestProtType, :requestProtMethod, :status,
             :request, :requestCookie, :responseCookie, 
             :requestUrl, :requestUrlParameter, :requestUrlExtension,  
             :refererUrl, :refererUrlParameter, :refererUrlExtension,  
             :userAgent, current_timestamp, :userAgentAgentType, :userAgentDevice, :userAgentProcessor, :userAgentSWPlatform, :userAgentAgentName,
             :userAgentAgentVersion, :userAgentLang, :userAgentOS, :userAgentOSVersion, :userAgentOSDistro, :userAgentLayoutEngine, :userAgentLayoutRes,
-            :user, case when :bytesSent='-' then 0 else cast (:bytesSent as numeric) end
+            :user, case when :bytesSent='-' then 0 else cast (:bytesSent as integer) end
         )
       </insert-query>
     </database-target> 
@@ -49,7 +51,7 @@
            error_time, server_host, request_timestamp, class_name, field, field_value, 
            details, document_url, document_line, document_column
        ) values (
-          current_timestamp, :serverHost, to_timestamp(:requestTime, 'YYYY.MM.DD HH24:MI:SS'), 
+          current_timestamp, :serverHost, cast (:lookupExpiry as timestamp), 
           :class_name, :field, :value, :details, :document_url, :document_line, :document_column
        )
       </insert-query>
@@ -102,14 +104,5 @@
                     userAgentOSVersion userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes userAgentDevice 
                     userAgentProcessor userAgentSWPlatform"/>
     </block-ref>
-
-    <!-- Replace '-' with zero in bytes sent. -->
-    <if>
-      <equals apply-to="bytesSent" value="-" />
-      <then>
-        <set apply-to="bytesSent" value="0" />
-      </then>
-    </if>
-
   </blocks>
 </process>
