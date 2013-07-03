@@ -57,11 +57,21 @@
   </error-target>
 
   <blocks>
-    <block-ref id="weblogparser:parse" />
+    <!-- Mark attack urls and replace offending \0 characters with space characters. -->
+    <block-ref id="weblog-events:attack.events">
+      <pass fields="event eventGroup logLine"/>
+    </block-ref>
+    
+    <!-- Parse log line -->
+    <block-ref id="weblogparser:parse"/>
 
     <!-- Consider relevant hits only -->
-    <block-ref id="weblog-events:determine.basic-events" />
-    <block-ref id="weblog-events:filter.eventless-records" />
+    <block-ref id="weblog-events:determine.basic-events">
+      <pass fields="event eventGroup requestUrl requestUrlExtension status"/>
+    </block-ref>
+    <block-ref id="weblog-events:filter.eventless-records">
+      <pass fields="eventGroup"/>
+    </block-ref>
 
     <!-- Normalize request url -->
     <copy apply-to="requestUrl" from="requestUrlFull" />
@@ -93,6 +103,7 @@
                     userAgentProcessor userAgentSWPlatform"/>
     </block-ref>
 
+    <!-- Replace '-' with zero in bytes sent. -->
     <if>
       <equals apply-to="bytesSent" value="-" />
       <then>

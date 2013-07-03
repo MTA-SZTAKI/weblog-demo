@@ -8,8 +8,8 @@
   <!--
     The input apach logline divided into pregiven field in config.xml.
 
-    IN: One line 
-    OUT: Divided line into fields
+    IN: weblogLine
+    OUT: 
   -->
   <block id="parse">
     <weblog-line apply-to="logLine"/>

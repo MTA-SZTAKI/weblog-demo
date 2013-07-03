@@ -22,14 +22,10 @@
     
     <!-- basic pageview events -->
     <switch>
-        <!-- Attacks -->
         <case>
-          <check summary="The request url contains an encoded \0 zero character.">
-            <match apply-to="requestUrl" regexp="%00"/>
-          </check>
-          
-          <set apply-to="event" value="attack"/>
-          <replace-all apply-to="requestUrl" regexp="%00" replacement=""/>
+            <check summary="Checks, if the record has already been labeled, happens with attack urls.">
+                <not-empty apply-to="eventGroup"/>
+            </check>
         </case>
         
         <!-- Page view events-->
@@ -88,4 +84,26 @@
     </if>
   </block>
 
+  <!-- 
+    Labels log lines containing encoded NULL characters (%00) with the 'attack' label,
+    and replaces those characters with space (%20).
+    IN: weblogLine
+    OUT: weblogLine
+  -->
+  <block id="attack.events">
+    <switch>
+      <!-- Attacks -->
+      <case>
+        <check summary="The log line contains an encoded \0 zero character.">
+          <match apply-to="logLine" regexp="%00"/>
+        </check>
+  
+        <set apply-to="eventGroup" value="web"/>
+        <set apply-to="event" value="attack"/>
+        
+        <replace-all apply-to="logLine" regexp="%00" replacement="%20"/>
+      </case>
+    </switch>      
+  </block>
+  
 </block-package>
