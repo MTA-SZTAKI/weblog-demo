@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log-format xmlns="urn:parser" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- Common Log Format (CLF) 
+    
+    %v: virtual host
+    %h: remote hostname or ip address
+    %l: remote logname supplied by identd
+    %u: remote user if authenticated
+    %t: time
+    %r: first line of request
+    %s: final status code (not counting 100 CONTINUE)
+    %b: Size of response in bytes, excluding HTTP headers.
+    
+    Source: http://httpd.apache.org/docs/current/mod/mod_log_config.html#formats
+    -->
+    <log-config>%h %l %u %t \"%r\" %>s %b</log-config>
+
+</log-format>

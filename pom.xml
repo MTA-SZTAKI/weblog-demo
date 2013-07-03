@@ -209,7 +209,7 @@
                   overwrite="false" />
                 <copy file="templates/properties/weblog_demo.properties" tofile="${project.basedir}/config/weblog_demo.properties"
                   overwrite="false" />
-                <copy file="templates/properties/config-common.xml" tofile="${project.basedir}/config/config.xml"
+                <copy file="templates/logformat/config-common.xml" tofile="${project.basedir}/config/config.xml"
                   overwrite="false" />
                 
                 <!-- Copy main jar -->

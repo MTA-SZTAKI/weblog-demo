@@ -46,7 +46,12 @@
   </error-target>
 
   <blocks>
-    <set apply-to="virtualhost" value="bigdata.sztaki.hu" />
+    <!-- Mark attack urls and replace offending \0 characters with space characters. -->
+    <block-ref id="weblog-events:attack.events">
+      <pass fields="event eventGroup logLine"/>
+    </block-ref>
+    
+    <set apply-to="virtualhost" value="example.com" />
     <block-ref id="weblogparser:parse" />
 
     <!-- Consider relevant hits only -->

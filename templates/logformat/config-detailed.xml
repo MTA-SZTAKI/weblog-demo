@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log-format xmlns="urn:parser" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- "Detailed" Log Format
+    
+    %v: virtual host
+    %h: remote hostname or ip address
+    %u: remote user if authenticated
+    %l: remote logname supplied by identd
+    %t: time
+    %r: first line of request
+    %>s: final status code (not counting 100 CONTINUE)
+    %O: bytes sent, including headers
+    %{Referer}i: Value of the Referer header in the request.
+    %{User-Agenti}i: Value of the User-Agent header in the request.
+    %{Cookie}i: Cookie header received in the request.
+    %{Cookie}n: Cookie header sent in the response.
+    
+    Source: http://httpd.apache.org/docs/current/mod/mod_log_config.html#formats
+    -->
+    <log-config>%v %h %u %l %t \"%r\" %s %b \"%{Referer}i\" \"%{User-agent}i\" \"%{Cookie}i\" \"%{Cookie}n\"</log-config>
+
+</log-format>
