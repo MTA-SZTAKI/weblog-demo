@@ -19,7 +19,7 @@
           auth_user, bytes_sent
         ) values (
           :virtualhost, 
-          cast (:time as timestamp),
+          :time,
           :eventGroup, :event,
           :clientip, :domainName,
           :request, :status, :requestProtType, :requestProtMethod,
@@ -40,7 +40,9 @@
           error_time, server_host, request_timestamp, class_name,
           field, field_value, details , document_url, document_line, document_column
         ) values (
-          current_timestamp, :domain, cast (:time as timestamp), :class_name,
+          current_timestamp, :domain, 
+          :time, 
+          :class_name,
           :field, :value, :details, :document_url, :document_line, :document_column
         )
       </insert-query>

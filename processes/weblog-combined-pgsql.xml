@@ -11,7 +11,7 @@
           truncate table weblog_event_incoming
       </truncate-query>
 
-      <insert-query numeric-fields-to-convert="status">
+      <insert-query numeric-fields-to-convert="bytesSent status">
         insert into weblog_event_incoming (
             virtual_host, request_timestamp, event_group, event,
             visitor_ip, visitor_hostname, visitor_ip_resolv_time, 
@@ -25,17 +25,18 @@
             auth_user, bytes_sent
         ) values (
             :virtualhost, 
-            cast (:time as timestamp),
+            :time :: timestamp without time zone,
             :eventGroup, :event,
             :clientip, :domainName, current_timestamp,
-            cast (:lookupExpiry as timestamp),
+            :lookupExpiry :: timestamp without time zone,
             :requestProtType, :requestProtMethod, :status,
             :request, :requestCookie, :responseCookie, 
             :requestUrl, :requestUrlParameter, :requestUrlExtension,  
             :refererUrl, :refererUrlParameter, :refererUrlExtension,  
             :userAgent, current_timestamp, :userAgentAgentType, :userAgentDevice, :userAgentProcessor, :userAgentSWPlatform, :userAgentAgentName,
             :userAgentAgentVersion, :userAgentLang, :userAgentOS, :userAgentOSVersion, :userAgentOSDistro, :userAgentLayoutEngine, :userAgentLayoutRes,
-            :user, case when :bytesSent='-' then 0 else cast (:bytesSent as integer) end
+            :user, 
+            :bytesSent
         )
       </insert-query>
     </database-target> 
@@ -51,7 +52,7 @@
            error_time, server_host, request_timestamp, class_name, field, field_value, 
            details, document_url, document_line, document_column
        ) values (
-          current_timestamp, :serverHost, cast (:lookupExpiry as timestamp), 
+          current_timestamp, :serverHost, :time :: timestamp without time zone, 
           :class_name, :field, :value, :details, :document_url, :document_line, :document_column
        )
       </insert-query>
@@ -97,6 +98,12 @@
     <!-- Reverse DNS lookup -->
     <copy apply-to="ipAddress" from="clientip" />
     <dnsresolve connection-name="dnsCache" />
+    <if>
+      <not-null apply-to="lookupExpiry"/>
+      <then>
+        <datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
+      </then>
+    </if>
 
     <!-- Identify parts of user agent string -->
     <block-ref id="weblog-useragent:weblog-useragent.identify.parts">
