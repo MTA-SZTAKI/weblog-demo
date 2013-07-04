@@ -98,12 +98,7 @@
     <!-- Reverse DNS lookup -->
     <copy apply-to="ipAddress" from="clientip" />
     <dnsresolve connection-name="dnsCache" />
-    <if>
-      <not-null apply-to="lookupExpiry"/>
-      <then>
-        <datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
-      </then>
-    </if>
+    <datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
     
 
     <!-- Identify parts of user agent string -->
