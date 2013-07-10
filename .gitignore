@@ -1,10 +1,10 @@
 /target/
 /lib/*.jar
-/config/log4j.properties
-/bin/weblog-demo
-/bin/weblog-demo-debug
+/bin/weblog-demo*
 /log/
 /persistence/dnsdb/
 /persistence/userdb/
 *.sh
 /data/
+/config/*.properties
+/config/*.xml
