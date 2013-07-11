@@ -5,7 +5,13 @@
   <properties>
     <title>weblog-demo changelog</title>
     <author email="tnemeth@sztaki.mta.hu">Tibor Nemeth</author>
+    <author email="molnarp@sztaki.mta.hu">Peter Molnar</author>
   </properties>
   <body>
+    <release version="1.0.0" date="2013-07-10" description="First release.">
+      <action dev="molnarp" type="update">
+        Major review of all included processes, templates and configurations.
+      </action>      
+    </release>
   </body>
 </document>

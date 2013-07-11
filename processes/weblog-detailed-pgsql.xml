@@ -1,0 +1,110 @@
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+
+  &lt;source&gt;
+    &lt;weblog-file-source name="cli" /&gt;
+  &lt;/source&gt;
+
+  &lt;target&gt;
+    &lt;database-target connection-name="weblog_demo"&gt;
+      &lt;truncate-query&gt;
+          truncate table weblog_event_incoming
+      &lt;/truncate-query&gt;
+
+      &lt;insert-query numeric-fields-to-convert="bytesSent status"&gt;
+        insert into weblog_event_incoming (
+            virtual_host, request_timestamp, event_group, event,
+            visitor_ip, visitor_hostname, visitor_ip_resolv_time, 
+            visitor_ip_resolv_expire, 
+            inet_protocol, http_method, http_status_code,
+            http_request, http_request_cookie, http_response_cookie, 
+            request_url, request_url_parameter, request_url_extension,  
+            referer_url, referer_url_parameter, referer_url_extension, 
+            agent_string, agent_resolv_time, agent_type, agent_device, agent_processor, agent_sw_platform, agent_name, 
+            agent_version, agent_language, agent_os, agent_os_version, agent_os_distro, agent_layout_engine, agent_layout_resolution,
+            auth_user, bytes_sent
+        ) values (
+            :virtualhost, 
+            :time :: timestamp without time zone,
+            :eventGroup, :event,
+            :clientip, :domainName, current_timestamp,
+            :lookupExpiry :: timestamp without time zone,
+            :requestProtType, :requestProtMethod, :status,
+            :request, :requestCookie, :responseCookie, 
+            :requestUrl, :requestUrlParameter, :requestUrlExtension,  
+            :refererUrl, :refererUrlParameter, :refererUrlExtension,  
+            :userAgent, current_timestamp, :userAgentAgentType, :userAgentDevice, :userAgentProcessor, :userAgentSWPlatform, :userAgentAgentName,
+            :userAgentAgentVersion, :userAgentLang, :userAgentOS, :userAgentOSVersion, :userAgentOSDistro, :userAgentLayoutEngine, :userAgentLayoutRes,
+            :user, 
+            :bytesSent
+        )
+      &lt;/insert-query&gt;
+    &lt;/database-target&gt; 
+  &lt;/target&gt;
+
+  &lt;error-target&gt;
+    &lt;database-target connection-name="weblog_demo"&gt;
+      &lt;truncate-query&gt;
+        truncate table weblog_event_incoming_err
+      &lt;/truncate-query&gt;
+      &lt;insert-query&gt;
+       insert into weblog_event_incoming_err ( 
+           error_time, server_host, request_timestamp, class_name, field, field_value, 
+           details, document_url, document_line, document_column
+       ) values (
+          current_timestamp, :serverHost, :time :: timestamp without time zone, 
+          :class_name, :field, :value, :details, :document_url, :document_line, :document_column
+       )
+      &lt;/insert-query&gt;
+    &lt;/database-target&gt;
+  &lt;/error-target&gt;
+
+  &lt;blocks&gt;
+    &lt;!-- Mark attack urls and replace offending \0 characters with space characters. --&gt;
+    &lt;block-ref id="weblog-events:attack.events"&gt;
+      &lt;pass fields="event eventGroup logLine"/&gt;
+    &lt;/block-ref&gt;
+    
+    &lt;!-- Parse log line --&gt;
+    &lt;block-ref id="weblogparser:parse"/&gt;
+
+    &lt;!-- Consider relevant hits only --&gt;
+    &lt;block-ref id="weblog-events:determine.basic-events"&gt;
+      &lt;pass fields="event eventGroup requestUrl requestUrlExtension status"/&gt;
+    &lt;/block-ref&gt;
+    &lt;block-ref id="weblog-events:filter.eventless-records"&gt;
+      &lt;pass fields="eventGroup"/&gt;
+    &lt;/block-ref&gt;
+
+    &lt;!-- Normalize request url --&gt;
+    &lt;copy apply-to="requestUrl" from="requestUrlFull" /&gt;
+
+    &lt;block-ref id="url-normalize:main" version="2.0"&gt;
+      &lt;map from="requestUrl" to="url" /&gt;
+    &lt;/block-ref&gt;
+
+    &lt;!-- Normalize referer url --&gt;
+    &lt;if&gt;
+      &lt;equals apply-to="refererUrlFull" value="-" /&gt;
+      &lt;then&gt;
+        &lt;set-null apply-to="refererUrlFull" /&gt;
+      &lt;/then&gt;
+    &lt;/if&gt;
+    &lt;copy apply-to="refererUrl" from="refererUrlFull" /&gt;
+    &lt;block-ref id="url-normalize:main" version="2.0"&gt;
+      &lt;map from="refererUrl" to="url" /&gt;
+    &lt;/block-ref&gt;
+
+    &lt;!-- Reverse DNS lookup --&gt;
+    &lt;copy apply-to="ipAddress" from="clientip" /&gt;
+    &lt;dnsresolve connection-name="dnsCache" /&gt;
+    &lt;datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/&gt;
+
+    &lt;!-- Identify parts of user agent string --&gt;
+    &lt;block-ref id="weblog-useragent:weblog-useragent.identify.parts"&gt;
+      &lt;pass fields="userAgent userAgentAgentName userAgentAgentType userAgentAgentVersion userAgentLang userAgentOS 
+                    userAgentOSVersion userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes userAgentDevice 
+                    userAgentProcessor userAgentSWPlatform"/&gt;
+    &lt;/block-ref&gt;
+  &lt;/blocks&gt;
+&lt;/process&gt;
