@@ -1,17 +1,17 @@
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-  &lt;source&gt;
-    &lt;weblog-file-source name="cli" /&gt;
-  &lt;/source&gt;
+  <source>
+    <weblog-file-source name="cli" />
+  </source>
 
-  &lt;target&gt;
-    &lt;database-target connection-name="weblog_demo"&gt;
-      &lt;truncate-query&gt;
+  <target>
+    <database-target connection-name="weblog_demo">
+      <truncate-query>
           truncate table weblog_event_incoming
-      &lt;/truncate-query&gt;
+      </truncate-query>
 
-      &lt;insert-query numeric-fields-to-convert="bytesSent status"&gt;
+      <insert-query numeric-fields-to-convert="bytesSent status">
         insert into weblog_event_incoming (
             virtual_host, request_timestamp, event_group, event,
             visitor_ip, visitor_hostname, visitor_ip_resolv_time, 
@@ -38,16 +38,16 @@
             :user, 
             :bytesSent
         )
-      &lt;/insert-query&gt;
-    &lt;/database-target&gt; 
-  &lt;/target&gt;
+      </insert-query>
+    </database-target> 
+  </target>
 
-  &lt;error-target&gt;
-    &lt;database-target connection-name="weblog_demo"&gt;
-      &lt;truncate-query&gt;
+  <error-target>
+    <database-target connection-name="weblog_demo">
+      <truncate-query>
         truncate table weblog_event_incoming_err
-      &lt;/truncate-query&gt;
-      &lt;insert-query&gt;
+      </truncate-query>
+      <insert-query>
        insert into weblog_event_incoming_err ( 
            error_time, server_host, request_timestamp, class_name, field, field_value, 
            details, document_url, document_line, document_column
@@ -55,56 +55,56 @@
           current_timestamp, :serverHost, :time :: timestamp without time zone, 
           :class_name, :field, :value, :details, :document_url, :document_line, :document_column
        )
-      &lt;/insert-query&gt;
-    &lt;/database-target&gt;
-  &lt;/error-target&gt;
+      </insert-query>
+    </database-target>
+  </error-target>
 
-  &lt;blocks&gt;
-    &lt;!-- Mark attack urls and replace offending \0 characters with space characters. --&gt;
-    &lt;block-ref id="weblog-events:attack.events"&gt;
-      &lt;pass fields="event eventGroup logLine"/&gt;
-    &lt;/block-ref&gt;
+  <blocks>
+    <!-- Mark attack urls and replace offending \0 characters with space characters. -->
+    <block-ref id="weblog-events:attack.events">
+      <pass fields="event eventGroup logLine"/>
+    </block-ref>
     
-    &lt;!-- Parse log line --&gt;
-    &lt;block-ref id="weblogparser:parse"/&gt;
+    <!-- Parse log line -->
+    <block-ref id="weblogparser:parse"/>
 
-    &lt;!-- Consider relevant hits only --&gt;
-    &lt;block-ref id="weblog-events:determine.basic-events"&gt;
-      &lt;pass fields="event eventGroup requestUrl requestUrlExtension status"/&gt;
-    &lt;/block-ref&gt;
-    &lt;block-ref id="weblog-events:filter.eventless-records"&gt;
-      &lt;pass fields="eventGroup"/&gt;
-    &lt;/block-ref&gt;
+    <!-- Consider relevant hits only -->
+    <block-ref id="weblog-events:determine.basic-events">
+      <pass fields="event eventGroup requestUrl requestUrlExtension status"/>
+    </block-ref>
+    <block-ref id="weblog-events:filter.eventless-records">
+      <pass fields="eventGroup"/>
+    </block-ref>
 
-    &lt;!-- Normalize request url --&gt;
-    &lt;copy apply-to="requestUrl" from="requestUrlFull" /&gt;
+    <!-- Normalize request url -->
+    <copy apply-to="requestUrl" from="requestUrlFull" />
 
-    &lt;block-ref id="url-normalize:main" version="2.0"&gt;
-      &lt;map from="requestUrl" to="url" /&gt;
-    &lt;/block-ref&gt;
+    <block-ref id="url-normalize:main" version="2.0">
+      <map from="requestUrl" to="url" />
+    </block-ref>
 
-    &lt;!-- Normalize referer url --&gt;
-    &lt;if&gt;
-      &lt;equals apply-to="refererUrlFull" value="-" /&gt;
-      &lt;then&gt;
-        &lt;set-null apply-to="refererUrlFull" /&gt;
-      &lt;/then&gt;
-    &lt;/if&gt;
-    &lt;copy apply-to="refererUrl" from="refererUrlFull" /&gt;
-    &lt;block-ref id="url-normalize:main" version="2.0"&gt;
-      &lt;map from="refererUrl" to="url" /&gt;
-    &lt;/block-ref&gt;
+    <!-- Normalize referer url -->
+    <if>
+      <equals apply-to="refererUrlFull" value="-" />
+      <then>
+        <set-null apply-to="refererUrlFull" />
+      </then>
+    </if>
+    <copy apply-to="refererUrl" from="refererUrlFull" />
+    <block-ref id="url-normalize:main" version="2.0">
+      <map from="refererUrl" to="url" />
+    </block-ref>
 
-    &lt;!-- Reverse DNS lookup --&gt;
-    &lt;copy apply-to="ipAddress" from="clientip" /&gt;
-    &lt;dnsresolve connection-name="dnsCache" /&gt;
-    &lt;datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/&gt;
+    <!-- Reverse DNS lookup -->
+    <copy apply-to="ipAddress" from="clientip" />
+    <dnsresolve connection-name="dnsCache" />
+    <datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
 
-    &lt;!-- Identify parts of user agent string --&gt;
-    &lt;block-ref id="weblog-useragent:weblog-useragent.identify.parts"&gt;
-      &lt;pass fields="userAgent userAgentAgentName userAgentAgentType userAgentAgentVersion userAgentLang userAgentOS 
+    <!-- Identify parts of user agent string -->
+    <block-ref id="weblog-useragent:weblog-useragent.identify.parts">
+      <pass fields="userAgent userAgentAgentName userAgentAgentType userAgentAgentVersion userAgentLang userAgentOS 
                     userAgentOSVersion userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes userAgentDevice 
-                    userAgentProcessor userAgentSWPlatform"/&gt;
-    &lt;/block-ref&gt;
-  &lt;/blocks&gt;
-&lt;/process&gt;
+                    userAgentProcessor userAgentSWPlatform"/>
+    </block-ref>
+  </blocks>
+</process>
