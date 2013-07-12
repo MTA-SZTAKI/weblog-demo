@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+  <properties>
+    <title>weblog-demo changelog</title>
+    <author email="tnemeth@sztaki.mta.hu">Tibor Nemeth</author>
+    <author email="molnarp@sztaki.mta.hu">Peter Molnar</author>
+  </properties>
+  <body>
+    <release version="1.0.0" date="2013-07-10" description="First release.">
+      <action dev="molnarp" type="update">
+        Major review of all included processes, templates and configurations.
+      </action>      
+    </release>
+  </body>
+</document>

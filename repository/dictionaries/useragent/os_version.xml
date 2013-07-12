@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Source : http://user-agent-string.info Note: elemets order is important! -->
+
+  <element>
+    <key regexp="true">.*(?:AIX\s)([\w\.]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Amiga -->
+  <element>
+    <key regexp="true">.*(?:AmigaVoyager)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Amiga-AWeb)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Android)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Chromium OS -->
+  <element>
+    <key regexp="true">.*(?:CrOS\si\d{3}\s)([\d\.\d]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Danger
+      hiptop)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:iPhone
+      OS)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:IRIX64|IRIX)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Jolicloud)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Linux distributions -->
+
+  <element>
+    <key regexp="true">.*(?:CentOS)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Debian
+      package\s|Debian)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Fedora)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Linux\s)([^-].+(?:gentoo|kanotix)\S*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Mandriva
+      Linux|Mandriva)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Linux
+      Mint)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Red
+      Hat)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Slackware)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:SUSE)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Ubuntu)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Kubuntu package|Kubuntu)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:PCLinuxOS)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:SunOS)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Mac OS -->
+
+  <element>
+    <key regexp="true">.*(?:Mac OS X)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Darwin)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <!-- MSN WebTV -->
+  <element>
+    <key regexp="true">.*(?:WebTV)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*OS/2;.*(Warp\s\d\.\d).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Palm
+      OS)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:SymbianOS)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Symbian)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">^(?=.*?(?:iPad|iPhone)).*?(?=.*?(?:CPU\sOS\s)(([\d\.\_\d]*)))(?=.*?(?:iPad|iPhone)).*?$</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:webOS)(?:[-\/\s]{0,1})(\w+\s\d+|]|[\d\:\.\-\+\d|\w]*).*</key>
+    <val>$1</val>
+  </element>
+
+
+  <!-- Windows -->
+
+  <element>
+    <key regexp="true">Windows NT 5.0|Windows 2000</key>
+    <val>2000</val>
+  </element>
+
+  <element>
+    <key>Windows 2000</key>
+    <val>2000</val>
+  </element>
+
+  <element>
+    <key>Windows NT 5.01</key>
+    <val>2000, Service Pack 1 (SP1)</val>
+  </element>
+
+  <element>
+    <key>Windows NT 5.2</key>
+    <val>Server 2003; XP x64 Edition</val>
+  </element>
+
+  <element>
+    <key>Windows 3.1</key>
+    <val>3.1</val>
+  </element>
+
+  <element>
+    <key>Win3.11</key>
+    <val>3.11</val>
+  </element>
+
+  <element>
+    <key regexp="true">Windows 7|Windows NT 6.1</key>
+    <val>Windows 7</val>
+  </element>
+
+  <element>
+    <key>Windows NT 6.1</key>
+    <val>Windows 7</val>
+  </element>
+
+  <element>
+    <key>Windows NT 6.2</key>
+    <val>Windows 8</val>
+  </element>
+
+  <element>
+    <key>Windows 95</key>
+    <val>95</val>
+  </element>
+
+  <element>
+    <key>Win95</key>
+    <val>95</val>
+  </element>
+
+  <element>
+    <key>Windows 98</key>
+    <val>98</val>
+  </element>
+
+  <element>
+    <key>Win98</key>
+    <val>98</val>
+  </element>
+
+  <element>
+    <key>Windows CE</key>
+    <val>CE</val>
+  </element>
+
+  <element>
+    <key>Win 9x 4.90</key>
+    <val>ME</val>
+  </element>
+
+  <element>
+    <key>WinNT</key>
+    <val>NT</val>
+  </element>
+
+  <element>
+    <key>Windows-NT</key>
+    <val>NT</val>
+  </element>
+
+  <element>
+    <key>WinNT3.51</key>
+    <val>NT 3.11</val>
+  </element>
+
+  <element>
+    <key>Windows NT 4.0</key>
+    <val>NT 4.0</val>
+  </element>
+
+  <element>
+    <key>WinNT4.0</key>
+    <val>NT 4.0</val>
+  </element>
+
+  <element>
+    <key>HTC_</key>
+    <val>Windows Phone 7</val>
+  </element>
+
+  <element>
+    <key>XBLWP7</key>
+    <val>Windows Phone 7</val>
+  </element>
+
+  <element>
+    <key>ZuneWP7</key>
+    <val>Windows Phone 7</val>
+  </element>
+
+  <element>
+    <key>Windows Phone OS 7.5</key>
+    <val>Windows Phone 7</val>
+  </element>
+
+  <element>
+    <key>Windows NT 6.0</key>
+    <val>Vista</val>
+  </element>
+
+  <element>
+    <key>Windows NT 5.1</key>
+    <val>XP</val>
+  </element>
+
+</dictionary-elements>

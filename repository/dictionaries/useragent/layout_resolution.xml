@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Source : http://user-agent-string.info -->
+  <element>
+    <key regexp="true">.*?(\d{1,4}+x\d{1,4}\-?\d?).*</key>
+    <val>$1</val>
+  </element>
+
+</dictionary-elements>

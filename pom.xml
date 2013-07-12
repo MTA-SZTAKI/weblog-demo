@@ -1,0 +1,259 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>hu.sztaki.ilab.longneck</groupId>
+  <artifactId>weblog-demo</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>weblog-demo</name>
+  <description>
+    Demo application for weblog processing.
+  </description>
+
+  <url>https://longneck.sztaki.hu/</url>
+
+  <organization>
+    <name>MTA SZTAKI ILAB</name>
+    <url>http://dms.sztaki.hu/</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>lukacsg</id>
+      <name>Gábor Lukács</name>
+      <email>lukacsg@sztaki.mta.hu</email>
+    </developer>
+    <developer>
+      <id>molnarp</id>
+      <name>Péter Molnár</name>
+      <email>molnar.peter@sztaki.mta.hu</email>
+    </developer>
+    <developer>
+      <id>scsi</id>
+      <name>Csaba Sidló</name>
+      <email>sidlo@sztaki.mta.hu</email>
+    </developer>
+    <developer>
+      <id>tnemeth</id>
+      <name>Tibor Németh</name>
+      <email>tnemeth@sztaki.mta.hu</email>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>git://github.com/MTA-SZTAKI/weblog-demo.git</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:MTA-SZTAKI/weblog-demo.git</connection>
+    <url>https://github.com/MTA-SZTAKI/weblog-demo.git</url>
+    <developerConnection>scm:git:git@github.com:MTA-SZTAKI/weblog-demo.git</developerConnection>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>longneck</id>
+      <url>dav:http://longneck.sztaki.hu/maven/</url>
+    </repository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mainClass>hu.sztaki.ilab.longneck.cli.CliRunner</mainClass>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>codehaus</id>
+      <name>Codehaus Maven repository</name>
+      <url>http://repository.codehaus.org/</url>
+    </repository>
+    <repository>
+      <id>codehaus-nexus-snapshot</id>
+      <name>Codehaus Nexus SNAPSHOT repository</name>
+      <url>https://nexus.codehaus.org/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
+      <id>longneck</id>
+      <name>Longneck Release Repository</name>
+      <url>http://longneck.sztaki.hu/maven</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>hu.sztaki.ilab.longneck</groupId>
+      <artifactId>longneck-core</artifactId>
+      <version>[1.7.0,1.8.0)</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>hu.sztaki.ilab.longneck</groupId>
+      <artifactId>longneck-lookup</artifactId>
+      <version>[1.5.0,1.6.0)</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>hu.sztaki.ilab.longneck</groupId>
+      <artifactId>longneck-dns</artifactId>
+      <version>[1.4.0,1.5.0)</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>hu.sztaki.ilab.longneck</groupId>
+      <artifactId>longneck-weblog</artifactId>
+      <version>[1.6.0,1.7.0)</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.1-901-1.jdbc4</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- test -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Set source version to Java 6. -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      
+      <!-- Copy dependencies -->
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.8</version>
+        <executions>
+          <!-- Replaced this in dev mode with repo classpath expression !-->
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.basedir}/lib</outputDirectory>
+            </configuration>
+          </execution> 
+        </executions>
+      </plugin>
+
+      <!-- Create executables, add default configuration. -->
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <id>prepare-distribution</id>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <!-- Create directory structure -->
+                <mkdir dir="${project.basedir}/bin" />
+                <mkdir dir="${project.basedir}/config" />
+                <mkdir dir="${project.basedir}/log" />
+
+                <!-- Create executable -->
+                <copy file="templates/bin/run-longneck-dist" tofile="${project.basedir}/bin/${project.artifactId}"
+                  overwrite="true" />
+                <replace file="${project.basedir}/bin/${project.artifactId}">
+                  <replacefilter token="@PACKAGE@" value="${project.build.finalName}.jar" />
+                  <replacefilter token="@MAINCLASS@" value="${mainClass}" />
+                </replace>
+                <chmod file="${project.basedir}/bin/${project.artifactId}" perm="755" />
+
+                <!-- Create debug executable -->
+                <copy file="templates/bin/run-longneck-debug" tofile="${project.basedir}/bin/${project.artifactId}-debug"
+                  overwrite="true" />
+                <replace file="${project.basedir}/bin/${project.artifactId}-debug">
+                  <replacefilter token="@PACKAGE@" value="${project.build.finalName}.jar" />
+                  <replacefilter token="@MAINCLASS@" value="${mainClass}" />
+                </replace>
+                <chmod file="${project.basedir}/bin/${project.artifactId}-debug" perm="755" />
+
+                <!-- Copy configuration -->
+                <copy file="templates/properties/log4j.properties" tofile="${project.basedir}/config/log4j.properties"
+                  overwrite="false" />
+                <copy file="templates/properties/weblog_demo.properties" tofile="${project.basedir}/config/weblog_demo.properties"
+                  overwrite="false" />
+                <copy file="templates/logformat/config-common.xml" tofile="${project.basedir}/config/config.xml"
+                  overwrite="false" />
+                
+                <!-- Copy main jar -->
+                <copy file="${project.build.directory}/${project.build.finalName}.jar" todir="${project.basedir}/lib"/>
+                
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <!-- Remove jar files from lib directory (build adds them again). -->
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <filesets>
+            <fileset>
+                <directory>lib</directory>
+              <includes>
+                <include>*.jar</include>
+              </includes>
+            </fileset>
+          </filesets>
+          <verbose>true</verbose>
+        </configuration>
+      </plugin>
+      
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>mysql</id>
+      <activation>
+        <activeByDefault/>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>5.1.25</version>
+          <scope>compile</scope>
+        </dependency>
+      </dependencies>          
+    </profile>
+  </profiles>
+</project>

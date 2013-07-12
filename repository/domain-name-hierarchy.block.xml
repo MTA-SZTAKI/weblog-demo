@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- 
+    Assembling domain name label-based hierarchy; 
+    eg. dms.sztaki.hu: level0: hu, level1: sztaki, level2: dms
+
+    IN: domain
+    OUT: domain, hierarchy_type, level0, level1, level2,...level15
+  -->
+  <block id="main">
+    <block-ref id="domain-name-hierarchy:domain-parts" />
+    <block-ref id="domain-name-hierarchy:domain-hierarchy" />
+  </block>
+
+  <!--
+    Add type of hierarchy is labels
+
+    IN: -
+    OUT: hierarchy
+  -->
+  <block id="domain-hierarchy">
+    <set apply-to="hierarchy_type" value="labels" />
+  </block>
+  
+  <!--
+    Remains only the domain without http:// and path
+
+    IN: url
+    OUT: domain
+  -->
+  <block id="cut-domain">
+    <match-extract apply-to="url" regexp="^[^\:]*\:\/\/([^\/]*).*$">
+      <copy apply-to="domain" from="$1" />
+    </match-extract>
+  </block>
+
+  <!--
+    Segregate domain parts
+
+    IN: domain
+    OUT: level0, level1, level2,...level15, domain
+  -->
+  <block id="domain-parts">
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level0" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level1" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level2" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level3" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level4" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level5" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level6" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level7" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level8" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level9" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level10" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level11" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level12" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level13" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level14" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+    <match-extract apply-to="domain" regexp="^(.*?)(?:\.)?([^\.]*)$">
+      <if>
+        <not-null apply-to="$2"/>
+        <then>
+          <copy apply-to="level15" from="$2" />
+        </then>
+      </if>
+      <if>
+        <is-null apply-to="$1"/>
+        <then>
+          <break />
+        </then>
+        <else>
+          <copy apply-to="domain" from="$1" />
+        </else>
+      </if>
+    </match-extract>
+  </block>
+
+</block-package>

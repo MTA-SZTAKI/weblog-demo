@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 ../dictionaryFileSource.xsd">
+
+  <!-- Source : http://user-agent-string.info Note: elemets order is important! -->
+
+  <element>
+    <key>Windows</key>
+    <val>WINDOWS</val>
+  </element>
+
+  <element>
+    <key>Win32</key>
+    <val>WINDOWS</val>
+  </element>
+
+  <element>
+    <key>X11</key>
+    <val>UNIX</val>
+  </element>
+
+  <element>
+    <key>SunOS</key>
+    <val>UNIX</val>
+  </element>
+
+  <element>
+    <key>Android</key>
+    <val>UNIX</val>
+  </element>
+
+  <element>
+    <key>Linux</key>
+    <val>UNIX</val>
+  </element>
+
+  <element>
+    <key>FreeBSD</key>
+    <val>UNIX</val>
+  </element>
+
+  <element>
+    <key>OpenBSD</key>
+    <val>UNIX</val>
+  </element>
+
+  <element>
+    <key>BSD</key>
+    <val>UNIX</val>
+  </element>
+
+  <element>
+    <key>IRIX</key>
+    <val>UNIX</val>
+  </element>
+
+  <element>
+    <key>Series60</key>
+    <val>Series60</val>
+  </element>
+
+  <element>
+    <key>Series40</key>
+    <val>Series40</val>
+  </element>
+
+  <element>
+    <key>AmigaOS</key>
+    <val>AMIGA</val>
+  </element>
+
+  <element>
+    <key>BeOS</key>
+    <val>BEOS</val>
+  </element>
+
+  <element>
+    <key>OS/2</key>
+    <val>OS2</val>
+  </element>
+
+  <element>
+    <key>Macintosh</key>
+    <val>MACINTOSH</val>
+  </element>
+
+  <element>
+    <key>Mac OS</key>
+    <val>MACINTOSH</val>
+  </element>
+
+  <element>
+    <key>Darwin</key>
+    <val>MACINTOSH</val>
+  </element>
+
+</dictionary-elements> 

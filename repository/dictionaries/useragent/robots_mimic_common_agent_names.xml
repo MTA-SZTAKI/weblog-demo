@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Robots having common agent names in their user agent strings. E.g:
+    Consider the following user agent string: Mozilla/5.0 (compatible; Butterfly/1.0;
+    +http://labs.topsy.com/butterfly/) Gecko/2009032608 Firefox/3.0.8 -> First
+    the agent type is recognized as STANDARD_BROWSER (see dictionary 'agent_type')
+    due to its substring 'Firefox' , but further checking against this dictionary
+    clearly shows that the agent is actually a ROBOT. This dictionary sets the
+    real agent name Source : http://user-agent-string.info -->
+
+  <!-- Robots containing 'Safari' -->
+  <element>
+    <key>libwww-perl</key>
+    <val>libwww-perl</val>
+  </element>
+
+  <element>
+    <key>libwww</key>
+    <val>libwww</val>
+  </element>
+
+  <!-- Robots containing 'Firefox' -->
+  <element>
+    <key>Butterfly</key>
+    <val>Butterfly</val>
+  </element>
+
+  <element>
+    <key>Daumoa</key>
+    <val>Daumoa</val>
+  </element>
+
+  <element>
+    <key>flipboard</key>
+    <val>flipboard</val>
+  </element>
+
+  <element>
+    <key>SnapPreviewBot</key>
+    <val>SnapPreviewBot</val>
+  </element>
+
+  <element>
+    <key>Spinn3r</key>
+    <val>Spinn3r</val>
+  </element>
+
+  <element>
+    <key>Thumbshots.ru</key>
+    <val>Thumbshots.ru</val>
+  </element>
+
+  <element>
+    <key>trendictionbot</key>
+    <val>trendictionbot</val>
+  </element>
+
+  <!-- Robots containing 'MSIE' -->
+
+  <element>
+    <key>BecomeBot</key>
+    <val>BecomeBot</val>
+  </element>
+
+  <element>
+    <key>ChangeDetection</key>
+    <val>ChangeDetection</val>
+  </element>
+
+  <element>
+    <key>DomainDB</key>
+    <val>DomainDB</val>
+  </element>
+
+  <element>
+    <key>EDI</key>
+    <val>EDI</val>
+  </element>
+
+  <element>
+    <key>FairShare</key>
+    <val>FairShare</val>
+  </element>
+
+  <element>
+    <key>FeedFinder</key>
+    <val>FeedFinder</val>
+  </element>
+
+  <element>
+    <key>Girafabot</key>
+    <val>Girafabot</val>
+  </element>
+
+  <element>
+    <key>HuaweiSymantecSpider</key>
+    <val>HuaweiSymantecSpider</val>
+  </element>
+
+  <element>
+    <key>IRLbot</key>
+    <val>IRLbot</val>
+  </element>
+
+  <element>
+    <key>NuSearch Spider</key>
+    <val>NuSearch Spider</val>
+  </element>
+
+  <element>
+    <key>oBot</key>
+    <val>oBot</val>
+  </element>
+
+  <element>
+    <key>schibstedsokbot</key>
+    <val>schibstedsokbot</val>
+  </element>
+
+  <element>
+    <key>StackRambler</key>
+    <val>StackRambler</val>
+  </element>
+
+  <element>
+    <key>VERASYS 2k</key>
+    <val>VERASYS 2k</val>
+  </element>
+
+  <element>
+    <key>VoilaBot</key>
+    <val>VoilaBot</val>
+  </element>
+
+  <element>
+    <key>Y!J-BRO/YFSJ</key>
+    <val>Y!J-BRO/YFSJ</val>
+  </element>
+
+</dictionary-elements>

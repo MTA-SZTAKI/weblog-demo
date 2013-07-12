@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Source : http://user-agent-string.info Note: elemets order is important! -->
+
+  <element>
+    <key>Windows</key>
+    <val>Microsoft Windows</val>
+  </element>
+
+  <element>
+    <key>Win32</key>
+    <val>Microsoft Windows</val>
+  </element>
+
+  <element>
+    <key>Mac OS</key>
+    <val>MacOS</val>
+  </element>
+
+  <element>
+    <key>Macintosh</key>
+    <val>MacOS</val>
+  </element>
+
+  <element>
+    <key>Darwin</key>
+    <val>MacOS</val>
+  </element>
+
+
+  <element>
+    <key>Amiga</key>
+    <val>AmigaOS</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*?([a-zA-Z]+BSD).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key>IRIX</key>
+    <val>Irix</val>
+  </element>
+
+  <element>
+    <key>OS/2</key>
+    <val>OS/2</val>
+  </element>
+
+  <element>
+    <key>BeOS</key>
+    <val>BeOS</val>
+  </element>
+
+  <element>
+    <key>AROS</key>
+    <val>AROS</val>
+  </element>
+
+  <element>
+    <key>Danger Hiptop</key>
+    <val>Danger Hiptop</val>
+  </element>
+
+  <element>
+    <key>HP-UX</key>
+    <val>HP-UX</val>
+  </element>
+
+  <element>
+    <key>Jolicloud</key>
+    <val>Jolicloud</val>
+  </element>
+
+  <element>
+    <key>Minix</key>
+    <val>Minix</val>
+  </element>
+
+  <element>
+    <key>MorphOS</key>
+    <val>MorphOS</val>
+  </element>
+
+  <element>
+    <key>WebTV</key>
+    <val>WebTV</val>
+  </element>
+
+  <element>
+    <key>Nintendo DS</key>
+    <val>Nintendo DS</val>
+  </element>
+
+  <element>
+    <key>Nintendo Wii</key>
+    <val>Nintendo Wii</val>
+  </element>
+
+  <element>
+    <key>PCLinuxOS</key>
+    <val>PCLinuxOS</val>
+  </element>
+
+  <element>
+    <key>QNX</key>
+    <val>QNX</val>
+  </element>
+
+  <element>
+    <key>ABrowse</key>
+    <val>ABrowse</val>
+  </element>
+
+  <element>
+    <key>SunOS</key>
+    <val>Solaris</val>
+  </element>
+
+  <element>
+    <key>webOS</key>
+    <val>Palm OS</val>
+  </element>
+
+  <element>
+    <key>Palm OS</key>
+    <val>Palm OS</val>
+  </element>
+
+  <element>
+    <key>SymbOS</key>
+    <val>Symbian OS</val>
+  </element>
+
+  <element>
+    <key>PlayStation</key>
+    <val>XrossMediaBar (XMB)</val>
+  </element>
+
+  <element>
+    <key>PLAYSTATION</key>
+    <val>XrossMediaBar (XMB)</val>
+  </element>
+
+  <element>
+    <key>CrOS</key>
+    <val>Chromium OS</val>
+  </element>
+
+  <element>
+    <key>GNU</key>
+    <val>GNU OS</val>
+  </element>
+
+  <element>
+    <key>Haiku</key>
+    <val>Haiku OS</val>
+  </element>
+
+  <element>
+    <key>iPhone</key>
+    <val>iPhone OS</val>
+  </element>
+
+  <element>
+    <key>iPad</key>
+    <val>iPhone OS</val>
+  </element>
+
+  <element>
+    <key>Android</key>
+    <val>Android</val>
+  </element>
+
+  <!-- Common OS type (if categories above don't fit) -->
+
+  <element>
+    <key>Linux</key>
+    <val>Linux</val>
+  </element>
+
+</dictionary-elements>

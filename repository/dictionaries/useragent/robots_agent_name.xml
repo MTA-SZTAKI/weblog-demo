@@ -1,0 +1,2048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 ../dictionaryFileSource.xsd">
+
+  <!-- Source : http://user-agent-string.info -->
+
+  <element>
+    <key>192.comAgent</key>
+    <val>192.comAgent</val>
+  </element>
+
+  <element>
+    <key>abby</key>
+    <val>abby</val>
+  </element>
+
+  <element>
+    <key>Abrave Spider</key>
+    <val>Abrave Spider</val>
+  </element>
+
+  <element>
+    <key>Acoon-Robot</key>
+    <val>Acoon-Robot</val>
+  </element>
+
+  <element>
+    <key>AdsBot-Google</key>
+    <val>AdsBot-Google</val>
+  </element>
+
+  <element>
+    <key>aippie</key>
+    <val>aippie</val>
+  </element>
+
+  <element>
+    <key>Amagit.COM</key>
+    <val>Amagit.COM</val>
+  </element>
+
+  <element>
+    <key>AntBot</key>
+    <val>AntBot</val>
+  </element>
+
+  <element>
+    <key>Ant.com Toolbar</key>
+    <val>Ant.com Toolbar</val>
+  </element>
+
+  <element>
+    <key>archive.org_bot</key>
+    <val>archive.org_bot</val>
+  </element>
+
+  <element>
+    <key>BabalooSpider</key>
+    <val>BabalooSpider</val>
+  </element>
+
+  <element>
+    <key>baypup</key>
+    <val>baypup</val>
+  </element>
+
+  <element>
+    <key>BecomeBot</key>
+    <val>BecomeBot</val>
+  </element>
+
+  <element>
+    <key>bitlybot</key>
+    <val>bitlybot</val>
+  </element>
+
+  <element>
+    <key>Blaiz-Bee</key>
+    <val>Blaiz-Bee</val>
+  </element>
+
+  <element>
+    <key>BlogPulse</key>
+    <val>BlogPulse</val>
+  </element>
+
+  <element>
+    <key>BotOnParade</key>
+    <val>BotOnParade</val>
+  </element>
+
+  <element>
+    <key>Butterfly</key>
+    <val>Butterfly</val>
+  </element>
+
+  <element>
+    <key>CatchBot</key>
+    <val>CatchBot</val>
+  </element>
+
+  <element>
+    <key>ccubee</key>
+    <val>ccubee</val>
+  </element>
+
+  <element>
+    <key>City4you</key>
+    <val>City4you</val>
+  </element>
+
+  <element>
+    <key>CligooRobot</key>
+    <val>CligooRobot</val>
+  </element>
+
+  <element>
+    <key>copyright sheriff</key>
+    <val>copyright sheriff</val>
+  </element>
+
+  <element>
+    <key>Crawler4j</key>
+    <val>Crawler4j</val>
+  </element>
+
+  <element>
+    <key>DataparkSearch</key>
+    <val>DataparkSearch</val>
+  </element>
+
+  <element>
+    <key>DealGates Bot</key>
+    <val>DealGates Bot</val>
+  </element>
+
+  <element>
+    <key>discobot</key>
+    <val>discobot</val>
+  </element>
+
+  <element>
+    <key>DomainDB</key>
+    <val>DomainDB</val>
+  </element>
+
+  <element>
+    <key>DuckDuckBot</key>
+    <val>DuckDuckBot</val>
+  </element>
+
+  <element>
+    <key>EDI</key>
+    <val>EDI</val>
+  </element>
+
+  <element>
+    <key>EnaBot</key>
+    <val>EnaBot</val>
+  </element>
+
+  <element>
+    <key>EuripBot</key>
+    <val>EuripBot</val>
+  </element>
+
+  <element>
+    <key>Exabot</key>
+    <val>Exabot</val>
+  </element>
+
+  <element>
+    <key>factbot</key>
+    <val>factbot</val>
+  </element>
+
+  <element>
+    <key>FAST Enterprise Crawler</key>
+    <val>FAST Enterprise Crawler</val>
+  </element>
+
+  <element>
+    <key>favorstarbot</key>
+    <val>favorstarbot</val>
+  </element>
+
+  <element>
+    <key>Findexa Crawler</key>
+    <val>Findexa Crawler</val>
+  </element>
+
+  <element>
+    <key>flatlandbot</key>
+    <val>flatlandbot</val>
+  </element>
+
+  <element>
+    <key>Flocke bot</key>
+    <val>Flocke bot</val>
+  </element>
+
+  <element>
+    <key>Forschungsportal</key>
+    <val>Forschungsportal</val>
+  </element>
+
+  <element>
+    <key>FurlBot</key>
+    <val>FurlBot</val>
+  </element>
+
+  <element>
+    <key>g2crawler</key>
+    <val>g2crawler</val>
+  </element>
+
+  <element>
+    <key>GarlikCrawler</key>
+    <val>GarlikCrawler</val>
+  </element>
+
+  <element>
+    <key>Giant/1.0</key>
+    <val>Giant/1.0</val>
+  </element>
+
+  <element>
+    <key>Girafabot</key>
+    <val>Girafabot</val>
+  </element>
+
+  <element>
+    <key>Googlebot</key>
+    <val>Googlebot</val>
+  </element>
+
+  <element>
+    <key>HatenaScreenshot</key>
+    <val>HatenaScreenshot</val>
+  </element>
+
+  <element>
+    <key>HiddenMarket</key>
+    <val>HiddenMarket</val>
+  </element>
+
+  <element>
+    <key>HooWWWer</key>
+    <val>HooWWWer</val>
+  </element>
+
+  <element>
+    <key>HuaweiSymantecSpider</key>
+    <val>HuaweiSymantecSpider</val>
+  </element>
+
+  <element>
+    <key>ICC-Crawler</key>
+    <val>ICC-Crawler</val>
+  </element>
+
+  <element>
+    <key>iCjobs</key>
+    <val>iCjobs</val>
+  </element>
+
+  <element>
+    <key>IlTrovatore-Setaccio</key>
+    <val>IlTrovatore-Setaccio</val>
+  </element>
+
+  <element>
+    <key>Ipselonbot</key>
+    <val>Ipselonbot</val>
+  </element>
+
+  <element>
+    <key>JadynAveBot</key>
+    <val>JadynAveBot</val>
+  </element>
+
+  <element>
+    <key>JUST-CRAWLER</key>
+    <val>JUST-CRAWLER</val>
+  </element>
+
+  <element>
+    <key>Kalooga</key>
+    <val>Kalooga</val>
+  </element>
+
+  <element>
+    <key>Kongulo</key>
+    <val>Kongulo</val>
+  </element>
+
+  <element>
+    <key>ksibot</key>
+    <val>ksibot</val>
+  </element>
+
+  <element>
+    <key>Larbin</key>
+    <val>Larbin</val>
+  </element>
+
+  <element>
+    <key>LexxeBot</key>
+    <val>LexxeBot</val>
+  </element>
+
+  <element>
+    <key>Linguee Bot</key>
+    <val>Linguee Bot</val>
+  </element>
+
+  <element>
+    <key>linkdex.com</key>
+    <val>linkdex.com</val>
+  </element>
+
+  <element>
+    <key>livedoor ScreenShot</key>
+    <val>livedoor ScreenShot</val>
+  </element>
+
+  <element>
+    <key>Mahiti Crawler</key>
+    <val>Mahiti Crawler</val>
+  </element>
+
+  <element>
+    <key>MetaGeneratorCrawler</key>
+    <val>MetaGeneratorCrawler</val>
+  </element>
+
+  <element>
+    <key>MetaTagRobot</key>
+    <val>MetaTagRobot</val>
+  </element>
+
+  <element>
+    <key>MJ12bot</key>
+    <val>MJ12bot</val>
+  </element>
+
+  <element>
+    <key>moba-crawler</key>
+    <val>moba-crawler</val>
+  </element>
+
+  <element>
+    <key>mozDex</key>
+    <val>mozDex</val>
+  </element>
+
+  <element>
+    <key>MSNBot</key>
+    <val>MSNBot</val>
+  </element>
+
+  <element>
+    <key>MyFamilyBot</key>
+    <val>MyFamilyBot</val>
+  </element>
+
+  <element>
+    <key>navissobot</key>
+    <val>navissobot</val>
+  </element>
+
+  <element>
+    <key>NetcraftSurveyAgent</key>
+    <val>NetcraftSurveyAgent</val>
+  </element>
+
+  <element>
+    <key>NetWhatCrawler</key>
+    <val>NetWhatCrawler</val>
+  </element>
+
+  <element>
+    <key>NG</key>
+    <val>NG</val>
+  </element>
+
+  <element>
+    <key>nodestackbot</key>
+    <val>nodestackbot</val>
+  </element>
+
+  <element>
+    <key>Nuhk</key>
+    <val>Nuhk</val>
+  </element>
+
+  <element>
+    <key>nworm</key>
+    <val>nworm</val>
+  </element>
+
+  <element>
+    <key>Ocelli</key>
+    <val>Ocelli</val>
+  </element>
+
+  <element>
+    <key>OOZBOT</key>
+    <val>OOZBOT</val>
+  </element>
+
+  <element>
+    <key>Orbiter</key>
+    <val>Orbiter</val>
+  </element>
+
+  <element>
+    <key>owsBot</key>
+    <val>owsBot</val>
+  </element>
+
+  <element>
+    <key>Panscient web crawler</key>
+    <val>Panscient web crawler</val>
+  </element>
+
+  <element>
+    <key>Pingdom GIGRIB</key>
+    <val>Pingdom GIGRIB</val>
+  </element>
+
+  <element>
+    <key>Pogodak.co.yu</key>
+    <val>Pogodak.co.yu</val>
+  </element>
+
+  <element>
+    <key>posterus</key>
+    <val>posterus</val>
+  </element>
+
+  <element>
+    <key>ptd-crawler</key>
+    <val>ptd-crawler</val>
+  </element>
+
+  <element>
+    <key>Qualidator.com Bot</key>
+    <val>Qualidator.com Bot</val>
+  </element>
+
+  <element>
+    <key>R6 bot</key>
+    <val>R6 bot</val>
+  </element>
+
+  <element>
+    <key>Robo Crawler</key>
+    <val>Robo Crawler</val>
+  </element>
+
+  <element>
+    <key>Ronzoobot</key>
+    <val>Ronzoobot</val>
+  </element>
+
+  <element>
+    <key>SAI Crawler</key>
+    <val>SAI Crawler</val>
+  </element>
+
+  <element>
+    <key>SBSearch</key>
+    <val>SBSearch</val>
+  </element>
+
+  <element>
+    <key>ScollSpider</key>
+    <val>ScollSpider</val>
+  </element>
+
+  <element>
+    <key>Search Engine World Robots.txt Validator</key>
+    <val>Search Engine World Robots.txt Validator</val>
+  </element>
+
+  <element>
+    <key>SEODat</key>
+    <val>SEODat</val>
+  </element>
+
+  <element>
+    <key>Setoozbot</key>
+    <val>Setoozbot</val>
+  </element>
+
+  <element>
+    <key>Shim-Crawler</key>
+    <val>Shim-Crawler</val>
+  </element>
+
+  <element>
+    <key>Sirketce/Busiverse</key>
+    <val>Sirketce/Busiverse</val>
+  </element>
+
+  <element>
+    <key>SkreemRBot</key>
+    <val>SkreemRBot</val>
+  </element>
+
+  <element>
+    <key>Snapbot</key>
+    <val>Snapbot</val>
+  </element>
+
+  <element>
+    <key>Sogou</key>
+    <val>Sogou</val>
+  </element>
+
+  <element>
+    <key>spbot</key>
+    <val>spbot</val>
+  </element>
+
+  <element>
+    <key>Spock Crawler</key>
+    <val>Spock Crawler</val>
+  </element>
+
+  <element>
+    <key>SrevBot</key>
+    <val>SrevBot</val>
+  </element>
+
+  <element>
+    <key>StatoolsBot</key>
+    <val>StatoolsBot</val>
+  </element>
+
+  <element>
+    <key>suggybot</key>
+    <val>suggybot</val>
+  </element>
+
+  <element>
+    <key>SygolBot</key>
+    <val>SygolBot</val>
+  </element>
+
+  <element>
+    <key>Szukankobot</key>
+    <val>Szukankobot</val>
+  </element>
+
+  <element>
+    <key>Technoratibot</key>
+    <val>Technoratibot</val>
+  </element>
+
+  <element>
+    <key>Theophrastus</key>
+    <val>Theophrastus</val>
+  </element>
+
+  <element>
+    <key>thumbshots-de-Bot</key>
+    <val>thumbshots-de-Bot</val>
+  </element>
+
+  <element>
+    <key>Topicbot</key>
+    <val>Topicbot</val>
+  </element>
+
+  <element>
+    <key>trendictionbot</key>
+    <val>trendictionbot</val>
+  </element>
+
+  <element>
+    <key>TwengaBot</key>
+    <val>TwengaBot</val>
+  </element>
+
+  <element>
+    <key>updated</key>
+    <val>updated</val>
+  </element>
+
+  <element>
+    <key>Urlfilebot (Urlbot)</key>
+    <val>Urlfilebot (Urlbot)</val>
+  </element>
+
+  <element>
+    <key>Vermut</key>
+    <val>Vermut</val>
+  </element>
+
+  <element>
+    <key>virus_detector</key>
+    <val>virus_detector</val>
+  </element>
+
+  <element>
+    <key>void-bot</key>
+    <val>void-bot</val>
+  </element>
+
+  <element>
+    <key>voyager</key>
+    <val>voyager</val>
+  </element>
+
+  <element>
+    <key>Web-sniffer</key>
+    <val>Web-sniffer</val>
+  </element>
+
+  <element>
+    <key>WebImages</key>
+    <val>WebImages</val>
+  </element>
+
+  <element>
+    <key>Webscope Crawler</key>
+    <val>Webscope Crawler</val>
+  </element>
+
+  <element>
+    <key>WikioFeedBot</key>
+    <val>WikioFeedBot</val>
+  </element>
+
+  <element>
+    <key>WinkBot</key>
+    <val>WinkBot</val>
+  </element>
+
+  <element>
+    <key>WMCAI_robot</key>
+    <val>WMCAI_robot</val>
+  </element>
+
+  <element>
+    <key>wwwster</key>
+    <val>wwwster</val>
+  </element>
+
+  <element>
+    <key>Yaanb</key>
+    <val>Yaanb</val>
+  </element>
+
+  <element>
+    <key>Yahoo! JAPAN</key>
+    <val>Yahoo! JAPAN</val>
+  </element>
+
+  <element>
+    <key>YodaoBot</key>
+    <val>YodaoBot</val>
+  </element>
+
+  <element>
+    <key>YowedoBot</key>
+    <val>YowedoBot</val>
+  </element>
+
+  <element>
+    <key>Zeusbot</key>
+    <val>Zeusbot</val>
+  </element>
+
+  <element>
+    <key>ZyBorg</key>
+    <val>ZyBorg</val>
+  </element>
+
+  <element>
+    <key>50.nu</key>
+    <val>50.nu</val>
+  </element>
+
+  <element>
+    <key>Aboundexbot</key>
+    <val>Aboundexbot</val>
+  </element>
+
+  <element>
+    <key>Accelobot</key>
+    <val>Accelobot</val>
+  </element>
+
+  <element>
+    <key>Acorn</key>
+    <val>Acorn</val>
+  </element>
+
+  <element>
+    <key>AhrefsBot</key>
+    <val>AhrefsBot</val>
+  </element>
+
+  <element>
+    <key>akula</key>
+    <val>akula</val>
+  </element>
+
+  <element>
+    <key>Amfibibot</key>
+    <val>Amfibibot</val>
+  </element>
+
+  <element>
+    <key>AportWorm</key>
+    <val>AportWorm</val>
+  </element>
+
+  <element>
+    <key>ASAHA Search Engine Turkey</key>
+    <val>ASAHA Search Engine Turkey</val>
+  </element>
+
+  <element>
+    <key>BacklinkCrawler</key>
+    <val>BacklinkCrawler</val>
+  </element>
+
+  <element>
+    <key>BDFetch</key>
+    <val>BDFetch</val>
+  </element>
+
+  <element>
+    <key>Bigsearch.ca</key>
+    <val>Bigsearch.ca</val>
+  </element>
+
+  <element>
+    <key>biwec</key>
+    <val>biwec</val>
+  </element>
+
+  <element>
+    <key>BlinkaCrawler</key>
+    <val>BlinkaCrawler</val>
+  </element>
+
+  <element>
+    <key>boitho.com-dc</key>
+    <val>boitho.com-dc</val>
+  </element>
+
+  <element>
+    <key>Browsershots</key>
+    <val>Browsershots</val>
+  </element>
+
+  <element>
+    <key>BuzzRankingBot</key>
+    <val>BuzzRankingBot</val>
+  </element>
+
+  <element>
+    <key>CazoodleBot</key>
+    <val>CazoodleBot</val>
+  </element>
+
+  <element>
+    <key>changedetection</key>
+    <val>changedetection</val>
+  </element>
+
+  <element>
+    <key>cityreview</key>
+    <val>cityreview</val>
+  </element>
+
+  <element>
+    <key>Combine</key>
+    <val>Combine</val>
+  </element>
+
+  <element>
+    <key>CorpusCrawler</key>
+    <val>CorpusCrawler</val>
+  </element>
+
+  <element>
+    <key>csci_b659</key>
+    <val>csci_b659</val>
+  </element>
+
+  <element>
+    <key>Daumoa</key>
+    <val>Daumoa</val>
+  </element>
+
+  <element>
+    <key>del.icio.us-thumbnails</key>
+    <val>del.icio.us-thumbnails</val>
+  </element>
+
+  <element>
+    <key>DKIMRepBot</key>
+    <val>DKIMRepBot</val>
+  </element>
+
+  <element>
+    <key>DotBot</key>
+    <val>DotBot</val>
+  </element>
+
+  <element>
+    <key>e-SocietyRobot</key>
+    <val>e-SocietyRobot</val>
+  </element>
+
+  <element>
+    <key>egothor</key>
+    <val>egothor</val>
+  </element>
+
+  <element>
+    <key>Enterprise_Search</key>
+    <val>Enterprise_Search</val>
+  </element>
+
+  <element>
+    <key>Eurobot</key>
+    <val>Eurobot</val>
+  </element>
+
+  <element>
+    <key>ExactSEEK</key>
+    <val>ExactSEEK</val>
+  </element>
+
+  <element>
+    <key>FairShare</key>
+    <val>FairShare</val>
+  </element>
+
+  <element>
+    <key>FAST MetaWeb Crawler</key>
+    <val>FAST MetaWeb Crawler</val>
+  </element>
+
+  <element>
+    <key>FeedCatBot</key>
+    <val>FeedCatBot</val>
+  </element>
+
+  <element>
+    <key>findlinks</key>
+    <val>findlinks</val>
+  </element>
+
+  <element>
+    <key>FlightDeckReportsBot</key>
+    <val>FlightDeckReportsBot</val>
+  </element>
+
+  <element>
+    <key>FollowSite Bot</key>
+    <val>FollowSite Bot</val>
+  </element>
+
+  <element>
+    <key>Francis</key>
+    <val>Francis</val>
+  </element>
+
+  <element>
+    <key>FyberSpider</key>
+    <val>FyberSpider</val>
+  </element>
+
+  <element>
+    <key>Gaisbot</key>
+    <val>Gaisbot</val>
+  </element>
+
+  <element>
+    <key>genieBot</key>
+    <val>genieBot</val>
+  </element>
+
+  <element>
+    <key>Gigabot</key>
+    <val>Gigabot</val>
+  </element>
+
+  <element>
+    <key>GOFORITBOT</key>
+    <val>GOFORITBOT</val>
+  </element>
+
+  <element>
+    <key>GurujiBot</key>
+    <val>GurujiBot</val>
+  </element>
+
+  <element>
+    <key>HeartRails_Capture</key>
+    <val>HeartRails_Capture</val>
+  </element>
+
+  <element>
+    <key>Holmes</key>
+    <val>Holmes</val>
+  </element>
+
+  <element>
+    <key>HostTracker.com</key>
+    <val>HostTracker.com</val>
+  </element>
+
+  <element>
+    <key>iaskspider</key>
+    <val>iaskspider</val>
+  </element>
+
+  <element>
+    <key>ICF_Site_Crawler</key>
+    <val>ICF_Site_Crawler</val>
+  </element>
+
+  <element>
+    <key>IlseBot</key>
+    <val>IlseBot</val>
+  </element>
+
+  <element>
+    <key>InfociousBot</key>
+    <val>InfociousBot</val>
+  </element>
+
+  <element>
+    <key>IRLbot</key>
+    <val>IRLbot</val>
+  </element>
+
+  <element>
+    <key>Jambot</key>
+    <val>Jambot</val>
+  </element>
+
+  <element>
+    <key>Jyxobot</key>
+    <val>Jyxobot</val>
+  </element>
+
+  <element>
+    <key>Karneval-Bot</key>
+    <val>Karneval-Bot</val>
+  </element>
+
+  <element>
+    <key>KRetrieve</key>
+    <val>KRetrieve</val>
+  </element>
+
+  <element>
+    <key>L.webis</key>
+    <val>L.webis</val>
+  </element>
+
+  <element>
+    <key>LarbinWebCrawler</key>
+    <val>LarbinWebCrawler</val>
+  </element>
+
+  <element>
+    <key>Lijit</key>
+    <val>Lijit</val>
+  </element>
+
+  <element>
+    <key>Link Valet Online</key>
+    <val>Link Valet Online</val>
+  </element>
+
+  <element>
+    <key>linksmanager_bot</key>
+    <val>linksmanager_bot</val>
+  </element>
+
+  <element>
+    <key>lmspider</key>
+    <val>lmspider</val>
+  </element>
+
+  <element>
+    <key>Mail.Ru</key>
+    <val>Mail.Ru</val>
+  </element>
+
+  <element>
+    <key>MetamojiCrawler</key>
+    <val>MetamojiCrawler</val>
+  </element>
+
+  <element>
+    <key>MetaURI</key>
+    <val>MetaURI</val>
+  </element>
+
+  <element>
+    <key>MLBot</key>
+    <val>MLBot</val>
+  </element>
+
+  <element>
+    <key>MojeekBot</key>
+    <val>MojeekBot</val>
+  </element>
+
+  <element>
+    <key>Mp3Bot</key>
+    <val>Mp3Bot</val>
+  </element>
+
+  <element>
+    <key>MSRBOT</key>
+    <val>MSRBOT</val>
+  </element>
+
+  <element>
+    <key>Najdi.si</key>
+    <val>Najdi.si</val>
+  </element>
+
+  <element>
+    <key>NerdByNature.Bot</key>
+    <val>NerdByNature.Bot</val>
+  </element>
+
+  <element>
+    <key>Netintelligence LiveAssessment</key>
+    <val>Netintelligence LiveAssessment</val>
+  </element>
+
+  <element>
+    <key>NextGenSearchBot</key>
+    <val>NextGenSearchBot</val>
+  </element>
+
+  <element>
+    <key>NG-Search</key>
+    <val>NG-Search</val>
+  </element>
+
+  <element>
+    <key>noyona</key>
+    <val>noyona</val>
+  </element>
+
+  <element>
+    <key>NuSearch Spider</key>
+    <val>NuSearch Spider</val>
+  </element>
+
+  <element>
+    <key>Nymesis</key>
+    <val>Nymesis</val>
+  </element>
+
+  <element>
+    <key>OmniExplorer_Bot</key>
+    <val>OmniExplorer_Bot</val>
+  </element>
+
+  <element>
+    <key>Openbot</key>
+    <val>Openbot</val>
+  </element>
+
+  <element>
+    <key>OrgbyBot</key>
+    <val>OrgbyBot</val>
+  </element>
+
+  <element>
+    <key>PageBitesHyperBot</key>
+    <val>PageBitesHyperBot</val>
+  </element>
+
+  <element>
+    <key>ParchBot</key>
+    <val>ParchBot</val>
+  </element>
+
+  <element>
+    <key>pingdom.com_bot</key>
+    <val>pingdom.com_bot</val>
+  </element>
+
+  <element>
+    <key>polixea.de</key>
+    <val>polixea.de</val>
+  </element>
+
+  <element>
+    <key>PostPost</key>
+    <val>PostPost</val>
+  </element>
+
+  <element>
+    <key>Qirina Hurdler</key>
+    <val>Qirina Hurdler</val>
+  </element>
+
+  <element>
+    <key>Quantcastbot</key>
+    <val>Quantcastbot</val>
+  </element>
+
+  <element>
+    <key>RankurBot</key>
+    <val>RankurBot</val>
+  </element>
+
+  <element>
+    <key>Robots_Tester</key>
+    <val>Robots_Tester</val>
+  </element>
+
+  <element>
+    <key>RSSMicro.com RSS/Atom Feed Robot</key>
+    <val>RSSMicro.com RSS/Atom Feed Robot</val>
+  </element>
+
+  <element>
+    <key>SanszBot</key>
+    <val>SanszBot</val>
+  </element>
+
+  <element>
+    <key>Scarlett</key>
+    <val>Scarlett</val>
+  </element>
+
+  <element>
+    <key>Scooter</key>
+    <val>Scooter</val>
+  </element>
+
+  <element>
+    <key>Search17Bot</key>
+    <val>Search17Bot</val>
+  </element>
+
+  <element>
+    <key>SEOENGBot</key>
+    <val>SEOENGBot</val>
+  </element>
+
+  <element>
+    <key>SeznamBot</key>
+    <val>SeznamBot</val>
+  </element>
+
+  <element>
+    <key>ShopWiki</key>
+    <val>ShopWiki</val>
+  </element>
+
+  <element>
+    <key>sistrix</key>
+    <val>sistrix</val>
+  </element>
+
+  <element>
+    <key>smart.apnoti.com Robot</key>
+    <val>smart.apnoti.com Robot</val>
+  </element>
+
+  <element>
+    <key>Snappy</key>
+    <val>Snappy</val>
+  </element>
+
+  <element>
+    <key>sogou spider</key>
+    <val>sogou spider</val>
+  </element>
+
+  <element>
+    <key>Speedy</key>
+    <val>Speedy</val>
+  </element>
+
+  <element>
+    <key>SpokeSpider</key>
+    <val>SpokeSpider</val>
+  </element>
+
+  <element>
+    <key>SSLBot</key>
+    <val>SSLBot</val>
+  </element>
+
+  <element>
+    <key>Steeler</key>
+    <val>Steeler</val>
+  </element>
+
+  <element>
+    <key>Surphace Scout</key>
+    <val>Surphace Scout</val>
+  </element>
+
+  <element>
+    <key>SynooBot</key>
+    <val>SynooBot</val>
+  </element>
+
+  <element>
+    <key>Tagoobot</key>
+    <val>Tagoobot</val>
+  </element>
+
+  <element>
+    <key>TeragramCrawler</key>
+    <val>TeragramCrawler</val>
+  </element>
+
+  <element>
+    <key>Thumbnail.CZ robot</key>
+    <val>Thumbnail.CZ robot</val>
+  </element>
+
+  <element>
+    <key>Thumbshots.ru</key>
+    <val>Thumbshots.ru</val>
+  </element>
+
+  <element>
+    <key>Toread-Crawler</key>
+    <val>Toread-Crawler</val>
+  </element>
+
+  <element>
+    <key>TurnitinBot</key>
+    <val>TurnitinBot</val>
+  </element>
+
+  <element>
+    <key>Twiceler</key>
+    <val>Twiceler</val>
+  </element>
+
+  <element>
+    <key>UptimeDog</key>
+    <val>UptimeDog</val>
+  </element>
+
+  <element>
+    <key>Vagabondo</key>
+    <val>Vagabondo</val>
+  </element>
+
+  <element>
+    <key>Vespa Crawler</key>
+    <val>Vespa Crawler</val>
+  </element>
+
+  <element>
+    <key>visbot</key>
+    <val>visbot</val>
+  </element>
+
+  <element>
+    <key>VoilaBot</key>
+    <val>VoilaBot</val>
+  </element>
+
+  <element>
+    <key>VWBot</key>
+    <val>VWBot</val>
+  </element>
+
+  <element>
+    <key>WebAlta Crawler</key>
+    <val>WebAlta Crawler</val>
+  </element>
+
+  <element>
+    <key>webmastercoffee</key>
+    <val>webmastercoffee</val>
+  </element>
+
+  <element>
+    <key>WebWatch/Robot_txtChecker</key>
+    <val>WebWatch/Robot_txtChecker</val>
+  </element>
+
+  <element>
+    <key>wikiwix-bot</key>
+    <val>wikiwix-bot</val>
+  </element>
+
+  <element>
+    <key>WinWebBot</key>
+    <val>WinWebBot</val>
+  </element>
+
+  <element>
+    <key>woriobot</key>
+    <val>woriobot</val>
+  </element>
+
+  <element>
+    <key>XmarksFetch</key>
+    <val>XmarksFetch</val>
+  </element>
+
+  <element>
+    <key>yacybot</key>
+    <val>yacybot</val>
+  </element>
+
+  <element>
+    <key>YandexBot</key>
+    <val>YandexBot</val>
+  </element>
+
+  <element>
+    <key>Yoono Bot</key>
+    <val>Yoono Bot</val>
+  </element>
+
+  <element>
+    <key>YRSpider</key>
+    <val>YRSpider</val>
+  </element>
+
+  <element>
+    <key>ZookaBot</key>
+    <val>ZookaBot</val>
+  </element>
+
+  <element>
+    <key>^Nail</key>
+    <val>^Nail</val>
+  </element>
+
+  <element>
+    <key>80legs</key>
+    <val>80legs</val>
+  </element>
+
+  <element>
+    <key>AboutUsBot</key>
+    <val>AboutUsBot</val>
+  </element>
+
+  <element>
+    <key>Accoona-AI-Agent</key>
+    <val>Accoona-AI-Agent</val>
+  </element>
+
+  <element>
+    <key>adressendeutschland.de</key>
+    <val>adressendeutschland.de</val>
+  </element>
+
+  <element>
+    <key>aiHitBot</key>
+    <val>aiHitBot</val>
+  </element>
+
+  <element>
+    <key>Almaden</key>
+    <val>Almaden</val>
+  </element>
+
+  <element>
+    <key>amibot</key>
+    <val>amibot</val>
+  </element>
+
+  <element>
+    <key>arachnode.net</key>
+    <val>arachnode.net</val>
+  </element>
+
+  <element>
+    <key>Ask Jeeves/Teoma</key>
+    <val>Ask Jeeves/Teoma</val>
+  </element>
+
+  <element>
+    <key>Baiduspider</key>
+    <val>Baiduspider</val>
+  </element>
+
+  <element>
+    <key>BecomeBot</key>
+    <val>BecomeBot</val>
+  </element>
+
+  <element>
+    <key>bingbot</key>
+    <val>bingbot</val>
+  </element>
+
+  <element>
+    <key>bixolabs</key>
+    <val>bixolabs</val>
+  </element>
+
+  <element>
+    <key>Bloggsi</key>
+    <val>Bloggsi</val>
+  </element>
+
+  <element>
+    <key>botmobi</key>
+    <val>botmobi</val>
+  </element>
+
+  <element>
+    <key>btbot</key>
+    <val>btbot</val>
+  </element>
+
+  <element>
+    <key>CamontSpider</key>
+    <val>CamontSpider</val>
+  </element>
+
+  <element>
+    <key>CCBot</key>
+    <val>CCBot</val>
+  </element>
+
+  <element>
+    <key>Charlotte</key>
+    <val>Charlotte</val>
+  </element>
+
+  <element>
+    <key>CJB.NET Proxy</key>
+    <val>CJB.NET Proxy</val>
+  </element>
+
+  <element>
+    <key>ConveraCrawler</key>
+    <val>ConveraCrawler</val>
+  </element>
+
+  <element>
+    <key>Covario-IDS</key>
+    <val>Covario-IDS</val>
+  </element>
+
+  <element>
+    <key>DataFountains</key>
+    <val>DataFountains</val>
+  </element>
+
+  <element>
+    <key>DBLBot</key>
+    <val>DBLBot</val>
+  </element>
+
+  <element>
+    <key>DepSpid</key>
+    <val>DepSpid</val>
+  </element>
+
+  <element>
+    <key>DNS-Digger-Explorer</key>
+    <val>DNS-Digger-Explorer</val>
+  </element>
+
+  <element>
+    <key>dotSemantic</key>
+    <val>dotSemantic</val>
+  </element>
+
+  <element>
+    <key>eCairn-Grabber</key>
+    <val>eCairn-Grabber</val>
+  </element>
+
+  <element>
+    <key>ejupiter.com</key>
+    <val>ejupiter.com</val>
+  </element>
+
+  <element>
+    <key>envolk</key>
+    <val>envolk</val>
+  </element>
+
+  <element>
+    <key>EvriNid</key>
+    <val>EvriNid</val>
+  </element>
+
+  <element>
+    <key>FacebookExternalHit</key>
+    <val>FacebookExternalHit</val>
+  </element>
+
+  <element>
+    <key>Falconsbot</key>
+    <val>Falconsbot</val>
+  </element>
+
+  <element>
+    <key>FauBot</key>
+    <val>FauBot</val>
+  </element>
+
+  <element>
+    <key>FeedFinder/bloggz.se</key>
+    <val>FeedFinder/bloggz.se</val>
+  </element>
+
+  <element>
+    <key>Flatland Industries Web Spider</key>
+    <val>Flatland Industries Web Spider</val>
+  </element>
+
+  <element>
+    <key>FlipboardProxy</key>
+    <val>FlipboardProxy</val>
+  </element>
+
+  <element>
+    <key>Fooooo_Web_Video_Crawl</key>
+    <val>Fooooo_Web_Video_Crawl</val>
+  </element>
+
+  <element>
+    <key>FunnelBack</key>
+    <val>FunnelBack</val>
+  </element>
+
+  <element>
+    <key>FyberSpider</key>
+    <val>FyberSpider</val>
+  </element>
+
+  <element>
+    <key>Gallent Search Spider</key>
+    <val>Gallent Search Spider</val>
+  </element>
+
+  <element>
+    <key>GeonaBot</key>
+    <val>GeonaBot</val>
+  </element>
+
+  <element>
+    <key>GingerCrawler</key>
+    <val>GingerCrawler</val>
+  </element>
+
+  <element>
+    <key>gonzo</key>
+    <val>gonzo</val>
+  </element>
+
+  <element>
+    <key>Hailoobot</key>
+    <val>Hailoobot</val>
+  </element>
+
+  <element>
+    <key>heritrix</key>
+    <val>heritrix</val>
+  </element>
+
+  <element>
+    <key>HolmesBot</key>
+    <val>HolmesBot</val>
+  </element>
+
+  <element>
+    <key>ht://Dig</key>
+    <val>ht://Dig</val>
+  </element>
+
+  <element>
+    <key>ia_archiver</key>
+    <val>ia_archiver</val>
+  </element>
+
+  <element>
+    <key>ichiro</key>
+    <val>ichiro</val>
+  </element>
+
+  <element>
+    <key>IlTrovatore</key>
+    <val>IlTrovatore</val>
+  </element>
+
+  <element>
+    <key>InternetSeer</key>
+    <val>InternetSeer</val>
+  </element>
+
+  <element>
+    <key>JadynAve</key>
+    <val>JadynAve</val>
+  </element>
+
+  <element>
+    <key>JikeSpider</key>
+    <val>JikeSpider</val>
+  </element>
+
+  <element>
+    <key>Kakle Bot</key>
+    <val>Kakle Bot</val>
+  </element>
+
+  <element>
+    <key>KeywenBot</key>
+    <val>KeywenBot</val>
+  </element>
+
+  <element>
+    <key>Krugle</key>
+    <val>Krugle</val>
+  </element>
+
+  <element>
+    <key>LapozzBot</key>
+    <val>LapozzBot</val>
+  </element>
+
+  <element>
+    <key>LemurWebCrawler</key>
+    <val>LemurWebCrawler</val>
+  </element>
+
+  <element>
+    <key>LinguaBot</key>
+    <val>LinguaBot</val>
+  </element>
+
+  <element>
+    <key>LinkAider</key>
+    <val>LinkAider</val>
+  </element>
+
+  <element>
+    <key>LinkWalker</key>
+    <val>LinkWalker</val>
+  </element>
+
+  <element>
+    <key>magpie-crawler</key>
+    <val>magpie-crawler</val>
+  </element>
+
+  <element>
+    <key>Megatext</key>
+    <val>Megatext</val>
+  </element>
+
+  <element>
+    <key>Metaspinner/0.01</key>
+    <val>Metaspinner/0.01</val>
+  </element>
+
+  <element>
+    <key>miniRank</key>
+    <val>miniRank</val>
+  </element>
+
+  <element>
+    <key>MnoGoSearch</key>
+    <val>MnoGoSearch</val>
+  </element>
+
+  <element>
+    <key>Motoricerca-Robots.txt-Checker</key>
+    <val>Motoricerca-Robots.txt-Checker</val>
+  </element>
+
+  <element>
+    <key>MQbot</key>
+    <val>MQbot</val>
+  </element>
+
+  <element>
+    <key>MultiCrawler</key>
+    <val>MultiCrawler</val>
+  </element>
+
+  <element>
+    <key>NaverBot</key>
+    <val>NaverBot</val>
+  </element>
+
+  <element>
+    <key>nestReader</key>
+    <val>nestReader</val>
+  </element>
+
+  <element>
+    <key>NetResearchServer</key>
+    <val>NetResearchServer</val>
+  </element>
+
+  <element>
+    <key>nextthing.org</key>
+    <val>nextthing.org</val>
+  </element>
+
+  <element>
+    <key>NimbleCrawler</key>
+    <val>NimbleCrawler</val>
+  </element>
+
+  <element>
+    <key>NPBot</key>
+    <val>NPBot</val>
+  </element>
+
+  <element>
+    <key>Nutch</key>
+    <val>Nutch</val>
+  </element>
+
+  <element>
+    <key>oBot</key>
+    <val>oBot</val>
+  </element>
+
+  <element>
+    <key>OnetSzukaj</key>
+    <val>OnetSzukaj</val>
+  </element>
+
+  <element>
+    <key>OpenCalaisSemanticProxy</key>
+    <val>OpenCalaisSemanticProxy</val>
+  </element>
+
+  <element>
+    <key>OsObot</key>
+    <val>OsObot</val>
+  </element>
+
+  <element>
+    <key>page_verifier</key>
+    <val>page_verifier</val>
+  </element>
+
+  <element>
+    <key>Peew</key>
+    <val>Peew</val>
+  </element>
+
+  <element>
+    <key>Plukkie</key>
+    <val>Plukkie</val>
+  </element>
+
+  <element>
+    <key>Pompos</key>
+    <val>Pompos</val>
+  </element>
+
+  <element>
+    <key>psbot</key>
+    <val>psbot</val>
+  </element>
+
+  <element>
+    <key>Qseero</key>
+    <val>Qseero</val>
+  </element>
+
+  <element>
+    <key>quickobot</key>
+    <val>quickobot</val>
+  </element>
+
+  <element>
+    <key>RedBot</key>
+    <val>RedBot</val>
+  </element>
+
+  <element>
+    <key>Robozilla</key>
+    <val>Robozilla</val>
+  </element>
+
+  <element>
+    <key>Ruky-Roboter</key>
+    <val>Ruky-Roboter</val>
+  </element>
+
+  <element>
+    <key>SBIder</key>
+    <val>SBIder</val>
+  </element>
+
+  <element>
+    <key>schibstedsokbot</key>
+    <val>schibstedsokbot</val>
+  </element>
+
+  <element>
+    <key>ScoutJet</key>
+    <val>ScoutJet</val>
+  </element>
+
+  <element>
+    <key>Sensis Web Crawler</key>
+    <val>Sensis Web Crawler</val>
+  </element>
+
+  <element>
+    <key>SEOkicks-Robot</key>
+    <val>SEOkicks-Robot</val>
+  </element>
+
+  <element>
+    <key>Shelob</key>
+    <val>Shelob</val>
+  </element>
+
+  <element>
+    <key>silk</key>
+    <val>silk</val>
+  </element>
+
+  <element>
+    <key>Sitedomain-Bot</key>
+    <val>Sitedomain-Bot</val>
+  </element>
+
+  <element>
+    <key>snap.com</key>
+    <val>snap.com</val>
+  </element>
+
+  <element>
+    <key>SniffRSS</key>
+    <val>SniffRSS</val>
+  </element>
+
+  <element>
+    <key>Sosospider</key>
+    <val>Sosospider</val>
+  </element>
+
+  <element>
+    <key>Spinn3r</key>
+    <val>Spinn3r</val>
+  </element>
+
+  <element>
+    <key>sproose</key>
+    <val>sproose</val>
+  </element>
+
+  <element>
+    <key>StackRambler</key>
+    <val>StackRambler</val>
+  </element>
+
+  <element>
+    <key>Strokebot</key>
+    <val>Strokebot</val>
+  </element>
+
+  <element>
+    <key>SurveyBot</key>
+    <val>SurveyBot</val>
+  </element>
+
+  <element>
+    <key>Szukacz</key>
+    <val>Szukacz</val>
+  </element>
+
+  <element>
+    <key>taptubot</key>
+    <val>taptubot</val>
+  </element>
+
+  <element>
+    <key>textractor</key>
+    <val>textractor</val>
+  </element>
+
+  <element>
+    <key>ThumbShots-Bot</key>
+    <val>ThumbShots-Bot</val>
+  </element>
+
+  <element>
+    <key>TinEye</key>
+    <val>TinEye</val>
+  </element>
+
+  <element>
+    <key>Touche</key>
+    <val>Touche</val>
+  </element>
+
+  <element>
+    <key>TutorGigBot</key>
+    <val>TutorGigBot</val>
+  </element>
+
+  <element>
+    <key>UnwindFetchor</key>
+    <val>UnwindFetchor</val>
+  </element>
+
+  <element>
+    <key>urlfan-bot</key>
+    <val>urlfan-bot</val>
+  </element>
+
+  <element>
+    <key>VERASYS 2k</key>
+    <val>VERASYS 2k</val>
+  </element>
+
+  <element>
+    <key>VideoSurf_bot</key>
+    <val>VideoSurf_bot</val>
+  </element>
+
+  <element>
+    <key>VMBot</key>
+    <val>VMBot</val>
+  </element>
+
+  <element>
+    <key>VORTEX</key>
+    <val>VORTEX</val>
+  </element>
+
+  <element>
+    <key>WatchMouse</key>
+    <val>WatchMouse</val>
+  </element>
+
+  <element>
+    <key>WebarooBot</key>
+    <val>WebarooBot</val>
+  </element>
+
+  <element>
+    <key>WebRankSpider</key>
+    <val>WebRankSpider</val>
+  </element>
+
+  <element>
+    <key>wectar</key>
+    <val>wectar</val>
+  </element>
+
+  <element>
+    <key>Willow Internet Crawler</key>
+    <val>Willow Internet Crawler</val>
+  </element>
+
+  <element>
+    <key>WIRE</key>
+    <val>WIRE</val>
+  </element>
+
+  <element>
+    <key>www.fi crawler</key>
+    <val>www.fi crawler</val>
+  </element>
+
+  <element>
+    <key>XML Sitemaps Generator</key>
+    <val>XML Sitemaps Generator</val>
+  </element>
+
+  <element>
+    <key>Yahoo!</key>
+    <val>Yahoo!</val>
+  </element>
+
+  <element>
+    <key>Yanga</key>
+    <val>Yanga</val>
+  </element>
+
+  <element>
+    <key>YoudaoBot</key>
+    <val>YoudaoBot</val>
+  </element>
+
+  <element>
+    <key>ZACATEK_CZ</key>
+    <val>ZACATEK_CZ</val>
+  </element>
+
+  <element>
+    <key>ZoomSpider (ZSEBOT)</key>
+    <val>ZoomSpider (ZSEBOT)</val>
+  </element>
+
+  <element>
+    <key>libwww</key>
+    <val>libwww</val>
+  </element>
+
+  <element>
+    <key>libwww-perl</key>
+    <val>libwww-perl</val>
+  </element>
+
+  <element>
+    <key>LinksManager.com_bot</key>
+    <val>LinksManager.com_bot</val>
+  </element>
+
+  <element>
+    <key>Yahoo! Slurp</key>
+    <val>Yahoo! Slurp</val>
+  </element>
+
+  <element>
+    <key>BlitzBot</key>
+    <val>BlitzBot</val>
+  </element>
+
+  <element>
+    <key>W3C_Validator</key>
+    <val>W3C_Validator</val>
+  </element>
+
+</dictionary-elements>

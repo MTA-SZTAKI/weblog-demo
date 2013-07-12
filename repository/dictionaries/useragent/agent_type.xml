@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 ../dictionaryFileSource.xsd">
+
+  <!-- Source : http://user-agent-string.info Note: the order of elements is important! -->
+  <!-- Standard browsers -->
+
+  <element>
+    <key>PmWFx</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Abolimba</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>ABrowse</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Acoo Browser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Amaya</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Amiga Aweb</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Amiga Voyager</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- AOL Explorer -->
+  <element>
+    <key>AOL</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Arora</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Avant Browser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Beonex</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Blackbird</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>BlackHawk</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Bolt</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>BrowseX</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Browzar</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Bunjalloo</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Camino</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Cheshire</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>CometBird</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Comodo Dragon</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Conkeror</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Crazy Browser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Deepnet Explorer</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Demeter</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>DeskBrowse</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Dillo</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>DocZilla</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Dooble</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Doris</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Edbrowse -->
+  <element>
+    <key>edbrowse</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Element Browser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Elinks</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Enigma browser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Epic</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Epiphany</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Espial TV Browser -->
+  <element>
+    <key>Escape</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Firebird</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>BonEcho</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>GranParadiso</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Lorentz</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Minefield</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Namoroka</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Shiretoko</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Fireweb Navigator</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Flock</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Fluid</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Galeon</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>GlobalMojo</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>GreenBrowser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>HotJava</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Hv3</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Hydra Browser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>IBrowse</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>iCab</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- ICE browser -->
+  <element>
+    <key>ICEbrowser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>ICE Browser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+
+  <!-- IceApe -->
+  <element>
+    <key>Iceape</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>IceCat</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- IceWeasel -->
+  <element>
+    <key>Iceweasel</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>InternetSurfboard</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>iRider</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Iron</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>K-Meleon</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>K-Ninja</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Kapiko</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Kazehakase</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Kirix Strata -->
+  <element>
+    <key>Strata</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- KKman -->
+  <element>
+    <key>KKman</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>KKMAN</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Konqueror</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Kylo</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>LBrowser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Links</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Lobo</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>lolifox</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Lunascape</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Lynx</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Madfox</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Maxthon -->
+  <element>
+    <key>Maxthon</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>MAXTHON</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Midori</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Mini Browser -->
+  <element>
+    <key>MiniBrowser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Multi-Browser XP -->
+  <element>
+    <key>Multi-Browser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>MultiZilla</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- My Internet Browser -->
+  <element>
+    <key>My Internet Browser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>myibrow</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- NCSA Mosaic -->
+  <element>
+    <key>NCSA_Mosaic</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- NetBox -->
+  <element>
+    <key>Netbox</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>NetCaptor</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>NetPositive</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>NetSurf</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Off By One -->
+  <element>
+    <key>OffByOne</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>OmniWeb</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Orca</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Oregano</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- OWB -->
+  <element>
+    <key>Origyn</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Pale Moon -->
+  <element>
+    <key>Palemoon</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Phaseout -->
+  <element>
+    <key>PhaseOut</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Phoenix</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>QtWeb</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>rekonq</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>retawq</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>RockMelt</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>SeaMonkey</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Shiira</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>SiteKiosk</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>SkipStone</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Sleipnir</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>SlimBrowser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Stainless</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Sunrise</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Surf</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Swiftfox</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Swiftweasel</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- TheWorld Browser -->
+  <element>
+    <key>TheWorld</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Tjusig</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- TT Explorer -->
+  <element>
+    <key>TencentTraveler</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>UltraBrowser</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Uzbl</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Vonkeror</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>w3m</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Webian Shell -->
+  <element>
+    <key>WebianShell</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Weltweitimnetz</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>wKiosk</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>WorldWideWeb</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Wyzo</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>X-Smiles</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>AvantGo</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Axel</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>GetRight</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>HTTrack</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>iSiloX</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>iSiloXC</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>JoBo</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <!-- Offline browsers -->
+
+  <!-- Offline Explorer -->
+  <element>
+    <key>Offline Explorer</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Web Downloader</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>SiteSucker</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>SuperBot</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Teleport Pro</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>WebCopier</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>webfetch</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>WebStripper</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>WebZIP</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Wget</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Xaldon WebSpider</key>
+    <val>OFFLINE_BROWSER</val>
+  </element>
+
+  <!-- Mobile browsers -->
+
+  <!-- Android Webkit -->
+  <element>
+    <key>Android</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>BlackBerry</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Blazer</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- Dolphin -->
+  <element>
+    <key>Dolfin</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Fennec</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- GO Browser -->
+  <element>
+    <key>GoBrowser</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- IE Mobile -->
+  <element>
+    <key>IEMobile</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>XBLWP7</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>ZuneWP7</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Jasmine</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- Kindle Browser -->
+  <element>
+    <key>Kindle</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- MicroB -->
+  <element>
+    <key>Table browser</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Minimo</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- Mobile Safari -->
+  <element>
+    <key>Mobile</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- Motorola Internet Browser -->
+  <element>
+    <key>MOT</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>NetFront</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- Nokia Web Browser -->
+  <element>
+    <key>Nokia</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Obigo</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- Openwave Mobile Browser -->
+  <element>
+    <key>UP.Browser</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Opera Mini</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- Opera Mobile -->
+  <element>
+    <key>Opera Mobi</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- Palm Pre web browser -->
+  <element>
+    <key>Pre</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Polaris</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- SEMC Browser -->
+  <element>
+    <key>SEMC-Browser</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Skyfire</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- Tear -->
+  <element>
+    <key>tear</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>TeaShark</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- UC Browser -->
+  <element>
+    <key>UCWEB</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <!-- uZard Web -->
+  <element>
+    <key>uZardWeb</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Klondike</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>WapTiger</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+  <element>
+    <key>WinWAP</key>
+    <val>MOBILE_BROWSER</val>
+  </element>
+
+
+  <!-- Common browsers (if (sub)categories above don't fit, apply main categories -->
+
+  <element>
+    <key>Chrome</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Firefox</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Opera</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>MSIE</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Netscape Navigator old and new versions respectively -->
+  <element>
+    <key regexp="true">.*(?:Mozilla\/)([3-4])(?!.*?(?:Netscape|Navigator)).*?$</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Netscape</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Navigator</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <element>
+    <key>Safari</key>
+    <val>STANDARD_BROWSER</val>
+  </element>
+
+  <!-- Email clients -->
+
+  <element>
+    <key>MSOffice</key>
+    <val>EMAIL_CLIENT</val>
+  </element>
+
+  <element>
+    <key>Lotus-Notes</key>
+    <val>EMAIL_CLIENT</val>
+  </element>
+
+  <element>
+    <key>Thunderbird</key>
+    <val>EMAIL_CLIENT</val>
+  </element>
+
+  <!-- Textmode browsers -->
+
+  <element>
+    <key>textmode</key>
+    <val>TEXTMODE_BROWSER</val>
+  </element>
+
+  <!-- MULTIMEDIA_PLAYERs -->
+
+  <element>
+    <key>Banshee</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>boxee</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>CorePlayer</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>FlyCast</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>foobar2000</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>GomPlayer</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>itunes</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>Miro</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>MPlayer</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>PocketTunes</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>PublicRadioPlayer</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>QuickTime</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>RSS_Radio</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>Songbird</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>VLC media player</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>Windows-Media-Player</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>XBMC</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+  <element>
+    <key>XMPlay</key>
+    <val>MULTIMEDIA_PLAYER</val>
+  </element>
+
+</dictionary-elements>
