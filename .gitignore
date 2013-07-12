@@ -1,0 +1,10 @@
+/target/
+/lib/*.jar
+/bin/weblog-demo*
+/log/
+/persistence/dnsdb/
+/persistence/userdb/
+*.sh
+/data/
+/config/*.properties
+/config/*.xml
