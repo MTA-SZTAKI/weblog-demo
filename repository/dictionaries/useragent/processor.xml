@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Source : http://user-agent-string.info
+       Note: elemets order is important! -->
+
+  <element>
+    <key>ia64</key>
+    <val>IA_64</val>
+  </element>
+
+  <element>
+    <key>amd64</key>
+    <val>AMD_64</val>
+  </element>
+
+  <element>
+    <key>x64</key>
+    <val>AMD_64</val>
+  </element>
+
+  <element>
+    <key>x86_64</key>
+    <val>AMD_64</val>
+  </element>
+
+  <element>
+    <key>WOW64</key>
+    <val>WIN32_ON_64</val>
+  </element>
+
+  <element>
+    <key>Mac_PowerPC</key>
+    <val>PPC</val>
+  </element>
+
+  <element>
+    <key>PPC</key>
+    <val>PPC</val>
+  </element>
+
+  <element>
+    <key>ppc</key>
+    <val>PPC</val>
+  </element>
+
+  <element>
+    <key>i386</key>
+    <val>I386</val>
+  </element>
+
+  <element>
+    <key>I386</key>
+    <val>I386</val>
+  </element>
+
+  <element>
+    <key>i586</key>
+    <val>I586</val>
+  </element>
+
+  <element>
+    <key>I586</key>
+    <val>I586</val>
+  </element>
+
+  <element>
+    <key>i686</key>
+    <val>I686</val>
+  </element>
+
+  <element>
+    <key>I686</key>
+    <val>I686</val>
+  </element>
+
+  <element>
+    <key>MC680x0</key>
+    <val>M68K</val>
+  </element>
+
+  <!-- Mobile processors -->
+
+  <element>
+    <key>iPad</key>
+    <val>Apple A4</val>
+  </element>
+
+  <element>
+    <key>iPhone</key>
+    <val>Apple A4</val>
+  </element>
+
+  <element>
+    <key>iPod</key>
+    <val>Apple A4</val>
+  </element>
+
+  <element>
+    <key>armv</key>
+    <val>ARM</val>
+  </element>
+
+  <element>
+    <key>HTC</key>
+    <val>Qualcomm Snapdragon</val>
+  </element>
+
+</dictionary-elements>

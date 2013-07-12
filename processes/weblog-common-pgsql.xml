@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <source>
+    <weblog-file-source name="cli"/>
+  </source>
+
+  <target>
+    <database-target connection-name="weblog_demo">
+      <truncate-query>
+        truncate table weblog_event_incoming
+      </truncate-query>
+      <insert-query numeric-fields-to-convert="bytesSent,status,visitorRefererId">
+        insert into weblog_event_incoming (
+          virtual_host, request_timestamp, event_group, event,
+          visitor_ip, visitor_hostname,
+          http_request, http_status_code, inet_protocol, http_method,
+          request_url, request_url_parameter, request_url_extension,
+          auth_user, bytes_sent
+        ) values (
+          :virtualhost, 
+          :time :: timestamp without time zone,
+          :eventGroup, :event,
+          :clientip, :domainName,
+          :request, :status, :requestProtType, :requestProtMethod,
+          :requestUrl, :requestUrlParameter, :requestUrlExtension,
+          :user, :bytesSent
+        )
+      </insert-query>
+    </database-target>
+  </target>
+
+  <error-target>
+    <database-target connection-name="weblog_demo">
+      <truncate-query>
+        truncate table weblog_event_incoming_err
+      </truncate-query>
+      <insert-query>
+        insert into weblog_event_incoming_err (
+          error_time, server_host, request_timestamp, class_name,
+          field, field_value, details , document_url, document_line, document_column
+        ) values (
+          current_timestamp, :domain, 
+          :time :: timestamp without time zone, 
+          :class_name,
+          :field, :value, :details, :document_url, :document_line, :document_column
+        )
+      </insert-query>
+    </database-target>
+  </error-target>
+
+  <blocks>
+    <!-- Mark attack urls and replace offending \0 characters with space characters. -->
+    <block-ref id="weblog-events:attack.events">
+      <pass fields="event eventGroup logLine"/>
+    </block-ref>
+    
+    <set apply-to="virtualhost" value="example.com" />
+    <block-ref id="weblogparser:parse" />
+
+    <!-- Consider relevant hits only -->
+    <block-ref id="weblog-events:determine.basic-events" />
+    <block-ref id="weblog-events:filter.eventless-records" />
+
+    <!-- Normalize request url -->
+    <copy apply-to="requestUrl" from="requestUrlFull"/>
+
+    <block-ref id="url-normalize:main" version="2.0">
+      <map from="requestUrl" to="url" />
+    </block-ref>
+
+    <!-- Reverse DNS lookup -->
+    <copy apply-to="ipAddress" from="clientip" />
+    <dnsresolve connection-name="dnsCache" />
+  </blocks>
+
+</process>

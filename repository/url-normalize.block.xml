@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- 
+    Main block that invokes URL normalization 
+    References: http://en.wikipedia.org/wiki/URL_normalization 
+    Not implemented yet:
+      Removing dot-segments
+      Removing directory index
+      Sorting the query parameters of active pages
+      Removing unused query variables
+      Removing default query parameters
+
+    IN: url (drop error if null)
+    OUT: url
+  -->
+  <block id="main" version="1.0">
+
+    <input-constraints summary="">
+      <and>
+        <not-null apply-to="url" />
+        <not>
+          <equals apply-to="url" value="-" />
+        </not>
+      </and>
+    </input-constraints>
+
+    <block-ref id="url-normalize:http_prefix" />
+    <block-ref id="url-normalize:remove_www" />
+    <block-ref id="url-normalize:remove_double_slashes" />
+    <block-ref id="url-normalize:remove_fragment" />
+    <block-ref id="url-normalize:trailing_slash" />
+    <block-ref id="url-normalize:remove_default_port" />
+
+  </block>
+
+  <!-- 
+    Main block, skips null fields.
+
+    IN: url (could be null)
+    OUT: url
+  -->
+  <block id="main" version="2.0">
+    <if>
+      <not-null apply-to="url"/>
+      <then>
+        <block-ref id="url-normalize:http_prefix" />
+        <block-ref id="url-normalize:remove_www" />
+        <block-ref id="url-normalize:remove_double_slashes" />
+        <block-ref id="url-normalize:remove_fragment" />
+        <block-ref id="url-normalize:trailing_slash" />
+        <block-ref id="url-normalize:remove_default_port" />
+      </then>
+    </if>
+  </block>
+
+  <!--
+    Convert the scheme to lowercase and apply http everywhere
+
+    IN: url
+    OUT: url (with prefix http:// )
+  -->
+  <block id="http_prefix" >
+    <if>
+      <match apply-to="url" regexp="^(?i)http.*$" />
+      <then>
+        <replace-all apply-to="url" regexp="^(?i)(https?)\:" replacement="http:" />
+      </then>
+      <else>
+        <set apply-to="$prefix" value="http://"/>
+        <implode apply-to="url" sources="$prefix url" glue=""/>
+      </else>
+    </if>
+  </block>
+
+
+  <!-- 
+    Remove "www" as the first (or last in hierarchy) domain label.
+
+    IN: url
+    OUT: url (without www. domain)
+  -->
+  <block id="remove_www">
+    <if>
+      <match apply-to="url" regexp="^http\:\/\/www.*$" />
+      <then>
+        <replace-all apply-to="url" regexp="^http\:\/\/www\." replacement="http://" />
+      </then>
+    </if>
+  </block>
+
+  <!-- 
+    Remove duplicated slashes
+    
+    IN: url
+    OUT: url
+  -->
+  <block id="remove_double_slashes">
+    <if>
+      <match apply-to="url" regexp="^.*(?:[^:])([/]{2,}).*$" />
+      <then>
+        <replace-all apply-to="url" regexp="(?&lt;!:)//" replacement="/" />
+      </then>
+    </if>
+  </block>
+
+  <!--
+    Remove the fragment
+    
+    IN: url
+    OUT:url
+  -->
+  <block id="remove_fragment">
+    <if>
+      <match apply-to="url" regexp="^.*(#.*)$" />
+      <then>
+        <replace-first apply-to="url" regexp="(#.*)" replacement="" />
+      </then>
+    </if>
+  </block>
+
+ <!--
+    Add trailing /
+    
+    IN: url
+    OUT: url
+  -->
+  <block id="trailing_slash">
+    <if>
+      <and>
+        <not>
+          <match apply-to="url" regexp="^.*(=).*$" />
+        </not>
+        <match apply-to="url" regexp="^.*(\?)$" />
+      </and>
+      <then>
+        <replace-first apply-to="url" regexp="(\?)" replacement="/" />
+      </then>
+      <else>
+        <if>
+          <and>
+            <not>
+              <match apply-to="url" regexp="^.*(\?).*$" />
+            </not>
+            <not>
+              <match apply-to="url" regexp="^.*(\/)$" />
+            </not>
+            <not>
+              <match apply-to="url" regexp="^.*\/\/.*\/.*\.[a-zA-Z0-9]*$" />
+            </not>
+          </and>
+          <then>
+            <add-postfix apply-to="url" text="/" />
+          </then>
+        </if>
+      </else>
+    </if>
+  </block>
+
+  <!-- 
+    Remove the default port
+
+    IN: url
+    OUT: url
+  -->
+  <block id="remove_default_port">
+    <if>
+      <or>
+        <match apply-to="url" regexp="^.*(\:80).*$" />
+        <match apply-to="url" regexp="^.*(\:80)$" />
+      </or>
+      <then>
+        <replace-first apply-to="url" regexp="(\:80)" replacement="" />
+      </then>
+    </if>
+  </block>
+
+</block-package>

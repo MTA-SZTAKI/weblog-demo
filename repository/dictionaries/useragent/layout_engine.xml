@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Source : http://user-agent-string.info Note: elemets order is important! -->
+
+  <!-- Gecko -->
+  <element>
+    <key>Beonex</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Blackbird</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>BonEcho</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Camino</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>CometBird</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Conkeror</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>DocZilla</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Epic</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Epiphany</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Fennec</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Firebird</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Firefox</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Fireweb Navigator</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Flock</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Galeon</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>GlobalMojo</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>GranParadiso</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Iceape</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>IceCat</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Iceweasel</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Kapiko</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Kazehakase</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>K-Meleon</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>K-Ninja</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Kylo</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>LBrowser</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>lolifox</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Lorentz</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Madfox</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Minefield</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Minimo</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Mozilla</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>MultiZilla</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>My Internet Browser</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>myibrow</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Namoroka</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Netscape</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Navigator</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Orca</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Palemoon</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Phoenix</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>SeaMonkey</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Shiretoko</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>SkipStone</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Strata</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Swiftfox</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Swiftweasel</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Table browser</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Thunderbird</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Vonkeror</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>WebianShell</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Wyzo</key>
+    <val>Gecko</val>
+  </element>
+
+  <element>
+    <key>Songbird</key>
+    <val>Gecko</val>
+  </element>
+
+  <!-- NetFront -->
+
+  <element>
+    <key>Blazer</key>
+    <val>NetFront</val>
+  </element>
+
+  <element>
+    <key>Jasmine</key>
+    <val>NetFront</val>
+  </element>
+
+  <element>
+    <key>NetFront</key>
+    <val>NetFront</val>
+  </element>
+
+  <!-- Presto -->
+
+  <element>
+    <key>Opera Mini</key>
+    <val>Presto</val>
+  </element>
+
+  <element>
+    <key>Opera Mobi</key>
+    <val>Presto</val>
+  </element>
+
+  <element>
+    <key>Opera</key>
+    <val>Presto</val>
+  </element>
+
+  <!-- Proprietary -->
+
+  <element>
+    <key>Amaya</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>Amiga Aweb</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>Amiga Voyager</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>Dillo</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>Elinks</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>IBrowse</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>iSiloXC</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>iSiloX</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>Links</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>Lynx</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>NCSA_Mosaic</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>NetPositive</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>OffByOne</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>Oregano</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>retawq</key>
+    <val>Proprietary</val>
+  </element>
+
+  <element>
+    <key>w3m</key>
+    <val>Proprietary</val>
+  </element>
+
+  <!-- Tkhtml -->
+
+  <element>
+    <key>BrowseX</key>
+    <val>Tkhtml</val>
+  </element>
+
+  <element>
+    <key>Hv3</key>
+    <val>Tkhtml3</val>
+  </element>
+
+  <!-- Trident -->
+
+  <element>
+    <key>Abolimba</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Acoo Browser</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>AOL</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Avant Browser</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Browzar</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Crazy Browser</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Deepnet Explorer</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Element Browser</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Enigma browser</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>GreenBrowser</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Hydra Browser</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>IEMobile</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>XBLWP7</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>ZuneWP7</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>IE</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>iRider</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>KKman</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>KKMAN</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Lunascape</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Maxthon</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>MAXTHON</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Multi-Browser</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>NetCaptor</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>PhaseOut</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>SiteKiosk</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Sleipnir</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>SlimBrowser</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>TencentTraveler</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>TheWorld</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Tjusig</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>UltraBrowser </key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>RSS_Radio</key>
+    <val>Trident</val>
+  </element>
+
+  <element>
+    <key>Windows-Media-Player</key>
+    <val>Trident</val>
+  </element>
+
+  <!-- (Apple)WebKit -->
+
+  <element>
+    <key>InternetSurfboard</key>
+    <val>Webkit</val>
+  </element>
+
+  <element>
+    <key>Kindle</key>
+    <val>Webkit</val>
+  </element>
+
+  <element>
+    <key>ABrowse</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Android</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Arora</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>BlackHawk</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Bolt</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Cheshire</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Chrome</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Comodo Dragon</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Demeter</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>DeskBrowse</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Dolfin</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Dooble</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Escape</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Fluid</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>iCab</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Iron</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Midori</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>MiniBrowser</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Mobile</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Nokia</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>OmniWeb</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Origyn</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>QtWeb</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>rekonq</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>RockMelt</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Safari</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Shiira</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Skyfire</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Stainless</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Sunrise</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Surf</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>tear</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>TeaShark</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Uzbl</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>Weltweitimnetz Browser</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>wKiosk</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>iTunes</key>
+    <val>WebKit</val>
+  </element>
+
+  <element>
+    <key>itunes</key>
+    <val>WebKit</val>
+  </element>
+
+  <!-- Others -->
+
+  <element>
+    <key>HotJava</key>
+    <val>Java</val>
+  </element>
+
+  <element>
+    <key>ICEbrowser</key>
+    <val>Java</val>
+  </element>
+
+  <element>
+    <key>ICE Browser</key>
+    <val>Java</val>
+  </element>
+
+  <element>
+    <key>Konqueror</key>
+    <val>KHTML</val>
+  </element>
+
+  <element>
+    <key>Polaris</key>
+    <val>Lumi</val>
+  </element>
+
+  <element>
+    <key>BlackBerry</key>
+    <val>Mango</val>
+  </element>
+
+  <element>
+    <key>NetSurf</key>
+    <val>NetSurf</val>
+  </element>
+
+  <element>
+    <key>MSOffice</key>
+    <val>Word</val>
+  </element>
+
+</dictionary-elements>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Source : http://user-agent-string.info Note: elemets order is important! -->
+  <element>
+    <key>Arch Linux</key>
+    <val>Arch Linux</val>
+  </element>
+
+  <element>
+    <key>CentOS</key>
+    <val>CentOS</val>
+  </element>
+
+  <element>
+    <key>Debian</key>
+    <val>Debian</val>
+  </element>
+
+  <element>
+    <key>Fedora</key>
+    <val>Fedora</val>
+  </element>
+
+  <element>
+    <key>Gentoo</key>
+    <val>Gentoo</val>
+  </element>
+
+  <element>
+    <key>gentoo</key>
+    <val>gentoo</val>
+  </element>
+
+  <element>
+    <key>Kanotix</key>
+    <val>Kanotix</val>
+  </element>
+
+  <element>
+    <key>kanotix</key>
+    <val>kanotix</val>
+  </element>
+
+  <element>
+    <key>Maemo</key>
+    <val>Maemo</val>
+  </element>
+
+  <element>
+    <key>Mandriva</key>
+    <val>Mandriva</val>
+  </element>
+
+  <element>
+    <key>Mint</key>
+    <val>Mint</val>
+  </element>
+
+  <element>
+    <key>Slackware</key>
+    <val>Slackware</val>
+  </element>
+
+  <element>
+    <key>SUSE</key>
+    <val>SUSE</val>
+  </element>
+
+  <element>
+    <key>Ubuntu</key>
+    <val>Ubuntu</val>
+  </element>
+
+  <element>
+    <key>Kubuntu</key>
+    <val>Kubuntu</val>
+  </element>
+
+  <element>
+    <key>PCLinuxOS</key>
+    <val>PCLinuxOS</val>
+  </element>
+
+</dictionary-elements>

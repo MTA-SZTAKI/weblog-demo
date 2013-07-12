@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Source : http://user-agent-string.info Note: elemets order is important! -->
+
+  <!-- Simple placeholders -->
+  <element>
+    <key regexp="true">.*(?:Epic)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Multi-Browser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:PmWFx)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:ABrowse)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:amaya)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Amiga-AWeb)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:AmigaVoyager)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:AOL)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Arora)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Blackbird)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:BlackHawk)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Bolt)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Camino)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Chimera)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:CometBird)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Comodo_Dragon)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Conkeror)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Crazy
+      Browser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Deepnet
+      Explorer)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Demeter)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:DeskBrowse)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Dillo)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:DocZilla)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Doris)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:edbrowse)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Element
+      Browser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:ELinks)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Escape)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Fireweb
+      Navigator)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Flock)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Fluid)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Galeon)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:GlobalMojoExt)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:GlobalMojo)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:IBrowse)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:iCab)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Iceape)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Iceweasel)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:InternetSurfboard)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:iRider)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:K-Meleon)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:K-Ninja)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Kapiko)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Kazehakase)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Strata)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Konqueror)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Kylo)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:LBrowser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Lobo)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:lolifox)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Lunascape)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:My Internet
+      Browser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:myibrow)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:NCSA_Mosaic)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:NetBox)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:NetCaptor)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:NetPositive)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:NetSurf)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Madfox)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Maxthon)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Midori)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:MiniBrowser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:OmniWeb)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Orca)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Oregano)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Palemoon)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:QtWeb Internet
+      Browser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:RockMelt)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:SiteKiosk)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:SkipStone)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Sleipnir)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Stainless)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:SunriseBrowser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Sunrise)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Tjusig)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:UltraBrowser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Vonkeror)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:w3m)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:WebianShell)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:WeltweitimnetzBrowser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:wKiosk)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Wyzo)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:X-Smiles)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:AvantGo)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Axel)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:GetRight)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:iSiloX)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Offline
+      Explorer)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Web
+      Downloader)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:SiteSucker)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:SuperBot)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Blazer)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Dolfin)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:GoBrowser)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:IEMobile)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Jasmine)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Kindle)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Firebird)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:BonEcho)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:GranParadiso)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Lorentz)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Phoenix)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <!-- IEMobile -->
+
+  <element>
+    <key>XBLWP7</key>
+    <val>9.0</val>
+  </element>
+
+  <element>
+    <key>ZuneWP7</key>
+    <val>9.0</val>
+  </element>
+
+  <!-- Versions with letters -->
+
+  <element>
+    <key regexp="true">.(?:Beonex)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Minefield)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Namoroka)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Shiretoko)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Hv3)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:ICE
+      Browser)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:IceCat)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Iron)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Lynx)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:MultiZilla)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:retawq)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:SeaMonkey)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Swiftweasel)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:HTTrack)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Teleport
+      Pro)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:WebCopier)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:webfetch)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:WebStripper)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:WebZIP)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Wget)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Xaldon_WebSpider)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Fennec)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Common Browsers (less specific category) -->
+  <!-- egyszerubb: Chrome(?:\/|\s)([\d\.\d\-\w]*) -->
+  <element>
+    <key regexp="true">.*(?:Chrome)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Firefox)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Opera new (v10+) and old versions respectively -->
+  <element>
+    <key regexp="true">^(?=.*?(?:Opera\/9\.80)).*?(?=.(?:Version)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$))</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Opera)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:MSIE)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Netscape Navigator old and new versions respectively -->
+  <element>
+    <key regexp="true">.*(?:Mozilla\/)([3-4]\.\d+)(?!.*?(?:Netscape|Navigator)).*?$</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Netscape\d*|Navigator\d*)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Safari)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Email clients -->
+
+  <element>
+    <key regexp="true">MSOffice 12</key>
+    <val>2007</val>
+  </element>
+
+  <element>
+    <key regexp="true">MSOffice 14</key>
+    <val>2010</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Lotus-Notes)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:ThunderBrowse)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Thunderbird)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Other irregular versions -->
+
+  <element>
+    <key regexp="true">.*(?:KKMAN|KKman)([\d\.\d]*).*</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Cheshire)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)\.\(].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Bunjalloo)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)\.\(].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:BlackBerry\d*\w*)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <!-- Multimedia players -->
+  <element>
+    <key regexp="true">.*(?:Banshee)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:boxee).*(?:\s\-\s)([\d\.\d\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:CorePlayer)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:FlyCast)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:foobar2000)(?:\/|\s)([\d\.\d\-\_\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:GomPlayer)(?:\/|\s)([\d\,\d\s]*)(?:\s\()(?:.*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:iTunes|itunes)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Miro)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:MPlayer)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:PocketTunes)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:PublicRadioPlayer|PublicRadioApp)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:QuickTime)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:RSS_Radio)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.(?:Songbird)(?:\/|\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:VLC media player - version\s)([\d\.\d\-\w]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:Windows-Media-Player)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:XBMC)(?:\/|\s)([\d\.\d\w\-]*)(?:[\s\;\)\w].*|$)</key>
+    <val>$1</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*(?:XMPlay)(?:\/|\s)([\d\.\d]*)(?:[\s\;\)].*|$)</key>
+    <val>$1</val>
+  </element>
+
+</dictionary-elements>

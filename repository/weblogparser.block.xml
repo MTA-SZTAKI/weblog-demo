@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!--
+    Blocks for user identification based on cookies and browser data.
+  -->
+
+  <!--
+    The input apach logline divided into pregiven field in config.xml.
+
+    IN: weblogLine
+    OUT: 
+  -->
+  <block id="parse">
+    <weblog-line apply-to="logLine"/>
+    
+    <!-- Replace '-' with zero in bytes sent. -->
+    <if>
+      <equals apply-to="bytesSent" value="-" />
+      <then>
+        <set apply-to="bytesSent" value="0" />
+      </then>
+    </if>
+    
+    <!-- Convert time attribute to correct format -->
+    <datetime-to-format apply-to="time" from="time" from-pattern="dd/MMM/yyyy:HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
+    
+  </block>
+</block-package>

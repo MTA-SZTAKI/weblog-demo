@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!--
+    Determine basic events.
+    Events with 2XX status code and a page-related URL extension (eg. html, php) are page views.
+    Events with 3XX, 4XX, 5XX status codes are categorized as redirect, error, error respectively.
+    Redirects are valid only for page-related URLs.
+
+    IN : requestUrl, requestUrlExtension, status
+    OUT: eventGroup, event
+  -->
+  <block id="determine.basic-events">
+    <if>
+      <not>
+        <exists apply-to="requestUrlExtension" />
+      </not>
+      <then>
+        <set apply-to="requestUrlExtension" value="" />
+      </then>
+    </if>
+
+    <!-- basic pageview events -->
+    <switch>
+        <case>
+            <check summary="Checks, if the record has already been labeled, happens with attack urls.">
+                <not-empty apply-to="eventGroup"/>
+            </check>
+        </case>
+
+        <!-- Page view events-->
+        <case>
+          <check summary="Status is 2XX or 3xx and the requested document is a pageview type.">
+            <match apply-to="status" regexp="[23]\d{2}"/>
+            <not>
+              <match apply-to="requestUrl" regexp="ajax\.php"/>
+            </not>
+            <or>
+              <equals apply-to="requestUrlExtension" value="" />
+              <equals apply-to="requestUrlExtension" value="js.php" />
+              <equals apply-to="requestUrlExtension" value="jsp" />
+              <equals apply-to="requestUrlExtension" value="php" />
+              <equals apply-to="requestUrlExtension" value="html" />
+            </or>
+          </check>
+
+          <set apply-to="eventGroup" value="web"/>
+          <if>
+            <match apply-to="status" regexp="2\d{2}"/>
+            <then>
+              <set apply-to="event" value="pageview"/>
+            </then>
+            <else>
+              <!-- redirects: only for page requests -->
+              <set apply-to="event" value="redirect"/>
+            </else>
+          </if>
+        </case>
+
+        <!-- erroneous events: not only for page requests -->
+        <case>
+          <check summary="Status is 4XX or 5XX.">
+            <match apply-to="status" regexp="[45]\d{2}"/>
+          </check>
+
+          <set apply-to="eventGroup" value="web"/>
+          <set apply-to="event" value="error"/>
+        </case>
+    </switch>
+
+  </block>
+
+  <!--
+    Filters non-pageview log lines.
+    This block filters non-pageview log lines based on the requestUrlExtension parameter.
+    IN: requestUrlExtension
+  -->
+  <block id="filter.eventless-records">
+    <if>
+      <is-empty apply-to="eventGroup"/>
+      <then>
+        <filter/>
+      </then>
+    </if>
+  </block>
+
+  <!--
+    Labels log lines containing encoded NULL characters (%00) with the 'attack' label,
+    and replaces those characters with space (%20).
+    IN: weblogLine
+    OUT: weblogLine
+  -->
+  <block id="attack.events">
+    <switch>
+      <!-- Attacks -->
+      <case>
+        <check summary="The log line contains an encoded \0 zero character.">
+          <match apply-to="logLine" regexp="%00"/>
+        </check>
+
+        <set apply-to="eventGroup" value="web"/>
+        <set apply-to="event" value="attack"/>
+
+        <replace-all apply-to="logLine" regexp="%00" replacement="%20"/>
+      </case>
+    </switch>
+  </block>
+
+</block-package>

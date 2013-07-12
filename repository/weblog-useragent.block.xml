@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!--
+    Determine detailed useragent fields.
+
+    IN : userAgent
+    OUT: userAgentAgentName, userAgentAgentType, userAgentAgentVersion, userAgentLang, userAgentOS, userAgentOSVersion,
+         userAgentOSDistro, userAgentLayoutEngine, userAgentLayoutRes, userAgentDevice, userAgentProcessor,
+         userAgentSWPlatform
+  -->
+
+  <block id="weblog-useragent.identify.parts">
+    <caching apply-to="userAgent" size="100"
+      output-fields="userAgentAgentName
+                     userAgentAgentType
+                     userAgentAgentVersion
+                     userAgentLang
+                     userAgentOS
+                     userAgentOSVersion
+                     userAgentOSDistro
+                     userAgentLayoutEngine
+                     userAgentLayoutRes
+                     userAgentDevice
+                     userAgentProcessor
+                     userAgentSWPlatform">
+
+      <!-- Field: AgentName -->
+      <copy apply-to="userAgentAgentName" from="userAgent" />
+      <switch>
+        <!-- identify robots that mimic standard agents -->
+        <case>
+          <translate apply-to="userAgentAgentName" from="userAgentAgentName">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="false">
+                <dictionary-file-source
+                  source-file="repository/dictionaries/useragent/robots_mimic_common_agent_names.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- standard agent names identification -->
+        <case>
+          <translate apply-to="userAgentAgentName" from="userAgentAgentName">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/agent_name.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- identify robots -->
+        <case>
+          <translate apply-to="userAgentAgentName" from="userAgentAgentName">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="false">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/robots_agent_name.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentAgentName" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: AgentType -->
+
+      <copy apply-to="userAgentAgentType" from="userAgent" />
+      <switch>
+        <!-- identify robots that mimic standard agent types -->
+        <case>
+          <translate apply-to="userAgentAgentType" from="userAgentAgentType">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="false">
+                <dictionary-file-source
+                  source-file="repository/dictionaries/useragent/robots_mimic_common_agent_types.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- standard agent types identification -->
+        <case>
+          <translate apply-to="userAgentAgentType" from="userAgentAgentType">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/agent_type.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- identify robots -->
+        <case>
+          <translate apply-to="userAgentAgentType" from="userAgentAgentType">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/robots_agent_type.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentAgentType" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: AgentVersion -->
+
+      <copy apply-to="userAgentAgentVersion" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentAgentVersion" from="userAgentAgentVersion">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/agent_version.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentAgentVersion" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: language -->
+
+      <copy apply-to="userAgentLang" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentLang" from="userAgentLang">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/language.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentLang" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: OS -->
+
+      <copy apply-to="userAgentOS" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentOS" from="userAgentOS">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/os.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentOS" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: OS version -->
+
+      <copy apply-to="userAgentOSVersion" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentOSVersion" from="userAgentOSVersion">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/os_version.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentOSVersion" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: OS distro -->
+
+      <copy apply-to="userAgentOSDistro" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentOSDistro" from="userAgentOSDistro">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/os_distro.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentOSDistro" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: layout engine -->
+
+      <copy apply-to="userAgentLayoutEngine" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentLayoutEngine" from="userAgentLayoutEngine">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/layout_engine.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentLayoutEngine" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: layout resolution -->
+
+      <copy apply-to="userAgentLayoutRes" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentLayoutRes" from="userAgentLayoutRes">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/layout_resolution.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentLayoutRes" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: device -->
+
+      <copy apply-to="userAgentDevice" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentDevice" from="userAgentDevice">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/device.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentDevice" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: processor -->
+
+      <copy apply-to="userAgentProcessor" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentProcessor" from="userAgentProcessor">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/processor.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentProcessor" value="" />
+        </case>
+      </switch>
+
+      <!-- Field: SW platform -->
+
+      <copy apply-to="userAgentSWPlatform" from="userAgent" />
+      <switch>
+        <case>
+          <translate apply-to="userAgentSWPlatform" from="userAgentSWPlatform">
+            <regexp-dictionary>
+              <external-dictionary key-column-name="key" key-type-column-name="regexp"
+                value-column-name="value" use-source-order="true">
+                <dictionary-file-source source-file="repository/dictionaries/useragent/sw_platform.xml" />
+              </external-dictionary>
+            </regexp-dictionary>
+          </translate>
+        </case>
+        <!-- no match -->
+        <case>
+          <set apply-to="userAgentSWPlatform" value="" />
+        </case>
+      </switch>
+    </caching>
+  </block>
+
+</block-package>

@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Source : http://user-agent-string.info
+    Note: elemets order is important! Device categories are recognized either
+    by HW/SW(browser) -->
+
+  <!-- Phone -->
+  <element>
+    <key>BlackBerry</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Nokia</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>SonyEricsson</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>HTC</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>LG-</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>LGE-</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>SAGEM</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>SAMSUNG</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Sprint</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Smartphone</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>SCH</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Sanyo</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>SIE-</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>AvantGo</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>DoCoMo</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Vodafone</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>ASTEL</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>PDXGW</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>OPWV</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>UP.Link</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>portalmmm</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>J2ME</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Opera Mini</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>PalmOS</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Tablet OS</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>SymbianOS</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Series60</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Android</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Blazer</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>CorePlayer</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Dolfin</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Fennec</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>GoBrowser</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>IEMobile</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>XBLWP7</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>ZuneWP7</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Jasmine</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Minimo</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Mobile</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>MOT</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>NetFront</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Obigo</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>UP.Browser</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Opera Mini</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Opera Mobi</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Pre</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Polaris</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>SEMC-Browser</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Skyfire</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>tear</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>TeaShark</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>UCWEB</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>uZardWeb</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>Klondike</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>WapTiger</key>
+    <val>PHONE</val>
+  </element>
+
+  <element>
+    <key>WinWAP</key>
+    <val>PHONE</val>
+  </element>
+
+  <!-- PDA -->
+
+  <element>
+    <key>iPad</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>iPhone</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>iTunes</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>IEMobile</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>Kindle</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>Tablet</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>PalmSource</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>PPC</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>EPOC32</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>EPOC</key>
+    <val>PDA</val>
+  </element>
+
+  <element>
+    <key>Windows CE</key>
+    <val>PDA</val>
+  </element>
+
+  <!-- Computer -->
+
+  <element>
+    <key>x86_64</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>IA64</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>ia64</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>AMD64</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>amd64</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>x64</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>SUN</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>WOW64</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>Amiga</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>Mac_PowerPC</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>MC680x0</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>Debian</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>SUSE</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>Fedora</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>Ubuntu</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>Red Hat</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>Linux</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>CentOS</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>Mandriva</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>Kubuntu</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key>OS/2</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key regexp="true">.*([iI]{1}\d{3})\;.*</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <element>
+    <key regexp="true">^(?!.*?CE).*?(?=.*?(Windows|Win\s?\d+))(?!.*?CE).*?$</key>
+    <val>COMPUTER</val>
+  </element>
+
+  <!-- Others -->
+
+  <element>
+    <key>WebTV</key>
+    <val>WEBTV</val>
+  </element>
+
+  <element>
+    <key>PLAYSTATION</key>
+    <val>CONSOLE</val>
+  </element>
+
+  <element>
+    <key>Nintendo</key>
+    <val>CONSOLE</val>
+  </element>
+
+</dictionary-elements>
