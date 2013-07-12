@@ -2,7 +2,7 @@
 <block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <!--
-    Determine the detailed useragent info
+    Determine detailed useragent fields.
 
     IN : userAgent
     OUT: userAgentAgentName, userAgentAgentType, userAgentAgentVersion, userAgentLang, userAgentOS, userAgentOSVersion,
@@ -12,17 +12,17 @@
 
   <block id="weblog-useragent.identify.parts">
     <caching apply-to="userAgent" size="100"
-      output-fields="userAgentAgentName 
-                     userAgentAgentType 
-                     userAgentAgentVersion 
+      output-fields="userAgentAgentName
+                     userAgentAgentType
+                     userAgentAgentVersion
                      userAgentLang
-                     userAgentOS 
-                     userAgentOSVersion 
-                     userAgentOSDistro 
-                     userAgentLayoutEngine 
-                     userAgentLayoutRes 
-                     userAgentDevice 
-                     userAgentProcessor 
+                     userAgentOS
+                     userAgentOSVersion
+                     userAgentOSDistro
+                     userAgentLayoutEngine
+                     userAgentLayoutRes
+                     userAgentDevice
+                     userAgentProcessor
                      userAgentSWPlatform">
 
       <!-- Field: AgentName -->
@@ -51,7 +51,7 @@
             </regexp-dictionary>
           </translate>
         </case>
-        <!-- identify true robots -->
+        <!-- identify robots -->
         <case>
           <translate apply-to="userAgentAgentName" from="userAgentAgentName">
             <regexp-dictionary>

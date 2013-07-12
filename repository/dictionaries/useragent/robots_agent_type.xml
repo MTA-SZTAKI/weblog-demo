@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 ../dictionaryFileSource.xsd">
-
-  <!-- Source : http://user-agent-string.info -->
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <element>
     <key>192.comAgent</key>

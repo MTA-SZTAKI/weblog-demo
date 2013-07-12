@@ -3,8 +3,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 ../dictionaryFileSource.xsd">
 
-  <!-- Source : http://user-agent-string.info Note: elemets order is important! -->
-
+  <!-- Source : http://user-agent-string.info Note: the order of elements is important! -->
   <!-- Standard browsers -->
 
   <element>

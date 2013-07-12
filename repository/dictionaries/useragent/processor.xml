@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 ../dictionaryFileSource.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-  <!-- Source : http://user-agent-string.info , http://www.zytrax.com/tech/web/mobile_ids.html 
-    Note: elemets order is important! -->
+  <!-- Source : http://user-agent-string.info
+       Note: elemets order is important! -->
 
   <element>
     <key>ia64</key>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 ../dictionaryFileSource.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <!-- Source : http://user-agent-string.info -->
+
   <!-- old (Netscape like) language format: '[en]', '[en-US]', '[en_US]' -->
   <element>
     <key regexp="true">.*\;?\s\[([a-z]{2}[-|_]{0,1}[a-zA-Z]{0,2})\].*</key>
@@ -16,7 +16,7 @@
     <val>$1</val>
   </element>
 
-  <!-- standard language format: 'en-US', 'en-us', 'en_US', 'en_us' with 
+  <!-- standard language format: 'en-US', 'en-us', 'en_US', 'en_us' with
     leading/trailing ';' or ')' -->
   <element>
     <key regexp="true">.*\;?\s\(?([a-z]{2}[-|_][a-zA-Z]{2})[\;|\)]?.*</key>
@@ -24,7 +24,3 @@
   </element>
 
 </dictionary-elements>
-
-   
-    
-    

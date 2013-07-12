@@ -19,7 +19,7 @@
         <set apply-to="requestUrlExtension" value="" />
       </then>
     </if>
-    
+
     <!-- basic pageview events -->
     <switch>
         <case>
@@ -27,7 +27,7 @@
                 <not-empty apply-to="eventGroup"/>
             </check>
         </case>
-        
+
         <!-- Page view events-->
         <case>
           <check summary="Status is 2XX or 3xx and the requested document is a pageview type.">
@@ -43,7 +43,7 @@
               <equals apply-to="requestUrlExtension" value="html" />
             </or>
           </check>
-          
+
           <set apply-to="eventGroup" value="web"/>
           <if>
             <match apply-to="status" regexp="2\d{2}"/>
@@ -56,24 +56,24 @@
             </else>
           </if>
         </case>
-        
+
         <!-- erroneous events: not only for page requests -->
         <case>
           <check summary="Status is 4XX or 5XX.">
             <match apply-to="status" regexp="[45]\d{2}"/>
           </check>
-          
+
           <set apply-to="eventGroup" value="web"/>
           <set apply-to="event" value="error"/>
         </case>
     </switch>
-    
+
   </block>
 
   <!--
     Filters non-pageview log lines.
     This block filters non-pageview log lines based on the requestUrlExtension parameter.
-    IN: requestUrlExtension 
+    IN: requestUrlExtension
   -->
   <block id="filter.eventless-records">
     <if>
@@ -84,7 +84,7 @@
     </if>
   </block>
 
-  <!-- 
+  <!--
     Labels log lines containing encoded NULL characters (%00) with the 'attack' label,
     and replaces those characters with space (%20).
     IN: weblogLine
@@ -97,13 +97,13 @@
         <check summary="The log line contains an encoded \0 zero character.">
           <match apply-to="logLine" regexp="%00"/>
         </check>
-  
+
         <set apply-to="eventGroup" value="web"/>
         <set apply-to="event" value="attack"/>
-        
+
         <replace-all apply-to="logLine" regexp="%00" replacement="%20"/>
       </case>
-    </switch>      
+    </switch>
   </block>
-  
+
 </block-package>

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dictionary-elements xmlns="urn:hu.sztaki.ilab.longneck:1.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="urn:hu.sztaki.ilab.longneck:1.0 ../dictionaryFileSource.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-  <!-- Robots having common agent names in their user agent strings. E.g: 
-    Consider the following user agent string: Mozilla/5.0 (compatible; Butterfly/1.0; 
-    +http://labs.topsy.com/butterfly/) Gecko/2009032608 Firefox/3.0.8 -> First 
-    the agent type is recognized as STANDARD_BROWSER (see dictionary 'agent_type') 
-    due to its substring 'Firefox' , but further checking against this dictionary 
-    clearly shows that the agent is actually a ROBOT. This dictionary sets the 
+  <!-- Robots having common agent names in their user agent strings. E.g:
+    Consider the following user agent string: Mozilla/5.0 (compatible; Butterfly/1.0;
+    +http://labs.topsy.com/butterfly/) Gecko/2009032608 Firefox/3.0.8 -> First
+    the agent type is recognized as STANDARD_BROWSER (see dictionary 'agent_type')
+    due to its substring 'Firefox' , but further checking against this dictionary
+    clearly shows that the agent is actually a ROBOT. This dictionary sets the
     real agent name Source : http://user-agent-string.info -->
-  <!-- Robots containing 'Safari' -->
 
+  <!-- Robots containing 'Safari' -->
   <element>
     <key>libwww-perl</key>
     <val>libwww-perl</val>
@@ -23,7 +22,6 @@
   </element>
 
   <!-- Robots containing 'Firefox' -->
-
   <element>
     <key>Butterfly</key>
     <val>Butterfly</val>
@@ -141,4 +139,4 @@
     <val>Y!J-BRO/YFSJ</val>
   </element>
 
-</dictionary-elements> 
+</dictionary-elements>

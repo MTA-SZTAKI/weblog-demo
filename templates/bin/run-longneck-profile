@@ -3,7 +3,7 @@
 JAVAARGS="-Xmx1024M"
 JAVABIN=$(which java)
 APPROOT=$(dirname $(readlink -f "$0"))/..
-DEBUGOPTS="-XX:+UseLinuxPosixThreadCPUClocks -agentpath:/home/molnarp/opt/netbeans-7.3/profiler/lib/deployed/jdk16/linux-amd64/libprofilerinterface.so=/home/molnarp/opt/netbeans-7.3/profiler/lib,5140"
+DEBUGOPTS="-XX:+UseLinuxPosixThreadCPUClocks"
 
 cd ${APPROOT}
 export LANG="en_US.UTF-8"
