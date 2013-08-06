@@ -70,8 +70,12 @@
     </block-ref>
 
     <!-- Reverse DNS lookup -->
-    <copy apply-to="ipAddress" from="clientip" />
-    <dnsresolve connection-name="dnsCache" />
+<!--    <copy apply-to="ipAddress" from="clientip" />
+    <dnsresolve connection-name="dnsCache" />-->
+    <block-ref id="reverse-dns:dns.process">
+      <map from="clientip" to="ipAddress"/>
+      <pass fields="domainName lookupExpiry"/>
+    </block-ref>
   </blocks>
 
 </process>
