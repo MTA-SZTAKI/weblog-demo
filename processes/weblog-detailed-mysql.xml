@@ -96,9 +96,13 @@
     </block-ref>
 
     <!-- Reverse DNS lookup -->
-    <copy apply-to="ipAddress" from="clientip" />
+<!--    <copy apply-to="ipAddress" from="clientip" />
     <dnsresolve connection-name="dnsCache" />
-    <datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
+    <datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>-->
+    <block-ref id="reverse-dns:dns.process">
+      <map from="clientip" to="ipAddress"/>
+      <pass fields="domainName lookupExpiry"/>
+    </block-ref>
     
 
     <!-- Identify parts of user agent string -->
