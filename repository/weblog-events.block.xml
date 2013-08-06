@@ -23,9 +23,9 @@
     <!-- basic pageview events -->
     <switch>
         <case>
-            <check summary="Checks, if the record has already been labeled, happens with attack urls.">
-                <not-empty apply-to="eventGroup"/>
-            </check>
+          <check summary="Checks, if the record has already been labeled, happens with attack urls.">
+            <not-empty apply-to="eventGroup"/>
+          </check>
         </case>
 
         <!-- Page view events-->
