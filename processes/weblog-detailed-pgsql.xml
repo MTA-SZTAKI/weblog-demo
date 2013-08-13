@@ -66,7 +66,7 @@
     </block-ref>
     
     <!-- Parse log line -->
-    <block-ref id="weblogparser:parse"/>
+    <block-ref id="weblog-parser:parse"/>
 
     <!-- Consider relevant hits only -->
     <block-ref id="weblog-events:determine.basic-events">
@@ -101,7 +101,7 @@
     </block-ref>
 
     <!-- Identify parts of user agent string -->
-    <block-ref id="weblog-useragent:weblog-useragent.identify.parts">
+    <block-ref id="user-agent:parse-agent-string">
       <pass fields="userAgent userAgentAgentName userAgentAgentType userAgentAgentVersion userAgentLang userAgentOS 
                     userAgentOSVersion userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes userAgentDevice 
                     userAgentProcessor userAgentSWPlatform"/>

@@ -2,15 +2,19 @@
 <block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <!--
-    Determine detailed useragent fields.
+    Rules for user agent string processing.
+    See http://en.wikipedia.org/wiki/User_agent for details.
+  -->
+
+  <!--
+    Determine detailed user agent fields.
 
     IN : userAgent
     OUT: userAgentAgentName, userAgentAgentType, userAgentAgentVersion, userAgentLang, userAgentOS, userAgentOSVersion,
          userAgentOSDistro, userAgentLayoutEngine, userAgentLayoutRes, userAgentDevice, userAgentProcessor,
          userAgentSWPlatform
   -->
-
-  <block id="weblog-useragent.identify.parts">
+  <block id="parse-agent-string">
     <caching apply-to="userAgent" size="100"
       output-fields="userAgentAgentName
                      userAgentAgentType
@@ -35,7 +39,7 @@
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="false">
                 <dictionary-file-source
-                  source-file="repository/dictionaries/useragent/robots_mimic_common_agent_names.xml" />
+                  source-file="repository/dictionaries/user-agent/robots_mimic_common_agent_names.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -46,7 +50,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/agent_name.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/agent_name.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -57,7 +61,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="false">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/robots_agent_name.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/robots_agent_name.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -79,7 +83,7 @@
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="false">
                 <dictionary-file-source
-                  source-file="repository/dictionaries/useragent/robots_mimic_common_agent_types.xml" />
+                  source-file="repository/dictionaries/user-agent/robots_mimic_common_agent_types.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -90,7 +94,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/agent_type.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/agent_type.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -101,7 +105,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/robots_agent_type.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/robots_agent_type.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -121,7 +125,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/agent_version.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/agent_version.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -141,7 +145,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/language.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/language.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -161,7 +165,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/os.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/os.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -181,7 +185,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/os_version.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/os_version.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -201,7 +205,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/os_distro.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/os_distro.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -221,7 +225,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/layout_engine.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/layout_engine.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -241,7 +245,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/layout_resolution.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/layout_resolution.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -261,7 +265,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/device.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/device.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -281,7 +285,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/processor.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/processor.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
@@ -301,7 +305,7 @@
             <regexp-dictionary>
               <external-dictionary key-column-name="key" key-type-column-name="regexp"
                 value-column-name="value" use-source-order="true">
-                <dictionary-file-source source-file="repository/dictionaries/useragent/sw_platform.xml" />
+                <dictionary-file-source source-file="repository/dictionaries/user-agent/sw_platform.xml" />
               </external-dictionary>
             </regexp-dictionary>
           </translate>
