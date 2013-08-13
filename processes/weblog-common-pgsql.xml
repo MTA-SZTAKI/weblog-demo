@@ -65,7 +65,7 @@
     <!-- Normalize request url -->
     <copy apply-to="requestUrl" from="requestUrlFull"/>
 
-    <block-ref id="url-normalize:main" version="2.0">
+    <block-ref id="url:normalize.allow-empty">
       <map from="requestUrl" to="url" />
     </block-ref>
 

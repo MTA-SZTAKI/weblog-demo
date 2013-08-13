@@ -2,7 +2,7 @@
 <block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <!--
-    Blocks for processing IPv4 addresses, now for reverse domain lookups.
+    Blocks for processing IPv4 addresses, currently for reverse domain lookups.
   -->
 
   <!--
