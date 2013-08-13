@@ -56,7 +56,7 @@
     </block-ref>
     
     <set apply-to="virtualhost" value="example.com" />
-    <block-ref id="weblogparser:parse" />
+    <block-ref id="weblog-parser:parse" />
 
     <!-- Consider relevant hits only -->
     <block-ref id="weblog-events:determine.basic-events" />
