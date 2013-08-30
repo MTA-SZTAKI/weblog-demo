@@ -56,7 +56,19 @@
     </block-ref>
     
     <set apply-to="virtualhost" value="example.com" />
-    <block-ref id="weblog-parser:parse" />
+    <!--The input apach logline divided into pregiven field in config.xml.-->
+    <weblog-line apply-to="logLine"/>
+    
+    <!-- Replace '-' with zero in bytes sent. -->
+    <if>
+      <equals apply-to="bytesSent" value="-" />
+      <then>
+        <set apply-to="bytesSent" value="0" />
+      </then>
+    </if>
+    
+    <!-- Convert time attribute to correct format -->
+    <datetime-to-format apply-to="time" from="time" from-pattern="dd/MMM/yyyy:HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
 
     <!-- Consider relevant hits only -->
     <block-ref id="weblog-events:determine.basic-events" />
