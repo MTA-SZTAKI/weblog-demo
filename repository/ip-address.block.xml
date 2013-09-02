@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!--
+    Blocks for processing IPv4 addresses, currently for reverse domain lookups.
+  -->
+
+  <!--
+    Return the domain name and expiration.
+    Requires longneck-dns extension.
+
+    IN: ipaddress
+    OUT: domainName, lookupExpiry
+  -->
+  <block id="ipv4.reverse-dns">
+    <!-- check if IP address field contains valid value -->
+    <input-constraints summary="check IPv4-address">
+      <entity-ref id="ip-address:ipv4"/>
+    </input-constraints>
+    
+    <!-- Reverse DNS lookup -->
+    <dnsresolve connection-name="dnsCache" />
+    
+    <!--Remove timezone information-->
+    <datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
+  </block>
+
+  
+  
+  <!--
+    Validates IPv4 address.
+    IN: ipaddress
+    OUT: -
+  -->
+  <block id="ipv4.validate">    
+    <!-- check if IP address field contains valid value -->
+    <input-constraints summary="check IPv4-address">
+      <entity-ref id="ip-address:ipv4"/>
+    </input-constraints>    
+  </block>
+  
+</block-package>

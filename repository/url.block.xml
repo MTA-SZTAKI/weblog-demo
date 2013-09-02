@@ -2,19 +2,24 @@
 <block-package xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <!-- 
-    Main block that invokes URL normalization 
-    References: http://en.wikipedia.org/wiki/URL_normalization 
+    URL-related transformations, mainly URL normalization.
+    References: http://en.wikipedia.org/wiki/URL_normalization     
+    
     Not implemented yet:
       Removing dot-segments
       Removing directory index
       Sorting the query parameters of active pages
       Removing unused query variables
       Removing default query parameters
+  -->
 
-    IN: url (drop error if null)
+  <!-- 
+    URL normalization not allowing null or empty URLs.
+
+    IN: url
     OUT: url
   -->
-  <block id="main" version="1.0">
+  <block id="normalize">
 
     <input-constraints summary="">
       <and>
@@ -25,31 +30,31 @@
       </and>
     </input-constraints>
 
-    <block-ref id="url-normalize:http_prefix" />
-    <block-ref id="url-normalize:remove_www" />
-    <block-ref id="url-normalize:remove_double_slashes" />
-    <block-ref id="url-normalize:remove_fragment" />
-    <block-ref id="url-normalize:trailing_slash" />
-    <block-ref id="url-normalize:remove_default_port" />
+    <block-ref id="url:http_prefix" />
+    <block-ref id="url:remove_www" />
+    <block-ref id="url:remove_double_slashes" />
+    <block-ref id="url:remove_fragment" />
+    <block-ref id="url:trailing_slash" />
+    <block-ref id="url:remove_default_port" />
 
   </block>
 
   <!-- 
-    Main block, skips null fields.
+    URL normalization not allowing null or empty URLs.
 
-    IN: url (could be null)
+    IN: url
     OUT: url
   -->
-  <block id="main" version="2.0">
+  <block id="normalize.allow-empty">
     <if>
       <not-null apply-to="url"/>
       <then>
-        <block-ref id="url-normalize:http_prefix" />
-        <block-ref id="url-normalize:remove_www" />
-        <block-ref id="url-normalize:remove_double_slashes" />
-        <block-ref id="url-normalize:remove_fragment" />
-        <block-ref id="url-normalize:trailing_slash" />
-        <block-ref id="url-normalize:remove_default_port" />
+        <block-ref id="url:http_prefix" />
+        <block-ref id="url:remove_www" />
+        <block-ref id="url:remove_double_slashes" />
+        <block-ref id="url:remove_fragment" />
+        <block-ref id="url:trailing_slash" />
+        <block-ref id="url:remove_default_port" />
       </then>
     </if>
   </block>

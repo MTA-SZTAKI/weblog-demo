@@ -66,7 +66,19 @@
     </block-ref>
     
     <!-- Parse log line -->
-    <block-ref id="weblogparser:parse"/>
+    <!--The input apach logline divided into pregiven field in config.xml.-->
+    <weblog-line apply-to="logLine"/>
+    
+    <!-- Replace '-' with zero in bytes sent. -->
+    <if>
+      <equals apply-to="bytesSent" value="-" />
+      <then>
+        <set apply-to="bytesSent" value="0" />
+      </then>
+    </if>
+    
+    <!-- Convert time attribute to correct format -->
+    <datetime-to-format apply-to="time" from="time" from-pattern="dd/MMM/yyyy:HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
 
     <!-- Consider relevant hits only -->
     <block-ref id="weblog-events:determine.basic-events">
@@ -79,7 +91,7 @@
     <!-- Normalize request url -->
     <copy apply-to="requestUrl" from="requestUrlFull" />
 
-    <block-ref id="url-normalize:main" version="2.0">
+    <block-ref id="url:normalize.allow-empty">
       <map from="requestUrl" to="url" />
     </block-ref>
 
@@ -91,18 +103,19 @@
       </then>
     </if>
     <copy apply-to="refererUrl" from="refererUrlFull" />
-    <block-ref id="url-normalize:main" version="2.0">
+    <block-ref id="url:normalize.allow-empty">
       <map from="refererUrl" to="url" />
     </block-ref>
 
     <!-- Reverse DNS lookup -->
-    <copy apply-to="ipAddress" from="clientip" />
-    <dnsresolve connection-name="dnsCache" />
-    <datetime-to-format apply-to="lookupExpiry" from="lookupExpiry" from-pattern="yyyy-MM-dd HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
+    <block-ref id="ip-address:ipv4.reverse-dns">
+      <map from="clientip" to="ipAddress"/>
+      <pass fields="domainName lookupExpiry"/>
+    </block-ref>
     
 
     <!-- Identify parts of user agent string -->
-    <block-ref id="weblog-useragent:weblog-useragent.identify.parts">
+    <block-ref id="user-agent:parse-agent-string">
       <pass fields="userAgent userAgentAgentName userAgentAgentType userAgentAgentVersion userAgentLang userAgentOS 
                     userAgentOSVersion userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes userAgentDevice 
                     userAgentProcessor userAgentSWPlatform"/>
