@@ -1,7 +1,9 @@
 --------------------------------------------------------
--- weblog_event_incoming
+-- these comands should be executed as weblog_demo user.
 --------------------------------------------------------
--- Table: weblog_event_incoming
+
+--------------------------------------------------------
+-- weblog_event_incoming
 --------------------------------------------------------
 -- DROP TABLE weblog_event_incoming;
 CREATE TABLE weblog_event_incoming
@@ -63,7 +65,7 @@ CREATE TABLE weblog_event_incoming_err
 );
 
 --------------------------------------------------------
--- Table: weblog_event_incoming_host
+-- weblog_event_incoming_host
 --------------------------------------------------------
 -- DROP TABLE weblog_event_incoming_host;
 CREATE TABLE weblog_event_incoming_host
