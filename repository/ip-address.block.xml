@@ -14,7 +14,8 @@
   -->
   <block id="ipv4.reverse-dns">
     <!-- check if IP address field contains valid value -->
-    <input-constraints summary="check IPv4-address">
+    <input-constraints summary="check IPv4-address" checkedfield="ipAddress">
+    <!--<input-constraints summary="check IPv4-address">-->
       <entity-ref id="ip-address:ipv4"/>
     </input-constraints>
     

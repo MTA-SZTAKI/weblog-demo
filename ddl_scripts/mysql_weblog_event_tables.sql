@@ -51,7 +51,11 @@ CREATE TABLE weblog_event_incoming_err
   details varchar(2048),
   document_url varchar(128),
   document_line varchar(8),
-  document_column varchar(8)
+  document_column varchar(8),
+  check_id        bigint,
+  check_parent_id bigint,
+  check_tree_id   bigint,
+  check_level     smallint
 ) character set 'utf8' collate 'utf8_general_ci';
 
 DROP TABLE IF EXISTS weblog_event_incoming_host;
@@ -89,5 +93,9 @@ CREATE TABLE weblog_event_incoming_host_err
   details varchar(2000),
   document_url varchar(2000),
   document_line varchar(100),
-  document_column varchar(2000)
+  document_column varchar(2000),
+  check_id        bigint,
+  check_parent_id bigint,
+  check_tree_id   bigint,
+  check_level     smallint
 ) character set 'utf8' collate 'utf8_general_ci';
