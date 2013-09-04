@@ -1,7 +1,9 @@
 --------------------------------------------------------
--- weblog_event_incoming
+-- these comands should be executed as weblog_demo user.
 --------------------------------------------------------
--- Table: weblog_event_incoming
+
+--------------------------------------------------------
+-- weblog_event_incoming
 --------------------------------------------------------
 -- DROP TABLE weblog_event_incoming;
 CREATE TABLE weblog_event_incoming
@@ -59,11 +61,15 @@ CREATE TABLE weblog_event_incoming_err
   details character varying(2000),
   document_url character varying(2000),
   document_line character varying(100),
-  document_column character varying(2000)
+  document_column character varying(2000),
+  check_id        bigint,
+  check_parent_id bigint,
+  check_tree_id   bigint,
+  check_level     smallint
 );
 
 --------------------------------------------------------
--- Table: weblog_event_incoming_host
+-- weblog_event_incoming_host
 --------------------------------------------------------
 -- DROP TABLE weblog_event_incoming_host;
 CREATE TABLE weblog_event_incoming_host
@@ -103,5 +109,9 @@ CREATE TABLE weblog_event_incoming_host_err
   details character varying(2000),
   document_url character varying(2000),
   document_line character varying(100),
-  document_column character varying(2000)
+  document_column character varying(2000),
+  check_id        bigint,
+  check_parent_id bigint,
+  check_tree_id   bigint,
+  check_level     smallint
 );
