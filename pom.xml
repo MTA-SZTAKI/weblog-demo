@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>hu.sztaki.ilab.longneck</groupId>
   <artifactId>weblog-demo</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
 
   <name>weblog-demo</name>
@@ -46,20 +46,19 @@
     <license>
       <name>Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>git://github.com/MTA-SZTAKI/weblog-demo.git</distribution>
+      <distribution>repo</distribution>
     </license>
   </licenses>
 
   <scm>
     <connection>scm:git:git@github.com:MTA-SZTAKI/weblog-demo.git</connection>
-    <url>https://github.com/MTA-SZTAKI/weblog-demo.git</url>
-    <developerConnection>scm:git:git@github.com:MTA-SZTAKI/weblog-demo.git</developerConnection>
+    <url>https://github.com/MTA-SZTAKI/weblog-demo</url>
   </scm>
 
   <distributionManagement>
     <repository>
       <id>longneck</id>
-      <url>dav:http://longneck.sztaki.hu/maven/</url>
+      <url>http://longneck.sztaki.hu/maven/</url>
     </repository>
   </distributionManagement>
 
@@ -236,10 +235,18 @@
           </filesets>
           <verbose>true</verbose>
         </configuration>
-      </plugin>
-      
+      </plugin>      
     </plugins>
+    
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav-jackrabbit</artifactId>
+        <version>2.4</version>
+      </extension>
+    </extensions>         
   </build>
+  
   <profiles>
     <profile>
       <id>mysql</id>
