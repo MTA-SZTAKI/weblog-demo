@@ -8,6 +8,11 @@
     <author email="molnarp@sztaki.mta.hu">Peter Molnar</author>
   </properties>
   <body>
+    <release version="1.0.2" date="2013-09-11" description="GitHub merge.">
+      <action dev="molnarp" type="update">
+        Merged with GitHub repo.
+      </action>
+    </release>
     <release version="1.0.1" date="2013-09-11" description="First GitHub release.">
       <action dev="molnarp" type="update">
         Major review of all included processes, templates and configurations.
