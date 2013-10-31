@@ -47,14 +47,18 @@
       <truncate-query>
         truncate table weblog_event_incoming_err
       </truncate-query>
-      <insert-query>
-       insert into weblog_event_incoming_err ( 
-           error_time, server_host, request_timestamp, class_name, field, field_value, 
-           details, document_url, document_line, document_column
-       ) values (
-          current_timestamp, :serverHost, :time, 
-          :class_name, :field, :value, :details, :document_url, :document_line, :document_column
-       )
+      <insert-query  numeric-fields-to-convert="check_id,check_parent_id,check_tree_id,check_level">
+        insert into weblog_event_incoming_err (
+          error_time, server_host, request_timestamp, class_name,
+          field, field_value, details , document_url, document_line, document_column,
+          check_id, check_parent_id, check_tree_id, check_level
+        ) values (
+          current_timestamp, :domain, 
+          :time, 
+          :class_name,
+          :field, :field_value, :details, :document_url, :document_line, :document_column,
+          :check_id, :check_parent_id, :check_tree_id, :check_level
+        )
       </insert-query>
     </database-target>
   </error-target>
@@ -66,19 +70,7 @@
     </block-ref>
     
     <!-- Parse log line -->
-    <!--The input apach logline divided into pregiven field in config.xml.-->
-    <weblog-line apply-to="logLine"/>
-    
-    <!-- Replace '-' with zero in bytes sent. -->
-    <if>
-      <equals apply-to="bytesSent" value="-" />
-      <then>
-        <set apply-to="bytesSent" value="0" />
-      </then>
-    </if>
-    
-    <!-- Convert time attribute to correct format -->
-    <datetime-to-format apply-to="time" from="time" from-pattern="dd/MMM/yyyy:HH:mm:ss Z" to-pattern="yyyy-MM-dd HH:mm:ss"/>
+    <block-ref id="weblog-parser:parse"/>
 
     <!-- Consider relevant hits only -->
     <block-ref id="weblog-events:determine.basic-events">

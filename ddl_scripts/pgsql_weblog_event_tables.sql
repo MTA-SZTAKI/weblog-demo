@@ -61,7 +61,11 @@ CREATE TABLE weblog_event_incoming_err
   details character varying(2000),
   document_url character varying(2000),
   document_line character varying(100),
-  document_column character varying(2000)
+  document_column character varying(2000),
+  check_id        bigint,
+  check_parent_id bigint,
+  check_tree_id   bigint,
+  check_level     smallint
 );
 
 --------------------------------------------------------
@@ -105,5 +109,9 @@ CREATE TABLE weblog_event_incoming_host_err
   details character varying(2000),
   document_url character varying(2000),
   document_line character varying(100),
-  document_column character varying(2000)
+  document_column character varying(2000),
+  check_id        bigint,
+  check_parent_id bigint,
+  check_tree_id   bigint,
+  check_level     smallint
 );
