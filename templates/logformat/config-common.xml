@@ -15,6 +15,60 @@
     
     Source: http://httpd.apache.org/docs/current/mod/mod_log_config.html#formats
     -->
+    
+    <!-- Apache parameter map to longneck field
+    Some parameter inducal more fileds.
+    
+    %v -> virtualhost
+    %h -> clientip
+    %l -> identity
+    %u -> user
+    %t -> time
+    %r -> request
+    %s -> status
+    %b -> bytesSent
+    more fields:
+    request + virtualhost -> requestProtMethod, requestProtType ,requestUrl
+    * Example:
+    * Input:
+    * virtualhost:         www.example.com
+    * request:             POST /mysite/index.php?id=123&value=abc HTTP/1.1
+    *
+    * Output:
+    * virtualhost:         www.example.com
+    * request:             POST /mysite/index.php?id=123&value=abc HTTP/1.1
+    * requestUrl:          http://www.example.com/mysite/index.php?id=123&value=abc
+    * requestProtMethod:   POST
+    * requestProtType:     HTTP/1.1
+    * requestUrl -> requestUrlFull, requestUrlParameter, requestUrlExtension, 
+    * requestUrlParameter-{parametername} : Paramerers separated in an own field if it isn't turn off in the config.xml:
+    * <create-url-parameters>false</create-url-parameters> default is true.
+    * If it is given a secondary url-decoding-charset in config/config.xml 
+    * /<url-decoding-charset2>ISO-8859-1</url-decoding-charset2>/
+    * than some of the field are available on this character encoding too.
+    * This filed compose as the follow: requestUrlFull2, requestUrlParameter2, 
+    * requestUrlParameter2-{parametername}
+    * Default url-decoding-charset is UTF-8 if it is not given an another url-decoding-charset.
+    * It's the possibility to give a secondary url-decoding-charset.
+    * /<url-decoding-charset2>ISO-8859-1</url-decoding-charset2>/
+    * Default it isn't another decoding caharacterset. It functioned independent from the url-decoding-charset,
+    * it is possible to give only url-decoding-charset2 coding, that default codig will remain UTF-8.
+    * /<url-decoding-charset>ISO-8859-1</url-decoding-charset>/
+    * Example:
+    * Input:
+    * requestUrl: http://localhost:8080/root.go?appid=tsearch&tsearchQ=%22asdfg%22
+    *
+    * Output:
+    * requestUrlFull: http://localhost:8080/root.go?appid=tsearch&tsearchQ="asdfg"
+    * requestUrlParameter: appid=tsearch&tsearchQ="asdfg"
+    * requestUrlExtension: go
+    * parameters separated in a field if it is not turn off in conf/config.xml 
+    * <create-url-parameters>false</create-url-parameters> default is true.
+    * requestUrlParameter-appid: tsearch
+    * requestUrlParameter-tsearchQ: "asdfg"
+    * 
+     
+    -->
     <log-config>%h %l %u %t \"%r\" %>s %b</log-config>
 
 </log-format>
