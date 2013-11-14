@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log-format xmlns="urn:parser"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- "Detailed" Log Format
+
+    %v: virtual host
+    %h: remote hostname or ip address
+    %u: remote user if authenticated
+    %l: remote logname supplied by identd
+    %t: time
+    %r: first line of request
+    %>s: final status code (not counting 100 CONTINUE)
+    %O: bytes sent, including headers
+    %{Referer}i: Value of the Referer header in the request.
+    %{User-Agenti}i: Value of the User-Agent header in the request.
+    %{Cookie}i: Cookie header received in the request.
+    %{Cookie}n: Cookie header sent in the response.
+
+    Source: http://httpd.apache.org/docs/current/mod/mod_log_config.html#formats
+
+    Apache parameters map to the following Longneck Fields when parsed:
+        %v -> virtualhost, %h -> clientip, %l -> identity, %u -> user,
+        %t -> time, %r -> request, %s -> status, %b -> bytesSent
+
+    Request and virtualhost fields are handled together:
+        request + virtualhost -> requestProtMethod, requestProtType ,requestUrl
+    For example, for the following input:
+        virtualhost:         www.example.com
+        request:             POST /mysite/index.php?id=123&value=abc HTTP/1.1
+    We get the output:
+        virtualhost:         www.example.com
+        request:             POST /mysite/index.php?id=123&value=abc HTTP/1.1
+        requestUrl:          http://www.example.com/mysite/index.php?id=123&value=abc
+        requestProtMethod:   POST
+        requestProtType:     HTTP/1.1
+
+    RequestUrl is split:
+        requestUrl -> requestUrlFull, requestUrlParameter, requestUrlExtension,
+                      requestUrlParameter-{parametername}
+        All URL parameters are split into an own field, if not turned off in weblog-config.xml:
+            <create-url-parameters>false</create-url-parameters> (default is true).
+        For example, for the following input:
+            requestUrl: http://search.private:8080/search.go?appid=xsearch&xsearchQ=%22asdfg%22
+        We get:
+            requestUrlFull: http://search.private:8080/search.go?appid=xsearch&xsearchQ="asdfg"
+            requestUrlParameter: appid=xsearch&xsearchQ="asdfg"
+            requestUrlExtension: go
+            requestUrlParameter-appid: tsearch
+            requestUrlParameter-tsearchQ: "asdfg"
+        If a secondary url-decoding-charset is given in config/weblog-config.xml:
+            <url-decoding-charset2>ISO-8859-1</url-decoding-charset2>
+        then we get the fields using this secondary encoding too, named as requestUrlFull2,
+        requestUrlParameter2,requestUrlParameter2-{parametername}.
+        The default primary url-decoding-charset is UTF-8:
+            <url-decoding-charset>ISO-8859-1</url-decoding-charset>.
+        By default we don't have secondary encoding, and don't get secondary fields.
+
+    -->
+
+    <log-config>%v %h %u %l %t \"%r\" %s %b \"%{Referer}i\" \"%{User-agent}i\" \"%{Cookie}i\" \"%{Cookie}n\"</log-config>
+
+</log-format>

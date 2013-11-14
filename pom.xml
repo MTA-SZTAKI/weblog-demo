@@ -118,7 +118,7 @@
     <dependency>
       <groupId>hu.sztaki.ilab.longneck</groupId>
       <artifactId>longneck-weblog</artifactId>
-      <version>[1.6.0,1.7.0)</version>
+      <version>[1.6.3-SNAPSHOT,1.7.0)</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -148,7 +148,7 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-      
+
       <!-- Copy dependencies -->
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -164,7 +164,7 @@
             <configuration>
               <outputDirectory>${project.basedir}/lib</outputDirectory>
             </configuration>
-          </execution> 
+          </execution>
         </executions>
       </plugin>
 
@@ -209,18 +209,18 @@
                   overwrite="false" />
                 <copy file="templates/properties/weblog_demo.properties" tofile="${project.basedir}/config/weblog_demo.properties"
                   overwrite="false" />
-                <copy file="templates/logformat/config-common.xml" tofile="${project.basedir}/config/weblog-config.xml"
+                <copy file="templates/logformat/weblog-config-common.xml" tofile="${project.basedir}/config/weblog-config.xml"
                   overwrite="false" />
-                
+
                 <!-- Copy main jar -->
                 <copy file="${project.build.directory}/${project.build.finalName}.jar" todir="${project.basedir}/lib"/>
-                
+
               </target>
             </configuration>
           </execution>
         </executions>
       </plugin>
-      
+
       <!-- Remove jar files from lib directory (build adds them again). -->
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
@@ -236,18 +236,18 @@
           </filesets>
           <verbose>true</verbose>
         </configuration>
-      </plugin>      
+      </plugin>
     </plugins>
-    
+
     <extensions>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
         <artifactId>wagon-webdav-jackrabbit</artifactId>
         <version>2.4</version>
       </extension>
-    </extensions>         
+    </extensions>
   </build>
-  
+
   <profiles>
     <profile>
       <id>mysql</id>
@@ -261,7 +261,7 @@
           <version>5.1.25</version>
           <scope>compile</scope>
         </dependency>
-      </dependencies>          
+      </dependencies>
     </profile>
   </profiles>
 </project>

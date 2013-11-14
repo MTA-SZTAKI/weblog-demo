@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <source>
+    <weblog-file-source name="cli" />
+  </source>
+
+  <target>
+    <csv-target target="access_log_detailed-processed.csv" delimiter="|"
+                columns="virtualhost time eventGroup event clientip domainName lookupExpiry
+                         requestProtType requestProtMethod status request requestCookie responseCookie
+                         requestUrl requestUrlParameter requestUrlExtension refererUrl
+                         refererUrlParameter refererUrlExtension userAgent userAgentAgentType
+                         userAgentDevice userAgentProcessor userAgentSWPlatform userAgentAgentName
+                         userAgentAgentVersion userAgentLang userAgentOS, :userAgentOSVersion
+                         userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes user bytesSent"/>
+  </target>
+
+  <error-target>
+    <csv-target target="access_log_detailed-errors.csv" delimiter="|"/>
+  </error-target>
+
+
+  <blocks>
+    <!-- Mark attack urls and replace offending \0 characters with space characters. -->
+    <block-ref id="weblog-events:attack.events">
+      <pass fields="event eventGroup logLine"/>
+    </block-ref>
+
+    <!-- Parse log line -->
+    <block-ref id="weblog-parser:parse"/>
+
+    <!-- Consider relevant hits only -->
+    <block-ref id="weblog-events:determine.basic-events">
+      <pass fields="event eventGroup requestUrl requestUrlExtension status"/>
+    </block-ref>
+    <block-ref id="weblog-events:filter.eventless-records">
+      <pass fields="eventGroup"/>
+    </block-ref>
+
+    <!-- Normalize request url -->
+    <copy apply-to="requestUrl" from="requestUrlFull" />
+
+    <block-ref id="url:normalize.allow-empty">
+      <map from="requestUrl" to="url" />
+    </block-ref>
+
+    <!-- Normalize referer url -->
+    <if>
+      <equals apply-to="refererUrlFull" value="-" />
+      <then>
+        <set-null apply-to="refererUrlFull" />
+      </then>
+    </if>
+    <copy apply-to="refererUrl" from="refererUrlFull" />
+    <block-ref id="url:normalize.allow-empty">
+      <map from="refererUrl" to="url" />
+    </block-ref>
+
+    <block-ref id="ip-address:ipv4.reverse-dns">
+      <map from="clientip" to="ipAddress"/>
+      <pass fields="domainName lookupExpiry"/>
+    </block-ref>
+
+    <!-- Identify parts of user agent string -->
+    <block-ref id="user-agent:parse-agent-string">
+      <pass fields="userAgent userAgentAgentName userAgentAgentType userAgentAgentVersion userAgentLang userAgentOS
+                    userAgentOSVersion userAgentOSDistro userAgentLayoutEngine userAgentLayoutRes userAgentDevice
+                    userAgentProcessor userAgentSWPlatform"/>
+    </block-ref>
+  </blocks>
+</process>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <source>
+    <weblog-file-source name="cli"/>
+  </source>
+
+  <target>
+    <csv-target target="access_log_common-processed.csv" delimiter="|"
+                columns="virtualhost time eventGroup event clientip domainName
+                         request status requestProtType requestProtMethod requestUrl
+                         requestUrlParameter requestUrlExtension user bytesSent"/>
+  </target>
+
+  <error-target>
+    <csv-target target="access_log_common-errors.csv" delimiter="|"/>
+  </error-target>
+
+  <blocks>
+    <!-- Mark attack urls and replace offending \0 characters with space characters. -->
+    <block-ref id="weblog-events:attack.events">
+      <pass fields="event eventGroup logLine"/>
+    </block-ref>
+
+    <!-- Parse log line -->
+    <set apply-to="virtualhost" value="example.com" />
+    <block-ref id="weblog-parser:parse"/>
+
+    <!-- Consider relevant hits only -->
+    <block-ref id="weblog-events:determine.basic-events" />
+    <block-ref id="weblog-events:filter.eventless-records" />
+
+    <!-- Normalize request url -->
+    <copy apply-to="requestUrl" from="requestUrlFull"/>
+
+    <block-ref id="url:normalize.allow-empty">
+      <map from="requestUrl" to="url" />
+    </block-ref>
+
+    <!-- Reverse DNS lookup -->
+    <block-ref id="ip-address:ipv4.reverse-dns">
+      <map from="clientip" to="ipAddress"/>
+      <pass fields="domainName lookupExpiry"/>
+    </block-ref>
+  </blocks>
+
+</process>
