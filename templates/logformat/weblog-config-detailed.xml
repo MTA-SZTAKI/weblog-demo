@@ -19,7 +19,7 @@
 
     Source: http://httpd.apache.org/docs/current/mod/mod_log_config.html#formats
 
-    Apache parameters map to the following Longneck Fields when parsed:
+    Apache parameters map to the following Longneck fields when parsed:
         %v -> virtualhost, %h -> clientip, %l -> identity, %u -> user,
         %t -> time, %r -> request, %s -> status, %b -> bytesSent
 
@@ -53,7 +53,7 @@
         then we get the fields using this secondary encoding too, named as requestUrlFull2,
         requestUrlParameter2,requestUrlParameter2-{parametername}.
         The default primary url-decoding-charset is UTF-8:
-            <url-decoding-charset>ISO-8859-1</url-decoding-charset>.
+            <url-decoding-charset>UTF-8</url-decoding-charset>.
         By default we don't have secondary encoding, and don't get secondary fields.
 
     -->
