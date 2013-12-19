@@ -6,14 +6,14 @@
   </source>
 
   <target>
-    <csv-target target="access_log_common-processed.csv" delimiter="|"
+    <csv-target path="access_log_common-processed.csv" delimiter="|"
                 columns="virtualhost time eventGroup event clientip domainName
                          request status requestProtType requestProtMethod requestUrl
                          requestUrlParameter requestUrlExtension user bytesSent"/>
   </target>
 
   <error-target>
-    <csv-target target="access_log_common-errors.csv" delimiter="|"/>
+    <csv-target path="access_log_common-errors.csv" delimiter="|"/>
   </error-target>
 
   <blocks>

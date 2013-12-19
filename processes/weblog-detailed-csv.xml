@@ -6,7 +6,7 @@
   </source>
 
   <target>
-    <csv-target target="access_log_detailed-processed.csv" delimiter="|"
+    <csv-target path="access_log_detailed-processed.csv" delimiter="|"
                 columns="virtualhost time eventGroup event clientip domainName lookupExpiry
                          requestProtType requestProtMethod status request requestCookie responseCookie
                          requestUrl requestUrlParameter requestUrlExtension refererUrl
@@ -17,7 +17,7 @@
   </target>
 
   <error-target>
-    <csv-target target="access_log_detailed-errors.csv" delimiter="|"/>
+    <csv-target path="access_log_detailed-errors.csv" delimiter="|"/>
   </error-target>
 
 
