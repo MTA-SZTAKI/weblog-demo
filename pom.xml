@@ -40,6 +40,11 @@
       <name>Tibor Németh</name>
       <email>tnemeth@sztaki.mta.hu</email>
     </developer>
+    <developer>
+      <id>geszler</id>
+      <name>Döme Geszler</name>
+      <email>geszler@sztaki.mta.hu</email>
+    </developer>
   </developers>
 
   <licenses>

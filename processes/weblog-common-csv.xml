@@ -16,6 +16,30 @@
     <csv-target path="access_log_common-errors.csv" delimiter="|"/>
   </error-target>
 
+  <test-cases>
+    <test id="test01" >
+      <record role="source">
+        <field name="logLine" value="50.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET / HTTP/1.1&quot; 302 211" />
+      </record>
+      <record role="target">
+        <field name="virtualhost" value="example.com"/>
+        <field name="time" value="2013-03-28 12:18:32" />
+        <field name="eventGroup" value="web" />
+        <field name="event" value="redirect" />
+        <field name="clientip" value="50.134.188.22" />
+        <field name="domainName" value="c-50-134-188-22.hsd1.co.comcast.net" />
+        <field name="request" value="GET / HTTP/1.1" />
+        <field name="status" value="302" />
+        <field name="requestProtType" value="HTTP/1.1" />
+        <field name="requestProtMethod" value="GET" />
+        <field name="requestUrl" value="http://example.com/" />
+        <field name="requestUrlExtension" value="" />
+        <field name="user" value="-" />
+        <field name="bytesSent" value="211" />
+      </record>
+    </test>
+  </test-cases>
+
   <blocks>
     <!-- Mark attack urls and replace offending \0 characters with space characters. -->
     <block-ref id="weblog-events:attack.events">
