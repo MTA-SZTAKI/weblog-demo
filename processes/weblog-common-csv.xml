@@ -39,23 +39,34 @@
       </record>
     </test>
 
-    <test id="test02" summary="test error-target" >
+    <test id="test02" summary="test target and error-target" >
       <record role="source">
-        <field name="logLine" value="50.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET / HTTP/1.1&quot; 211" />
+        <field name="logLine" value="550.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET /hu/ HTTP/1.1&quot; 200 2673" />
+      </record>
+      <record role="target">
+        <field name="virtualhost" value="example.com"/>
+        <field name="time" value="2013-03-28 12:18:32" />
+        <field name="eventGroup" value="web" />
+        <field name="event" value="pageview" />
+        <field name="clientip" value="550.134.188.22" />
+        <field name="request" value="GET /hu/ HTTP/1.1" />
+        <field name="status" value="200" />
+        <field name="requestProtType" value="HTTP/1.1" />
+        <field name="requestProtMethod" value="GET" />
+        <field name="requestUrl" value="http://example.com/hu/" />
+        <field name="requestUrlExtension" value="" />
+        <field name="user" value="-" />
+        <field name="bytesSent" value="2673" />
       </record>
       <record role="error-target">
-        <field name="virtualhost" value="example.com"/>
-        <field name="requestUrlExtension" value="" />
-        <field name="logLine" value="50.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET / HTTP/1.1&quot; 211" />
-        <field name="class_name" value="hu.sztaki.ilab.longneck.process.block.WeblogLine" />
-        <field name="field" value="hu.sztaki.ilab.longneck.process.block.WeblogLine" />
-        <field name="field_value" value="50.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET / HTTP/1.1&quot; 211" />
-        <field name="details" value="&lt;Weblog-parser-source&gt; is not able to parse line according to pattern: &apos;([\d.]+|null|-) (\S+) (\S+) \[([\w:/]+\s[+\\-]\d{4})\] \&quot;(.+)\&quot; (\d{3}) (\d+|\-)&apos;" />
-        <field name="document_url" value="file:/home/gdome/git/longneck/weblog-demo/repository/weblog-parser.block.xml" />
-        <field name="check_result" value="false" />
+        <field name="clientip" value="550.134.188.22"/>
+        <field name="logLine" value="550.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET /hu/ HTTP/1.1&quot; 200 2673"/>
+        <field name="class_name" value="hu.sztaki.ilab.longneck.process.constraint.MatchConstraint"/>
+        <field name="field" value="ipAddress"/>
+        <field name="field_value" value="550.134.188.22"/>
+        <field name="details" value="Regexp: &apos;^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$&apos;."/>
       </record>
     </test>
-
   </test-cases>
 
   <blocks>
