@@ -17,7 +17,7 @@
   </error-target>
 
   <test-cases>
-    <test id="test01" >
+    <test id="test01" summary="test target" >
       <record role="source">
         <field name="logLine" value="50.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET / HTTP/1.1&quot; 302 211" />
       </record>
@@ -33,11 +33,29 @@
         <field name="requestProtType" value="HTTP/1.1" />
         <field name="requestProtMethod" value="GET" />
         <field name="requestUrl" value="http://example.com/" />
-        <field name="requestUrlExtension" value="" />
+        <field name="requestUrlExtension" value=""/>
         <field name="user" value="-" />
         <field name="bytesSent" value="211" />
       </record>
     </test>
+
+    <test id="test02" summary="test error-target" >
+      <record role="source">
+        <field name="logLine" value="50.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET / HTTP/1.1&quot; 211" />
+      </record>
+      <record role="error-target">
+        <field name="virtualhost" value="example.com"/>
+        <field name="requestUrlExtension" value="" />
+        <field name="logLine" value="50.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET / HTTP/1.1&quot; 211" />
+        <field name="class_name" value="hu.sztaki.ilab.longneck.process.block.WeblogLine" />
+        <field name="field" value="hu.sztaki.ilab.longneck.process.block.WeblogLine" />
+        <field name="field_value" value="50.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET / HTTP/1.1&quot; 211" />
+        <field name="details" value="&lt;Weblog-parser-source&gt; is not able to parse line according to pattern: &apos;([\d.]+|null|-) (\S+) (\S+) \[([\w:/]+\s[+\\-]\d{4})\] \&quot;(.+)\&quot; (\d{3}) (\d+|\-)&apos;" />
+        <field name="document_url" value="file:/home/gdome/git/longneck/weblog-demo/repository/weblog-parser.block.xml" />
+        <field name="check_result" value="false" />
+      </record>
+    </test>
+
   </test-cases>
 
   <blocks>
