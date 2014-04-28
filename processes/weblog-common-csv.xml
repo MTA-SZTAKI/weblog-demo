@@ -6,15 +6,68 @@
   </source>
 
   <target>
-    <csv-target target="access_log_common-processed.csv" delimiter="|"
+    <csv-target path="access_log_common-processed.csv" delimiter="|"
                 columns="virtualhost time eventGroup event clientip domainName
                          request status requestProtType requestProtMethod requestUrl
                          requestUrlParameter requestUrlExtension user bytesSent"/>
   </target>
 
   <error-target>
-    <csv-target target="access_log_common-errors.csv" delimiter="|"/>
+    <csv-target path="access_log_common-errors.csv" delimiter="|"/>
   </error-target>
+
+  <test-cases>
+    <test id="test01" summary="test target" >
+      <record role="source">
+        <field name="logLine" value="50.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET / HTTP/1.1&quot; 302 211" />
+      </record>
+      <record role="target">
+        <field name="virtualhost" value="example.com"/>
+        <field name="time" value="2013-03-28 12:18:32" />
+        <field name="eventGroup" value="web" />
+        <field name="event" value="redirect" />
+        <field name="clientip" value="50.134.188.22" />
+        <field name="domainName" value="c-50-134-188-22.hsd1.co.comcast.net" />
+        <field name="request" value="GET / HTTP/1.1" />
+        <field name="status" value="302" />
+        <field name="requestProtType" value="HTTP/1.1" />
+        <field name="requestProtMethod" value="GET" />
+        <field name="requestUrl" value="http://example.com/" />
+        <field name="requestUrlExtension" value=""/>
+        <field name="user" value="-" />
+        <field name="bytesSent" value="211" />
+      </record>
+    </test>
+
+    <test id="test02" summary="test target and error-target" >
+      <record role="source">
+        <field name="logLine" value="550.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET /hu/ HTTP/1.1&quot; 200 2673" />
+      </record>
+      <record role="target">
+        <field name="virtualhost" value="example.com"/>
+        <field name="time" value="2013-03-28 12:18:32" />
+        <field name="eventGroup" value="web" />
+        <field name="event" value="pageview" />
+        <field name="clientip" value="550.134.188.22" />
+        <field name="request" value="GET /hu/ HTTP/1.1" />
+        <field name="status" value="200" />
+        <field name="requestProtType" value="HTTP/1.1" />
+        <field name="requestProtMethod" value="GET" />
+        <field name="requestUrl" value="http://example.com/hu/" />
+        <field name="requestUrlExtension" value="" />
+        <field name="user" value="-" />
+        <field name="bytesSent" value="2673" />
+      </record>
+      <record role="error-target">
+        <field name="clientip" value="550.134.188.22"/>
+        <field name="logLine" value="550.134.188.22 - - [28/Mar/2013:12:18:32 +0100] &quot;GET /hu/ HTTP/1.1&quot; 200 2673"/>
+        <field name="class_name" value="hu.sztaki.ilab.longneck.process.constraint.MatchConstraint"/>
+        <field name="field" value="ipAddress"/>
+        <field name="field_value" value="550.134.188.22"/>
+        <field name="details" value="Regexp: &apos;^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$&apos;."/>
+      </record>
+    </test>
+  </test-cases>
 
   <blocks>
     <!-- Mark attack urls and replace offending \0 characters with space characters. -->

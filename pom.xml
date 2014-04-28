@@ -35,6 +35,11 @@
       <name>Csaba Sidló</name>
       <email>sidlo@sztaki.mta.hu</email>
     </developer>
+    <developer>
+      <id>geszler</id>
+      <name>Döme Geszler</name>
+      <email>geszler@sztaki.mta.hu</email>
+    </developer>
   </developers>
 
   <licenses>
