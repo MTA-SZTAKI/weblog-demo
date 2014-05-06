@@ -20,6 +20,33 @@
     <csv-target path="access_log_detailed-errors.csv" delimiter="|"/>
   </error-target>
 
+  <test-cases>
+    <test id="test01" summary="test target" >
+      <record role="source">
+        <field name="logLine" value="dms.sztaki.hu 51.139.239.103 - - [10/Mar/2013:07:01:00 +0100] &quot;GET /hu/letoltes/redirects-site-boundaries-multiple-assessment-more-ecmlpkdd-2010-discovery-challenge HTTP/1.1&quot; 200 7134 &quot;-&quot; &quot;Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)&quot; &quot;-&quot; &quot;-&quot;" />
+      </record>
+      <record role="target">
+        <field name="virtualhost" value="dms.sztaki.hu"/>
+        <field name="time" value="2013-03-10 07:01:00" />
+        <field name="eventGroup" value="web" />
+        <field name="event" value="pageview" />
+        <field name="clientip" value="51.139.239.103" />
+        <field name="requestProtType" value="HTTP/1.1" />
+        <field name="requestProtMethod" value="GET" />
+        <field name="request" value="GET /hu/letoltes/redirects-site-boundaries-multiple-assessment-more-ecmlpkdd-2010-discovery-challenge HTTP/1.1" />
+        <field name="status" value="200" />
+        <field name="requestCookie" value="-" />
+        <field name="responseCookie" value="-" />
+        <field name="requestUrl" value="http://dms.sztaki.hu/hu/letoltes/redirects-site-boundaries-multiple-assessment-more-ecmlpkdd-2010-discovery-challenge/" />
+        <field name="userAgent" value="Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)" />
+        <field name="userAgentAgentType" value="ROBOT" />
+        <field name="userAgentAgentName" value="YandexBot" />
+        <field name="userAgentLayoutEngine" value="Gecko" />
+        <field name="user" value="-" />
+        <field name="bytesSent" value="7134" />
+      </record>
+    </test>
+  </test-cases>
 
   <blocks>
     <!-- Mark attack urls and replace offending \0 characters with space characters. -->
