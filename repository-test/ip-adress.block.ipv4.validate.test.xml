@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="urn:hu.sztaki.ilab.longneck:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <source>
+    <null-source />
+  </source>
+
+  <target>
+    <null-target />
+  </target>
+
+  <error-target>
+    <null-target />
+  </error-target>
+
+  <test-cases>
+    <test id="test01" summary="test ipv4 validate" >
+      <record role="source">
+        <field name="ipAddress" value="193.6.200.94" />
+      </record>
+      <record role="target">
+        <field name="ipAddress" value="193.6.200.94" />
+      </record>
+    </test>
+
+    <test id="test02" summary="test ipv4 validate" >
+      <record role="source">
+        <field name="ipAddress" value="3532525" />
+      </record>
+    </test>
+
+  </test-cases>
+
+  <blocks>
+    <!-- Validates IPv4 address. -->
+    <block-ref id="ip-address:ipv4.validate" />
+  </blocks>
+
+</process>
