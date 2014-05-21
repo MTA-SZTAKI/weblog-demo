@@ -25,7 +25,17 @@
 
     <test id="test02" summary="test ipv4 validate" >
       <record role="source">
-        <field name="ipAddress" value="3532525" />
+        <field name="ipAddress" value="353.252.5.41" />
+      </record>
+      <record role="target">
+        <field name="ipAddress" value="353.252.5.41" />
+      </record>
+      <record role="error-target">
+        <field name="ipAddress" value="353.252.5.41" />
+        <field name="class_name" value="hu.sztaki.ilab.longneck.process.constraint.MatchConstraint" />
+        <field name="field" value="ipAddress" />
+        <field name="field_value" value="353.252.5.41" />
+        <field name="details" value="Regexp: &apos;^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$&apos;." />
       </record>
     </test>
 
